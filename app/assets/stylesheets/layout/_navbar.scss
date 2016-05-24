@@ -45,7 +45,7 @@
   padding-top: 10px;
 }
 .navbar-wagon-transporteur:hover {
-  border: 0.8px solid $orange;
+  border: 0.6px solid $orange;
   padding-bottom: 10px;
   padding-top: 10px;
 }
@@ -89,4 +89,25 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.transporteur {
+  border: 0.6px solid #616668;
+  padding: 10px;
+  color: #616668;
+}
+
+.transporteur a {
+  text-decoration: none;
+  color: #616668;
+}
+
+.transporteur .fa {
+  color: $orange;
+}
+
+.transporteur:hover {
+  border: 0.6px solid $orange;
+  padding: 10px;
+  color: $orange;
 }
