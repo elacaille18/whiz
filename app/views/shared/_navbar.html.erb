@@ -8,14 +8,22 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Link to trip -->
-    <%= link_to ("Transporter des Colis"), root_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-transporteur" %>
+    <%= link_to ("Devenir Transporteur"), transporteur_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-transporteur" %>
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
+      <div id="user-name">
+        <%= current_user.first_name %>
+        <%#raise%>
+      </div>
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
+
         <div class="dropdown">
-          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <!-- Rajouter cas ou pas d'image ou login sans facebook -->
+        <%= image_tag current_user.picture ,:width=>35, :height=>35, :gravity=>"face", :radius=>"max", :crop=>"fill", class: "img-round", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
@@ -24,7 +32,12 @@
             </li>
             <li>
               <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
+                <i class="fa fa-send"></i>  <%= t ".profile", default: "J'envoie un Colis" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to trips_path do %>
+                <i class="fa fa-train"></i>  <%= t ".profile", default: "Je transporte !" %>
               <% end %>
             </li>
             <li>

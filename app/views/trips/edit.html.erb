@@ -1,9 +1,9 @@
 <% content_for(:title) do %>
-  Enregistrer un nouveau
+  Modifier mon trajet
 <% end %>
 
 
-<h4 class = 'text-center'> J'enregistre mon voyage </h4>
+<h4 class = 'text-center'>Je modifie mon voyage</h4>
 
 <div class="container">
 <%= simple_form_for(@trip) do |f| %>
@@ -11,9 +11,6 @@
   <%= f.input :ends_at %>
   <%= f.input :departure_city %>
   <%= f.input :arrival_city %>
-  <%= f.submit 'Créer' %>
+  <%= f.submit 'Modifier' %>
 <% end %>
 </div>
-
-
-

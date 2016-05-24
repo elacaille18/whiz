@@ -1,0 +1,70 @@
+<div class="dashboard">
+  <div class="container">
+    <div class="dashboard-header">
+      <div class="row">
+        <div class="col-md-1 text-center">
+          <p> Date </p>
+        </div>
+        <div class="col-md-1 text-center">
+          <p> Heure </p>
+        </div>
+        <div class="col-md-1 text-center">
+          <p> Départ </p>
+        </div>
+        <div class="col-md-1 text-center">
+          <p> Arrivée </p>
+        </div>
+        <div class="col-md-2 text-center">
+          <p> Etat </p>
+        </div>
+        <div class="col-md-2 text-center">
+          <p> Expéditeur </p>
+        </div>
+        <div class="col-md-2 text-center">
+          <p> Economie (€) </p>
+        </div>
+        <div class="col-md-2 text-center">
+          <p> Mes actions </p>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-content">
+      <% @trips.each do |trip| %>
+        <div class="row dashboard-row">
+          <div class="col-md-1 text-center">
+            <p> <%= trip.starts_at.to_s[0..10] %> </p>
+          </div>
+          <div class="col-md-1 text-center">
+          <p> <%= trip.starts_at.to_s[10..15] %> </p>
+          </div>
+          <div class="col-md-1 text-center">
+            <p> <%= trip.departure_city %>  </p>
+          </div>
+          <div class="col-md-1 text-center">
+            <p> <%= trip.arrival_city %>  </p>
+          </div>
+          <div class="col-md-2 text-center">
+            <p> Etat </p>
+          </div>
+          <div class="col-md-2 text-center">
+          <p>  </p>
+        </div>
+          <div class="col-md-2 text-center">
+
+          </div>
+          <div class="col-md-2 text-center">
+            <ul class="list-inline text-center">
+            <li> <%= link_to 'Modifier', edit_trip_path(trip), class:"btn btn-primary" %> </li>
+            <li> <%= link_to " X ", trip_path(trip),
+              method: :delete,
+              class:"btn btn-warning",
+              data: { confirm: "Etes-vous sure?" } %>
+            </li>
+            </ul>
+          </div>
+
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
