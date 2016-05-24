@@ -7,17 +7,10 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+    <!-- Link to trip -->
+    <%= link_to ("Transporter des Colis"), root_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-transporteur" %>
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-
-      <!-- Notification (Commentée pour l'instant)-->
-<!--       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
->>>>>>> 59f6ab44701db3dfbb50c58409a0d743bd5ca4fa
-        <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
-        </div>
-      <% end %> -->
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -47,7 +40,7 @@
 
       <!-- Login text link -->
 
-      <%= link_to ("Transporter des Colis"), root_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-transporteur" %>
+
 
       <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
@@ -55,7 +48,6 @@
 
     <% end %>
 
->>>>>>> 59f6ab44701db3dfbb50c58409a0d743bd5ca4fa
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
