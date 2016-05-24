@@ -6,8 +6,8 @@ class Mission < ActiveRecord::Base
   validates :receiver_phone, presence: true
   validates :departure_city, presence: true
   validates :arrival_city, presence: true
-  # validates :starts_on, presence: true
-  # validates :timeslot, presence: true
+  validates :starts_on, presence: true
+  validates :timeslot, presence: true
   # validates :status, presence: true
   # validates :start_code, presence: true
   # validates :end_code, presence: true
