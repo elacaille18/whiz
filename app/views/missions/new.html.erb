@@ -1,0 +1,27 @@
+<h1>hello</h1>
+
+<%= simple_form_for(@mission) do |f| %>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-inputs">
+        <%= f.input :departure_city, input_html: { placeholder: "Ville de départ" } %>
+      </div>
+    </div>
+    <div class="col-md-4">
+       <div class="form-inputs">
+        <%= f.input :arrival_city, input_html: { placeholder: "Ville d'arrivée" }%>
+      </div>
+    </div>
+    <div class="col-md-12">
+       <div class="form-inputs">
+        <%= f.input :parcel_description, input_html: { placeholder: "Décrivez votre colis" } %>
+      </div>
+    </div>
+    <div class="col-md-6">
+       <div class="form-inputs">
+        <%= f.button :submit, "Chercher", class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+<% end %>
