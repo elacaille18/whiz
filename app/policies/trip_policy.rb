@@ -1,25 +1,21 @@
 class TripPolicy < ApplicationPolicy
+
   class Scope < Scope
-    attr_reader :user, :scope
+
 
     def initialize(user, scope)
       @user  = user
       @scope = scope
     end
 
-    def resolve
-          if user.admin?
-            scope.all
-          else
-            scope.where(created: true)
-          end
-        end
-      end
-
   end
 
     def show?
       true  # Anyone can view a tripe
+    end
+
+    def new
+      create?
     end
 
     def create?
@@ -31,6 +27,6 @@ class TripPolicy < ApplicationPolicy
     end
 
     def destroy?
-      record.user == user  # Only trip creator can update it
+      record.user == user   # Only trip creator can update it
     end
 end
