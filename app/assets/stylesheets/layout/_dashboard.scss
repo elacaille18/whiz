@@ -1,0 +1,31 @@
+.dashboard {
+  margin: 10px;
+  // border: 1px solid $blue-dark;
+  // border-radius : 5px;
+
+}
+
+.dashboard-header {
+  color: $gray-light;
+
+}
+
+.dashboard-row{
+
+  border-top: 1px solid $gray-light;
+  padding-top : 10px ;
+  color: $blue-dark;
+}
+
+.case {
+margin:3px;
+padding:3px;
+background-color: $yellow;
+color: white;
+border-radius: 5px;
+}
+
+.box {
+  border: 1px solid white;
+  margin: 10px 20px;
+}
