@@ -19,6 +19,9 @@ gem 'autoprefixer-rails'
 gem "pundit"
 gem 'rails-assets-twitter-bootstrap-wizard', source: 'https://rails-assets.org'
 
+# Facebook connect
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'

@@ -1,0 +1,13 @@
+<% content_for(:title) do %>
+  Mes Voyages
+<% end %>
+<h4 class="text-center"> Mes transports </h4>
+
+<%if @trips.nil? %>
+  <p>Vous n'avez pas de transports enregistrés</p>
+  <p>Enregistrer un transport aujourd'hui et commencez à gagner de l'argent !</p>
+  <p><%= link_to 'Enregistrement', new_trip_path %></p>
+<%else%>
+  <%= render "summary" %>
+  <%= render "dashboard" %>
+<%end%>
