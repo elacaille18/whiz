@@ -14,6 +14,7 @@ class MissionsController < ApplicationController
 
   def create
     @mission = Mission.new(mission_params)
+    @mission.user = current_user
     authorize @mission
     if @mission.save
       redirect_to mission_path(@mission)
@@ -24,6 +25,7 @@ class MissionsController < ApplicationController
 
   def show
     @mission = Mission.find(params[:id])
+    authorize @mission
   end
 
   def destroy

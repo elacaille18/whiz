@@ -25,7 +25,8 @@
               <%= @mission.departure_city%>
             </div>
             <div class="time">
-              <p>10h45</p>
+              <p><%= @mission.trip.starts_at.strftime(" %H h %M")%>
+              </p>
             </div>
           </div>
 
@@ -35,7 +36,10 @@
       <%#raise%>
       <!-- Partie transporteur -->
       <div class="col-sm-4">
-
+        <div id="day-of-mission" class= "text-center">
+          <%= @mission.starts_on.strftime(" %-d %B %Y")%>
+          <!-- # le mois est a passer en francais avec la commande l(date, format: '%B %d, in the year %Y') -->
+        </div>
         <div id="carrier" class="text-center">
           <div id="train">
             <%= image_tag "tgv"%>
@@ -48,7 +52,7 @@
 
           <div class="name">
 
-            <p>Olivier</p>
+            <p><%= @mission.trip.user.first_name.capitalize %></p>
           </div>
         </div>
       </div>
@@ -75,7 +79,7 @@
               <%= @mission.arrival_city%>
             </div>
             <div class="time">
-              <p>14h20</p>
+              <p><%= @mission.trip.ends_at.strftime(" %H h %M") %></p>
             </div>
           </div>
 
