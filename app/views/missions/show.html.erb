@@ -10,8 +10,8 @@
 
 
           <div class="badge-container">
-            <%= image_tag "http://placehold.it/30x30", class: "avatar-bordered "%>
-            <div class="badge badge-blue hidden"><%= image_tag "parcel"%></div>
+            <%= image_tag "http://placehold.it/30x30", class: "avatar-bordered on-duty "%>
+            <div class="badge badge-blue"><%= image_tag "parcel"%></div>
           </div>
 
           <div class="name">
@@ -46,8 +46,8 @@
           </div>
 
           <div class="badge-container">
-            <%= image_tag "http://placehold.it/30x30", class: "avatar-bordered on-duty"%>
-            <div class="badge badge-blue"><%= image_tag "parcel"%></div>
+            <%= image_tag "http://placehold.it/30x30", class: "avatar-bordered"%>
+            <div class="badge badge-blue hidden"><%= image_tag "parcel"%></div>
           </div>
 
           <div class="name">
@@ -98,3 +98,32 @@
     <h2>Vos actions</h2>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // Dispatch de celui qui a le colis
+      switch ("<%=@mission.status%>") {
+        case "on-going": // Le colis est chez le transporteur
+         // je resets tout a 0
+         console.log("helo");
+         $(".on-duty").removeClass("on-duty");
+         $(".badge-container>.badge").addClass("hidden");
+         // j'affecte que au bon
+         $("#carrier>.badge-container>img").addClass("on-duty");
+         $("#carrier>.badge-container>.badge").removeClass("hidden");
+         break;
+        case ("delivered" || "done"):
+        // je resets tout a 0
+         $(".on-duty").removeClass("on-duty");
+         $(".badge-container>.badge").addClass("hidden");
+        // j'affecte que au bon
+         $("#receiver>.badge-container>img").addClass("on-duty");
+         $("#receiver>.badge-container>.badge").removeClass("hidden");
+         break;
+        // default:  // le reste des situations le colis est chez l'emetteur, (page par défaut -> A modifier ?)
+
+      }
+    });
+  </script>
+<% end %>
