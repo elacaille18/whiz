@@ -1,0 +1,96 @@
+<!-- Resumé de la mission en cours -->
+<div class="wrapper summary">
+  <div class="container">
+    <h1 class="text-center">Votre mission</h1>
+
+    <div class="row">
+      <!-- Partie expediteur -->
+      <div class="col-sm-4" >
+        <div id="sender" class="text-center">
+
+
+          <div class="badge-container">
+            <%= image_tag "http://placehold.it/30x30", class: "avatar-bordered "%>
+            <div class="badge badge-blue hidden"><%= image_tag "parcel"%></div>
+          </div>
+
+          <div class="name">
+            <%= @mission.user.first_name%>
+          </div>
+
+
+
+          <div class="city-info">
+            <div class="city">
+              <%= @mission.departure_city%>
+            </div>
+            <div class="time">
+              <p>10h45</p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <%#raise%>
+      <!-- Partie transporteur -->
+      <div class="col-sm-4">
+
+        <div id="carrier" class="text-center">
+          <div id="train">
+            <%= image_tag "tgv"%>
+          </div>
+
+          <div class="badge-container">
+            <%= image_tag "http://placehold.it/30x30", class: "avatar-bordered on-duty"%>
+            <div class="badge badge-blue"><%= image_tag "parcel"%></div>
+          </div>
+
+          <div class="name">
+
+            <p>Olivier</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partie receveur -->
+      <div class="col-sm-4">
+        <div id="receiver" class="text-center">
+
+
+
+          <div class="badge-container">
+            <%= image_tag "http://placehold.it/30x30", class: "avatar-bordered "%>
+            <div class="badge badge-blue hidden"><%= image_tag "parcel"%></div>
+          </div>
+
+          <div class="name">
+            <%= @mission.receiver_first_name%>
+          </div>
+
+
+
+          <div class="city-info">
+            <div class="city">
+              <%= @mission.arrival_city%>
+            </div>
+            <div class="time">
+              <p>14h20</p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Déroulé des actions utilisateurs -->
+<div class="wrapper action">
+  <div class="container">
+    <h2>Vos actions</h2>
+  </div>
+</div>
