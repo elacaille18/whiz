@@ -1,6 +1,8 @@
 class TripsController < ApplicationController
 
   def new
+    @trip = Trip.new
+    authorize @trip
   end
 
   def create
