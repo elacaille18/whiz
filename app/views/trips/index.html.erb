@@ -1,0 +1,19 @@
+<% content_for(:title) do %>
+  Mes Voyages
+<% end %>
+
+<%if @trips.nil? %>
+  <p>Vous n'avez pas de transports enregistrés</p>
+  <p>Enregistrer un transport aujourd'hui et commencez à gagner de l'argent !</p>
+  <p><%= link_to 'Enregistrement', new_trip_path %></p>
+<%else%>
+  <!-- A remplacer par render _ dashboard_trip -->
+  <% @trips.each do |trip| %>
+  <p><%= " De :  #{trip.departure_city} à #{trip.arrival_city} " %> </p>
+  <p><%= link_to 'Edit', edit_trip_path(trip) %></p>
+  <p><%= link_to "Delete", trip_path(trip),
+        method: :delete,
+        data: { confirm: "Etes-vous sure?" } %>
+  </p>
+  <%end%>
+<%end%>
