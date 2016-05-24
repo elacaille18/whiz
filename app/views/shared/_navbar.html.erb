@@ -8,7 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Link to trip -->
-    <%= link_to ("Transporter des Colis"), root_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-transporteur" %>
+    <%= link_to ("Devenir Transporteur"), transporteur_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-transporteur" %>
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
@@ -29,7 +29,12 @@
             </li>
             <li>
               <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
+                <i class="fa fa-send"></i>  <%= t ".profile", default: "J'envoie un Colis" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to trips_path do %>
+                <i class="fa fa-train"></i>  <%= t ".profile", default: "Je transporte !" %>
               <% end %>
             </li>
             <li>
