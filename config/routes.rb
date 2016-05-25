@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   devise_for :users, controllers: { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
   root to: 'pages#home'
   get 'transporteur', to: 'pages#home_transporteur'
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   resources :trips
 
 
-  resources :missions, only: [ :show, :new, :create, :destroy ]
+  resources :missions, only: [:index, :update, :edit, :show, :new, :create, :destroy ]
 
 
 

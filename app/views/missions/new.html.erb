@@ -1,79 +1,85 @@
-<%= simple_form_for(@mission) do |f| %>
+<div class="wrapper">
+  <div class="container">
+    <div class="megaform">
+    <%= simple_form_for(@mission) do |f| %>
 
- <div id="rootwizard">
-  <div class="navbar">
-    <div class="navbar-inner">
-      <div class="container">
-        <ul class="list-inline">
-          <li><a href="#tab1" data-toggle="tab">Le Trajet</a></li>
-          <li><a href="#tab2" data-toggle="tab">Mon Colis</a></li>
-          <li><a href="#tab3" data-toggle="tab">Mon Receveur</a></li>
-          <li><a href="#tab4" data-toggle="tab">Valider</a></li>
+     <div id="rootwizard">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <ul class="list-inline">
+              <li><a href="#tab1" data-toggle="tab">Le Trajet</a></li>
+              <li><a href="#tab2" data-toggle="tab">Mon Colis</a></li>
+              <li><a href="#tab3" data-toggle="tab">Mon Receveur</a></li>
+              <li><a href="#tab4" data-toggle="tab">Valider</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress" id="bar">
+        <div class="progress-bar progress-bar-info progress-bar-striped active bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" >
+        </div>
+      </div>
+      <div class="tab-content">
+          <div class="tab-pane" id="tab1">
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="form-inputs">
+                    <%= f.input :departure_city, input_html: { placeholder: "Ville de départ" } %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                   <div class="form-inputs">
+                    <%= f.input :arrival_city, input_html: { placeholder: "Ville d'arrivée" }%>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-inputs">
+                    <%= f.input :starts_on, input_html: { placeholder: "Date de départ" } %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                   <div class="form-inputs">
+                    <%= f.input :timeslot, input_html: { placeholder: "Creneau horraire" }%>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab2">
+            <div class="row">
+              <div class="col-md-12">
+                 <div class="form-inputs">
+                  <%= f.input :parcel_description, input_html: { placeholder: "Décrivez votre colis" } %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab3">
+            <div class="col-md-12">
+               <div class="form-inputs">
+                <%= f.input :receiver_first_name, input_html: { placeholder: "Prénom du receveur" } %>
+                <%= f.input :receiver_last_name, input_html: { placeholder: "Nom du receveur" } %>
+                <%= f.input :receiver_phone, input_html: { placeholder: "06 45 68 23 12" } %>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab4">
+            <div class="col-md-12">
+               <div class="form-inputs" style="text-align: right;">
+                <%= f.button :submit, "Chercher", class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        <ul class="pager wizard">
+          <!-- <li class="previous first" style="display:none;"><a href="#">First</a></li> -->
+          <li class="previous"><a href="#">&larr; Previous</a></li>
+          <!-- <li class="next last" style="display:none;"><a href="#">Last</a></li> -->
+          <li class="next"><a href="#">Next &rarr;</a></li>
         </ul>
       </div>
+     </div>
+    <% end %>
     </div>
   </div>
-
-  <div class="progress" id="bar">
-    <div class="progress-bar progress-bar-info progress-bar-striped active bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-    </div>
-  </div>
-  <div class="tab-content">
-      <div class="tab-pane" id="tab1">
-        <div class="row">
-            <div class="col-md-6">
-              <div class="form-inputs">
-                <%= f.input :departure_city, input_html: { placeholder: "Ville de départ" } %>
-              </div>
-            </div>
-            <div class="col-md-6">
-               <div class="form-inputs">
-                <%= f.input :arrival_city, input_html: { placeholder: "Ville d'arrivée" }%>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-inputs">
-                <%= f.input :starts_on, input_html: { placeholder: "Date de départ" } %>
-              </div>
-            </div>
-            <div class="col-md-6">
-               <div class="form-inputs">
-                <%= f.input :timeslot, input_html: { placeholder: "Creneau horraire" }%>
-              </div>
-            </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="tab2">
-        <div class="row">
-          <div class="col-md-12">
-             <div class="form-inputs">
-              <%= f.input :parcel_description, input_html: { placeholder: "Décrivez votre colis" } %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="tab3">
-        <div class="col-md-12">
-           <div class="form-inputs">
-            <%= f.input :receiver_first_name, input_html: { placeholder: "Prénom du receveur" } %>
-            <%= f.input :receiver_last_name, input_html: { placeholder: "Nom du receveur" } %>
-            <%= f.input :receiver_phone, input_html: { placeholder: "06 45 68 23 12" } %>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="tab4">
-        <div class="col-md-12">
-           <div class="form-inputs">
-            <%= f.button :submit, "Chercher", class: "btn btn-primary" %>
-          </div>
-        </div>
-      </div>
-    <ul class="pager wizard">
-      <li class="previous first" style="display:none;"><a href="#">First</a></li>
-      <li class="previous"><a href="#">Previous</a></li>
-      <li class="next last" style="display:none;"><a href="#">Last</a></li>
-      <li class="next"><a href="#">Next</a></li>
-    </ul>
-  </div>
- </div>
-<% end %>
+</div>
