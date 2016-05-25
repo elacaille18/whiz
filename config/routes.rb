@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'transporteur', to: 'pages#home_transporteur'
 
   # page de vue de profile - A PROTEGER
-  get 'users/:id' => 'users#show', as: :show_user
+  get 'profile' => 'users#profile'
 
   resources :trips
 

@@ -113,3 +113,13 @@
 .transporteur:hover a{
   color: $orange;
 }
+
+.dropdown_user span {
+  padding: 4px;
+}
+.dropdown_user{
+  padding: 6px;
+}
+.dropdown_user:hover {
+  background-color: $gray-lighter;
+}
