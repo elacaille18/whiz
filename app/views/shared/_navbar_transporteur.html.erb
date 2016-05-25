@@ -11,8 +11,8 @@
     <% if user_signed_in? && !current_user.trips.empty? %>
 
       <!-- When user is sign in and is transporteur -->
-      <div class="transporteur dropdown">
-        <%= link_to "#" do %>
+      <div class="transporteur">
+        <%= link_to trips_path do %>
           <i class="fa fa-train"></i> <%= "Mes Transports"%>
         <% end %>
       </div>

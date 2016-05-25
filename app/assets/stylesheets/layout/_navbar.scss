@@ -76,7 +76,7 @@
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
-  color: black !important;
+  color: $orange !important;
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
@@ -98,6 +98,9 @@
 .transporteur a {
   text-decoration: none;
   color: #616668;
+  font-family: Open Sans;
+  font-weight: lighter;
+  font-size: 15px;
 }
 
 .transporteur:hover .fa {
