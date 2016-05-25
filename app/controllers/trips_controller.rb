@@ -25,7 +25,9 @@ class TripsController < ApplicationController
   # Ces actions sont nestées dans une mission
   def search
     @mission = Mission.find(params[:mission_id])
-    @trips = Trip.all
+    # @trips = Trip.all
+    # faire une methode privee pour la recherche
+    @trips_results = search_filter_trips(@mission)
     authorize @mission
   end
 
@@ -67,6 +69,10 @@ class TripsController < ApplicationController
     authorize @trip
   end
 
+  def search_filter_trips(mission)
+    trips = Trip.where("date(starts_at) = ? AND departure_city = ? AND arrival_city = ?", mission.starts_on, mission.departure_city, mission.arrival_city)
+    #trips = Trip.where("departure_city = ? AND arrival_city = ?", mission.departure_city, mission.arrival_city)
+  end
 
 end
 

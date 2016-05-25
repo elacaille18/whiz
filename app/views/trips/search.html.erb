@@ -1,11 +1,19 @@
-<h1>Les transporteurs disponibles pour ce trajet</h1>
-<ul>
-  <% @trips.each do |trip|%>
-  <li>
-    <%= trip.user.email%>
-    <%= link_to "Choose", mission_update_mission_with_trip_path(@mission, trip_id: trip.id), {:method => :put }%>
-  </li>
+<div class="container">
+  <h1>Les transporteurs disponibles pour ce trajet</h1>
+  <h2> <%=@mission.starts_on.strftime(" %-d %B %Y")%> </h2>
+  <% if @trips_results.nil? %>
+    <p>Désolé nous n'avons pas de whizer pour prendre en charge votre colis mais ne vous inquiétez pas, super Loulou est là (enfin il est à Marseille pour l'instant)</p>
+  <%else%>
+    <ul>
+      <% @trips_results.each do |trip|%>
+      <li>
+        <!-- Faire une card -->
+        <%= trip.departure_city %> to <%= trip.arrival_city%><br/>
+        <%= trip.starts_at.strftime(" %H h %M") %> to <%= trip.ends_at.strftime(" %H h %M")%><br/>
+        <%= trip.user.email%>
+        <%= link_to "Choose", mission_update_mission_with_trip_path(@mission, trip_id: trip.id), {:method => :put }%>
+      </li>
+      <%end%>
+    </ul>
   <%end%>
-</ul>
-
-
+</div>
