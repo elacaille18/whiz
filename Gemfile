@@ -9,6 +9,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 
+# Picture
+gem 'cloudinary'
+gem 'carrierwave'
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

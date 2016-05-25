@@ -1,3 +1,38 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.profile {
+  background-color: white;
+}
+
+.first_row {
+  padding-top: 15px;
+}
+
+.content {
+  border-left: 1px solid #D7DBDD;
+}
+
+  .side_bar_profile_item {
+    cursor: pointer;
+  }
+
+// .container_profile {
+//   padding-bottom: 15px;
+// }
+
+// .side_bar_profile {
+//   background-color: white;
+//   height: 400px;
+//   width: 300px;
+//   border-right: 1px solid #D7DBDD;
+//   padding: 10px;
+// }
+
+
+//   .side_bar_profile_item.is-side-bar-item-selected {
+//     background-color: #EEF3F5;
+//     border-radius: 4px;
+//   }
