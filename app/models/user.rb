@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :picture, PhotoUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,7 +8,6 @@ class User < ActiveRecord::Base
 
   has_many :trips
 
-  mount_uploader :picture, PhotoUploader
 
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
