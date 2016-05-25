@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
-
-  before_action :set_trip ,only: [:show, :edit, :update, :destroy]
+  before_action :set_trip ,only: [:show, :edit, :update, :destroy, :choose]
+  skip_after_action :verify_authorized, only: :update_mission_with_trip
 
   def index
     @trips = policy_scope(Trip)
@@ -22,7 +22,21 @@ class TripsController < ApplicationController
     end
   end
 
+  # Ces actions sont nestées dans une mission
+  def search
+    @mission = Mission.find(params[:mission_id])
+    @trips = Trip.all
+    authorize @mission
+  end
 
+  def update_mission_with_trip
+    @mission = Mission.find(params[:mission_id])
+    @trip = Trip.find(params[:trip_id])
+    @mission.trip = @trip
+    @mission.save
+    redirect_to mission_path(@mission)
+  end
+###########################################
   def edit
 
   end

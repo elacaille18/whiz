@@ -1,0 +1,11 @@
+<h1>Les transporteurs disponibles pour ce trajet</h1>
+<ul>
+  <% @trips.each do |trip|%>
+  <li>
+    <%= trip.user.email%>
+    <%= link_to "Choose", mission_update_mission_with_trip_path(@mission, trip_id: trip.id), {:method => :put }%>
+  </li>
+  <%end%>
+</ul>
+
+
