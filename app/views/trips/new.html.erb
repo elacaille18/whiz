@@ -9,7 +9,7 @@
 <%= simple_form_for(@trip) do |f| %>
   <%= f.input :starts_at %>
   <%= f.input :ends_at %>
-  <%= f.input :departure_city%>
+  <%= f.input :departure_city %>
   <%= f.input :arrival_city %>
   <%= f.submit 'Créer' %>
 <% end %>
@@ -17,44 +17,7 @@
 
 
 
-<% content_for :after_js do %>
-  <% javascript_tag do %>
-
-    $(document).ready(function() {
 
 
 
-
-        $("#trip_departure_city").autocomplete({
-
-        source : function(requete, reponse){
-
-            $.ajax({
-
-                    url : 'http://api.geonames.org/searchJSON?username=demo',
-                    dataType : 'json',
-                    data : {
-
-                        name_startsWith : $('#trip_departure_city').val(),
-                        maxRows : 4
-
-                    },
-                    success : function(donnee){
-
-                        reponse($.map(donnee.geonames, function(objet){
-
-                            return objet.name + ', ' + objet.countryName;
-
-                        }));
-
-                    }
-
-                });
-
-            }
-
-        });
-
-    });
-  <% end %>
-<% end %>
+<!-- http://api.geonames.org/searchJSON?username=demo -->
