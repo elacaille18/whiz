@@ -8,11 +8,13 @@ class MissionsController < ApplicationController
 
   def new
     @mission = Mission.new
+    authorize @mission
   end
 
 
   def create
     @mission = Mission.new(mission_params)
+    authorize @mission
     if @mission.save
       redirect_to mission_path(@mission)
     else
@@ -37,6 +39,6 @@ class MissionsController < ApplicationController
   end
 
   def mission_params
-    params.require(:mission).permit(:receiver_first_name, :receiver_last_name, :receiver_phone, :departure_city, :arrival_city, :parcel_description,)
+    params.require(:mission).permit(:receiver_first_name, :receiver_last_name, :receiver_phone, :starts_on, :timeslot, :departure_city, :arrival_city, :parcel_description,)
   end
 end
