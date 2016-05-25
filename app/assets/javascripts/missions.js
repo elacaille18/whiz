@@ -15,6 +15,7 @@ $(document).ready(function() {
         console.log("tata");
         $('.next').addClass("hidden");
       }
+      $('#rootwizard').find('#icon').css({width:$percent+'%'})
     }});
 });
 
