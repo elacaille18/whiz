@@ -24,4 +24,8 @@ class MissionPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def search?
+    record.user == user
+  end
 end

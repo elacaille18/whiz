@@ -48,7 +48,7 @@
   padding-top: 10px;
 }
 .navbar-wagon-transporteur:hover {
-  border: 0.8px solid $orange;
+  border: 0.6px solid $orange;
   padding-bottom: 10px;
   padding-top: 10px;
 }
@@ -79,7 +79,7 @@
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
-  color: black !important;
+  color: $orange !important;
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
@@ -92,4 +92,24 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.transporteur {
+  color: #616668;
+}
+
+.transporteur a {
+  text-decoration: none;
+  color: #616668;
+  font-family: Open Sans;
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+.transporteur:hover .fa {
+  color: $orange;
+}
+
+.transporteur:hover a{
+  color: $orange;
 }

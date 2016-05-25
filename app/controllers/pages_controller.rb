@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   end
 
   def home_transporteur
+    @disable_nav = true
   end
 
 end

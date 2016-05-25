@@ -1,5 +1,7 @@
 class MissionsController < ApplicationController
+
   before_action :set_mission, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @missions = policy_scope(Mission)
@@ -16,16 +18,16 @@ class MissionsController < ApplicationController
   def create
     @mission = Mission.new(mission_params)
     @mission.user = current_user
+    @mission.status = "pending_carrier"
     authorize @mission
     if @mission.save
-      redirect_to mission_path(@mission)
+      redirect_to mission_trips_search_path(@mission)
     else
       render :new
     end
   end
 
   def show
-    @mission = Mission.find(params[:id])
     authorize @mission
   end
 
@@ -42,7 +44,6 @@ class MissionsController < ApplicationController
   end
 
   def destroy
-    @mission = Mission.find(params[:id])
     @mission.destroy
     redirect_to mission_path(@mission)
   end

@@ -4,4 +4,5 @@
 //= require bootstrap-sprockets
 //= require twitter-bootstrap-wizard
 //= require missions.js
-
+//= require autocomplete
+//= require_tree .

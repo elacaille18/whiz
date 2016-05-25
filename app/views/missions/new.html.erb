@@ -3,7 +3,9 @@
     <div class="megaform">
     <%= simple_form_for(@mission) do |f| %>
 
-     <div id="rootwizard">
+    <div id="rootwizard">
+
+      <!-- Onglets -->
       <div class="navbar">
         <div class="navbar-inner">
           <div class="container">
@@ -17,11 +19,15 @@
         </div>
       </div>
 
+      <!-- Barre de progrès -->
       <div class="progress" id="bar">
         <div class="progress-bar progress-bar-info progress-bar-striped active bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" >
         </div>
       </div>
+
+      <!-- Contenu des différents onglets -->
       <div class="tab-content">
+
           <div class="tab-pane" id="tab1">
             <div class="row">
                 <div class="col-md-6">
@@ -46,6 +52,7 @@
                 </div>
             </div>
           </div>
+
           <div class="tab-pane" id="tab2">
             <div class="row">
               <div class="col-md-12">
@@ -55,6 +62,7 @@
               </div>
             </div>
           </div>
+
           <div class="tab-pane" id="tab3">
             <div class="col-md-12">
                <div class="form-inputs">
@@ -64,6 +72,7 @@
               </div>
             </div>
           </div>
+
           <div class="tab-pane" id="tab4">
             <div class="col-md-12">
                <div class="form-inputs" style="text-align: right;">
@@ -71,11 +80,13 @@
               </div>
             </div>
           </div>
+
+        <!-- Navigation dans le formulaire  -->
         <ul class="pager wizard">
           <!-- <li class="previous first" style="display:none;"><a href="#">First</a></li> -->
-          <li class="previous"><a href="#">&larr; Previous</a></li>
+          <li class="previous"><a href="#">&larr; Etape précedente</a></li>
           <!-- <li class="next last" style="display:none;"><a href="#">Last</a></li> -->
-          <li class="next"><a href="#">Next &rarr;</a></li>
+          <li class="next"><a href="#">Etape suivante &rarr;</a></li>
         </ul>
       </div>
      </div>

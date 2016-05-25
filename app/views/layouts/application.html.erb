@@ -15,9 +15,12 @@
     <p class="alert"><%= alert %></p> -->
 
 
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/navbar' unless @disable_nav %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+
+
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyD5R5VjepON1C3VA_kLA1Ob0Yx12EOO1HE' %>
     <%= javascript_include_tag 'application' %>
     <%= yield(:after_js) %>
   </body>

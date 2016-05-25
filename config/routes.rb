@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   resources :trips
 
 
-  resources :missions, only: [:index, :update, :edit, :show, :new, :create, :destroy ]
+
+  resources :missions do
+    put :update_mission_with_trip, to: "trips#update_mission_with_trip"
+    get 'trips/search', to: 'trips#search'
+  end
 
 
 

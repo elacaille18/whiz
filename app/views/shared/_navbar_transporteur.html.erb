@@ -11,9 +11,9 @@
     <% if user_signed_in? && !current_user.trips.empty? %>
 
       <!-- When user is sign in and is transporteur -->
-      <div class="transporteur dropdown">
+      <div class="transporteur">
         <%= link_to trips_path do %>
-          <i class="fa fa-train"></i><%= " Mes Transports" %>
+          <i class="fa fa-train"></i> <%= "Mes Transports"%>
         <% end %>
       </div>
       <!-- Profile picture and dropdown -->
@@ -43,7 +43,7 @@
       <% elsif user_signed_in? %>
         <!-- When user is sign in and not transporteur -->
           <!-- Link to trip -->
-          <%= link_to ("Devenir Transporteur"), transporteur_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-transporteur" %>
+          <%= link_to ("Livrer un colis"), root_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-transporteur" %>
           <div class="navbar-wagon-item">
             <div class="dropdown">
               <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
@@ -69,8 +69,8 @@
 
     <% else %>
 
-      <!-- When user is not log in  -->
-      <%= link_to ("Devenir Transporteur"), transporteur_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-transporteur" %>
+      <!-- When user is not log in -->
+      <%= link_to ("Livrer un colis"), root_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-transporteur" %>
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_up", default: "S'inscrire"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
