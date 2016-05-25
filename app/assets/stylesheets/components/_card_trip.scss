@@ -1,0 +1,80 @@
+.card-trip {
+  padding: 10px 30px 10px 12px;
+  border: 1px solid #D0D1D5;
+  border-radius: $border-radius-base;
+  background-color: #FCFCFD;
+  display: flex;
+  margin: 10px 0;
+  // box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.carrier-infos{
+  flex: 1 0 auto;
+  padding-top: 6px;
+}
+
+.carrier-face {
+  margin-right:14px;
+}
+
+.carrier-name {
+  margin-bottom: 2px;
+}
+
+.train-infos{
+  display:flex;
+  flex-direction:column;
+  padding-right: 20px;
+  margin-right: 14px;
+  border-right: 0.5px solid $gray-lighter;
+}
+
+.departure-segment, .arrival-segment {
+  display:flex;
+  flex-direction:row;
+}
+
+.trip-times {
+  font-size: 14px;
+  font-weight:bolder;
+  letter-spacing: 0.8px;
+  color: rgb(233,127,42);
+  padding-right: 14px;
+  padding-top: 2px;
+  padding-bottom: 3px;
+}
+
+.city {
+  font-size: 14px;
+  font-weight: bolder;
+  padding-top: 2px;
+  padding-bottom: 3px;
+}
+
+
+.button-choose{
+  margin: auto 0;
+  a {
+    font-size:18px;
+    &:hover {
+      color:green;
+    }
+  }
+}
+
+.card-trip-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left:0;
+  right:0;
+  width: 100%;
+  z-index:2;
+  background: black;
+  opacity: 0;
+}
+//---------------------- class pour effet -----------------//
+.fadded {
+  opacity: 0.5;
+}
+
