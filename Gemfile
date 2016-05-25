@@ -23,6 +23,9 @@ gem 'rails-assets-twitter-bootstrap-wizard', source: 'https://rails-assets.org'
 # Facebook connect
 gem 'omniauth-facebook'
 
+# Admin User
+gem 'activeadmin', github: 'activeadmin'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
