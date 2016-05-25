@@ -1,0 +1,14 @@
+<% content_for(:title) do %>
+  Mes Colis
+<% end %>
+
+<h4 class="text-center"> Mes transports </h4>
+
+<%if @missions.first.nil? %>
+  <p>Vous n'avez pas de Colis enregistrés</p>
+  <p>Envoyez un colis aujourd'hui et gagnez du temps !</p>
+  <p><%= link_to 'Envoyez un colis', new_mission_path %></p>
+<%else%>
+  <%= render "summary" %>
+  <%= render "dashboard" %>
+<%end%>
