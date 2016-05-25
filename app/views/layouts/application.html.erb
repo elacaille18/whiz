@@ -15,7 +15,7 @@
     <p class="alert"><%= alert %></p> -->
 
 
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/navbar' unless @disable_nav %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>

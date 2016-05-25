@@ -92,8 +92,6 @@
 }
 
 .transporteur {
-  border: 0.6px solid #616668;
-  padding: 10px;
   color: #616668;
 }
 
@@ -102,12 +100,10 @@
   color: #616668;
 }
 
-.transporteur .fa {
+.transporteur:hover .fa {
   color: $orange;
 }
 
-.transporteur:hover {
-  border: 0.6px solid $orange;
-  padding: 10px;
+.transporteur:hover a{
   color: $orange;
 }
