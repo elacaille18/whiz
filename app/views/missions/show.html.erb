@@ -1,0 +1,129 @@
+<!-- Resumé de la mission en cours -->
+<div class="wrapper summary">
+  <div class="container">
+    <h1 class="text-center">Votre mission</h1>
+
+    <div class="row">
+      <!-- Partie expediteur -->
+      <div class="col-sm-4" >
+        <div id="sender" class="text-center">
+
+
+          <div class="badge-container">
+            <%= image_tag "http://placehold.it/30x30", class: "avatar-bordered on-duty "%>
+            <div class="badge badge-blue"><%= image_tag "parcel"%></div>
+          </div>
+
+          <div class="name">
+            <%= @mission.user.first_name%>
+          </div>
+
+
+
+          <div class="city-info">
+            <div class="city">
+              <%= @mission.departure_city%>
+            </div>
+            <div class="time">
+              <p><%= @mission.trip.starts_at.strftime(" %H h %M")%>
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <%#raise%>
+      <!-- Partie transporteur -->
+      <div class="col-sm-4">
+        <div id="day-of-mission" class= "text-center">
+          <%= @mission.starts_on.strftime(" %-d %B %Y")%>
+          <!-- # le mois est a passer en francais avec la commande l(date, format: '%B %d, in the year %Y') -->
+        </div>
+        <div id="carrier" class="text-center">
+          <div id="train">
+            <%= image_tag "tgv"%>
+          </div>
+
+          <div class="badge-container">
+            <%= image_tag "http://placehold.it/30x30", class: "avatar-bordered"%>
+            <div class="badge badge-blue hidden"><%= image_tag "parcel"%></div>
+          </div>
+
+          <div class="name">
+
+            <p><%= @mission.trip.user.first_name.capitalize %></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partie receveur -->
+      <div class="col-sm-4">
+        <div id="receiver" class="text-center">
+
+
+
+          <div class="badge-container">
+            <%= image_tag "http://placehold.it/30x30", class: "avatar-bordered "%>
+            <div class="badge badge-blue hidden"><%= image_tag "parcel"%></div>
+          </div>
+
+          <div class="name">
+            <%= @mission.receiver_first_name%>
+          </div>
+
+
+
+          <div class="city-info">
+            <div class="city">
+              <%= @mission.arrival_city%>
+            </div>
+            <div class="time">
+              <p><%= @mission.trip.ends_at.strftime(" %H h %M") %></p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Déroulé des actions utilisateurs -->
+<div class="wrapper action">
+  <div class="container">
+    <h2>Vos actions</h2>
+  </div>
+</div>
+
+<% content_for(:after_js) do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // Dispatch de celui qui a le colis
+      switch ("<%=@mission.status%>") {
+        case "on-going": // Le colis est chez le transporteur
+         // je resets tout a 0
+         console.log("helo");
+         $(".on-duty").removeClass("on-duty");
+         $(".badge-container>.badge").addClass("hidden");
+         // j'affecte que au bon
+         $("#carrier>.badge-container>img").addClass("on-duty");
+         $("#carrier>.badge-container>.badge").removeClass("hidden");
+         break;
+        case ("delivered" || "done"):
+        // je resets tout a 0
+         $(".on-duty").removeClass("on-duty");
+         $(".badge-container>.badge").addClass("hidden");
+        // j'affecte que au bon
+         $("#receiver>.badge-container>img").addClass("on-duty");
+         $("#receiver>.badge-container>.badge").removeClass("hidden");
+         break;
+        // default:  // le reste des situations le colis est chez l'emetteur, (page par défaut -> A modifier ?)
+
+      }
+    });
+  </script>
+<% end %>
