@@ -1,0 +1,7 @@
+if (<%= @mission.status == "delivered"%>) {
+  console.log('le code est bon');
+  window.location.reload();
+} else {
+  console.log('le code est mauvais');
+  $(".error_message").removeClass("hidden");
+}

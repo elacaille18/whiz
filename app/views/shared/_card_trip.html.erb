@@ -19,9 +19,9 @@
     </div>
 
   </div>
-
+  <!-- Infos user -->
   <div class="carrier-face">
-    <%= link_to show_user_path(trip.user) do%>
+    <%= link_to show_user_card_path(trip.user), remote: true do%>
       <%= image_tag "http://placehold.it/50x50", class: "avatar-large"%>
     <%end%>
   </div>

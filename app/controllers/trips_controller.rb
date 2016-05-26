@@ -14,8 +14,9 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
+
     authorize @trip
-    if @trip.save
+    if @trip.save!
       redirect_to trips_path
     else
       render :new
@@ -62,6 +63,7 @@ class TripsController < ApplicationController
 
   def trip_params
     params.require(:trip).permit(:starts_at, :ends_at, :departure_city, :arrival_city)
+
   end
 
   def set_trip
