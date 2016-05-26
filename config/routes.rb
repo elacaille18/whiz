@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'profile' => 'users#profile'
   get 'users/:id', to: 'users#show', as: :show_user
 
-  resources :trips
+  resources :trips do
+    put :accept_mission, to: "trips#trip_accept_mission"
+  end
 
   get 'users/:id/usercard', to: 'users#show_card', as: :show_user_card
 
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
     put :update_mission_with_trip, to: "trips#update_mission_with_trip"
     get 'trips/search', to: 'trips#search'
     member do
+      put :payment, to: "missions#payment"
       post 'check_start', to: 'missions#check_start_code'
       post 'check_end', to: 'missions#check_end_code'
     end

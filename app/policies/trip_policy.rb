@@ -26,6 +26,9 @@ class TripPolicy < ApplicationPolicy
     update?
   end
 
+  def trip_accept_mission?
+    true
+  end
   # def search?
   #   true
   # end
