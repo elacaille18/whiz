@@ -23,6 +23,8 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "pundit"
 gem 'rails-assets-twitter-bootstrap-wizard', source: 'https://rails-assets.org'
+gem 'rails-assets-bootstrap-hover-dropdown', source: 'https://rails-assets.org'
+
 gem "kaminari"
 
 
@@ -32,7 +34,6 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 #api call
 gem 'json'
 gem 'rest-client'
-
 
 
 # Facebook connect

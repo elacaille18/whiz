@@ -115,6 +115,8 @@ ActiveRecord::Schema.define(version: 20160526212652) do
     t.string   "picture"
     t.string   "token"
     t.datetime "token_expiry"
+    t.string   "description"
+    t.string   "city"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
