@@ -7,6 +7,7 @@
     <%= f.input :picture, label: "Photo", hint: "Montrer une photo de vous est un moyen important pour les utilisateurs de vous reconnaître. Téléchargez une photo qui montre clairement votre visage." %>
     <%= f.input :picture_cache, as: :hidden %>
     <%= f.input :description, hint: "Whiz est basé sur une relation de confiance entre utilisateurs. Dites-leurs en plus à propos de vous...", required: false %>
+    <%= f.input :city, label: "Ville", hint: "Où habitez-vous ?", required: false, placeholder: "ex: Paris, Lyon, Bordeaux..." %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>

@@ -6,6 +6,7 @@
           <li><%= cl_image_tag current_user.picture, class: "avatar-large" %></li>
           <li><h1>Modifier mon profile</h1></li>
         </ul>
+        <%= link_to "Voir mon profile", show_user_path(current_user) %>
 
       <div class="row first_row profile">
         <div class="col-xs-1 text-right side_bar_profile_item">
