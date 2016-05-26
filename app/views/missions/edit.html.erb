@@ -6,16 +6,58 @@
 <h4 class = 'text-center'>Je modifie envoie de colis</h4>
 
 <div class="container">
-<%= simple_form_for(@mission) do |f| %>
-  <%= f.input :starts_on %>
-  <%= f.input :timeslot %>
-  <%= f.input :departure_city %>
-  <%= f.input :arrival_city %>
-  <%= f.input :parcel_description %>
-  <%= f.input :receiver_first_name %>
-  <%= f.input :receiver_last_name %>
-  <%= f.input :receiver_phone %>
-  <%= f.submit 'Modifier' %>
-<% end %>
+  <div class="col-xs-8 col-xs-offset-2">
+    <div class="transporteur-form">
+      <%= simple_form_for(@mission) do |f| %>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-inputs">
+            <%= f.input :starts_on, label: 'Date et horaire de départ' %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-inputs">
+            <%= f.input :timeslot, as: :select, collection: Mission::TIMESLOT, include_blank: "Choisissez un créneau horaire", label: 'Créneau horaire' %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-inputs">
+            <%= f.input :departure_city, label: 'Ville de départ' %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-inputs">
+            <%= f.input :arrival_city, label: "Ville d'arrivée" %>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-inputs">
+            <%= f.input :parcel_description, label: 'Décrivez votre colis' %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-inputs">
+            <%= f.input :receiver_first_name, label: 'Prénom du destinataire' %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-inputs">
+            <%= f.input :receiver_last_name, label: 'Nom du destinataire' %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-inputs">
+            <%= f.input :receiver_phone,label: 'Téléphone du destinataire' %>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-inputs text-right">
+            <%= f.submit 'Modifier', class: "btn btn-primary"%>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 

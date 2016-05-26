@@ -9,10 +9,10 @@
   <div class="col-xs-8 col-xs-offset-2">
     <div class="transporteur-form">
       <%= simple_form_for(@trip) do |f| %>
-        <%= f.input :starts_at %>
-        <%= f.input :ends_at %>
-        <%= f.input :departure_city %>
-        <%= f.input :arrival_city %>
+        <%= f.input :starts_at, label: 'Date de départ' %>
+        <%= f.input :ends_at, label: "Date d'arrivée" %>
+        <%= f.input :departure_city,label: 'Ville de départ' %>
+        <%= f.input :arrival_city, label: "Ville d'arrivée" %>
         <%= f.submit 'Modifier', class: "btn btn-primary" %>
       <% end %>
     </div>
