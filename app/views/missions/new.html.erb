@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-md-6">
                    <div class="form-inputs">
-                    <%= f.input :timeslot, input_html: { placeholder: "Creneau horraire" }%>
+                    <%= f.input :timeslot, as: :select, collection: Mission::TIMESLOT, include_blank: "Choisissez un créneau horraire" %>
                   </div>
                 </div>
             </div>

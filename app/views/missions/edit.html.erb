@@ -6,16 +6,20 @@
 <h4 class = 'text-center'>Je modifie envoie de colis</h4>
 
 <div class="container">
-<%= simple_form_for(@mission) do |f| %>
-  <%= f.input :starts_on %>
-  <%= f.input :timeslot %>
-  <%= f.input :departure_city %>
-  <%= f.input :arrival_city %>
-  <%= f.input :parcel_description %>
-  <%= f.input :receiver_first_name %>
-  <%= f.input :receiver_last_name %>
-  <%= f.input :receiver_phone %>
-  <%= f.submit 'Modifier' %>
-<% end %>
+  <div class="col-xs-8 col-xs-offset-2">
+    <div class="transporteur-form">
+      <%= simple_form_for(@mission) do |f| %>
+        <%= f.input :starts_on %>
+        <%= f.input :timeslot %>
+        <%= f.input :departure_city %>
+        <%= f.input :arrival_city %>
+        <%= f.input :parcel_description %>
+        <%= f.input :receiver_first_name %>
+        <%= f.input :receiver_last_name %>
+        <%= f.input :receiver_phone %>
+        <%= f.submit 'Modifier', class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
