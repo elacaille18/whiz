@@ -1,6 +1,6 @@
 class MissionsController < ApplicationController
 
-  before_action :set_mission, only: [:show, :edit, :update, :destroy]
+  before_action :set_mission, only: [:show, :edit, :update, :destroy, :check_start_code, :check_end_code]
 
 
   def index
@@ -48,6 +48,36 @@ class MissionsController < ApplicationController
     redirect_to mission_path(@mission)
   end
 
+  # Dynamique de vérification des codes
+  def check_start_code
+    start_code_attempt = params[:start_code]
+
+    if @mission.start_code == start_code_attempt
+      @mission.status = "on-going"
+      @mission.save
+    end
+
+    respond_to do |format|
+        format.html { redirect_to mission_path(@mission) }
+        format.js
+      end
+  end
+
+  def check_end_code
+    end_code_attempt = params[:end_code]
+
+    if @mission.end_code == end_code_attempt
+      @mission.status = "delivered"
+      @mission.save
+    end
+
+    respond_to do |format|
+        format.html { redirect_to mission_path(@mission) }
+        format.js
+      end
+  end
+
+  #-----------------------------------------------------------#
   private
 
   def set_mission

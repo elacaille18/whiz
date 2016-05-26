@@ -6,14 +6,19 @@ Rails.application.routes.draw do
 
   # page de vue de profile - A PROTEGER
   get 'profile' => 'users#profile'
+  get 'users/:id', to: 'users#show', as: :show_user
 
   resources :trips
 
-
+  get 'users/:id/usercard', to: 'users#show_card', as: :show_user_card
 
   resources :missions do
     put :update_mission_with_trip, to: "trips#update_mission_with_trip"
     get 'trips/search', to: 'trips#search'
+    member do
+      post 'check_start', to: 'missions#check_start_code'
+      post 'check_end', to: 'missions#check_end_code'
+    end
   end
 
 
