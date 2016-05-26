@@ -105,6 +105,16 @@
     <p>Satut : <%= @mission.status%></p>
     <p> Sender : <%= @mission.user.id %> <%= @mission.user.first_name %></p>
     <p> Carrier : <%= @mission.trip.user.first_name%></p>
+
+    <!-- si l'utilisateur est le sender -->
+    <% if current_user == @mission.user %>
+      <p>Vous êtes le sender</p>
+      <%= render 'missions/actions_sender', mission: @mission %>
+    <% else current_user == @mission.trip.user %>
+      <p>Vous êtes le transporteur</p>
+      <%= render 'missions/actions_carrier', mission: @mission %>
+    <%end%>
+
   </div>
 </div>
 

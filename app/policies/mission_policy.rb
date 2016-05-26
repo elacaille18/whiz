@@ -28,4 +28,12 @@ class MissionPolicy < ApplicationPolicy
   def search?
     record.user == user
   end
+
+  def check_start_code?
+    true
+  end
+
+  def check_end_code?
+    true
+  end
 end
