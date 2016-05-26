@@ -1,11 +1,10 @@
 <div class="wrapper-gray padded">
   <div class="container">
+    <h1>Your trip : <%=@mission.departure_city%> to <%=@mission.arrival_city%></h1>
+    <h2> <%=@mission.starts_on.strftime(" %-d %B %Y")%> </h2>
 
     <div class="row">
       <div class="col-xs-12 col-sm-7">
-        <h1>Your trip : <%=@mission.departure_city%> to <%=@mission.arrival_city%></h1>
-        <h1>Les transporteurs disponibles pour ce trajet</h1>
-        <h2> <%=@mission.starts_on.strftime(" %-d %B %Y")%> </h2>
 
         <div id="search-results">
           <div id="intro-choice">
@@ -18,15 +17,15 @@
                 <%= render "shared/card_trip", trip: trip%>
               <%end%>
           <%end%>
-          <%= link_to "Voir ma mission", mission_path(@mission), class: "btn btn-primary"%>
         </div>
       </div>
       <div class="col-sm-5">
-        <div id="user-corner">
+        <div id="user-corner" style="display: none;">
 
         </div>
       </div>
     </div>
+    <%= link_to "Voir ma mission", mission_path(@mission), class: "btn btn-primary"%>
 
   </div>
 </div>
@@ -34,12 +33,16 @@
 
 <% content_for(:after_js) do %>
   <script>
+  // Javascrit sur la card de trip
     $( ".card-trip" ).hover(function() {
         $(".card-trip").addClass('fadded');
         $(this).removeClass('fadded');
         $(this).find('.button-choose').removeClass('hidden')
       }, function () {
-        $(".card-trip").removeClass("fadded");
+        if ($("#user-corner").css('display')=='none') {
+          // tester presence user corner
+          $(".card-trip").removeClass("fadded");
+        }
         $(this).find('.button-choose').addClass('hidden')
       }
     );
