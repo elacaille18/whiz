@@ -8,5 +8,6 @@
     };
          $('#datetimepicker1').datetimepicker(options);
          $('#datetimepicker2').datetimepicker(options);
+         $('#datetimepicker3').datetimepicker(options);
 
     });
