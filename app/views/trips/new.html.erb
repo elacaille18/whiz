@@ -5,19 +5,19 @@
 
 <h4 class = 'text-center'> J'enregistre mon voyage </h4>
 
-<div class="container">
+<div class="container" style="position:relative;">
 <%= simple_form_for(@trip) do |f| %>
-  <%= f.input :starts_at %>
-  <%= f.input :ends_at %>
-  <%= f.input :departure_city %>
-  <%= f.input :arrival_city %>
+  <%= f.input :starts_at, as: :string, input_html: { id: "datetimepicker1" },
+  label: "Date et horaire de départ" %>
+  <%= f.input :ends_at, as: :string, input_html: { id: "datetimepicker2" },
+  label: "Date et Horaire d'arrivée" %>
+
+  <%= f.input :departure_city, label: "Ville de départ"  %>
+  <%= f.input :arrival_city, label: "Ville d'arrivée" %>
   <%= f.submit 'Créer' %>
 <% end %>
 </div>
 
 
-
-
-
-
-<!-- http://api.geonames.org/searchJSON?username=demo -->
+<!--
+Options of datepicker are set in datepicker.js -->
