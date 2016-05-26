@@ -5,4 +5,9 @@
 //= require twitter-bootstrap-wizard
 //= require missions.js
 //= require autocomplete
+//= require twitter-bootstrap-wizard
+
+//= require moment
+//= require bootstrap-datetimepicker
+
 //= require_tree .

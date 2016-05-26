@@ -33,4 +33,6 @@ function onPlaceChanged() {
 google.maps.event.addDomListener(window, 'load', function() {
   initializeAutocomplete('trip_departure_city');
   initializeAutocomplete('trip_arrival_city');
+  initializeAutocomplete('mission_arrival_city');
+  initializeAutocomplete('mission_departure_city');
 });
