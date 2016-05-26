@@ -4,8 +4,9 @@
 
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :picture, label: "Photo" %>
+    <%= f.input :picture, label: "Photo", hint: "Montrer une photo de vous est un moyen important pour les utilisateurs de vous reconnaître. Téléchargez une photo qui montre clairement votre visage." %>
     <%= f.input :picture_cache, as: :hidden %>
+    <%= f.input :description, hint: "Whiz est basé sur une relation de confiance entre utilisateurs. Dites-leurs en plus à propos de vous...", required: false %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -14,6 +15,8 @@
     <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+
+
   </div>
 
   <div class="form-actions">
