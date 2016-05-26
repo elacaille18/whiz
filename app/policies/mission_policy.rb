@@ -29,6 +29,10 @@ class MissionPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def payment?
+    record.user ==user
+  end
+
   def check_start_code?
     true
   end

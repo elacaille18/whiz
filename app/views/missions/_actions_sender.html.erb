@@ -6,6 +6,7 @@
   <p>Merci de confirmer votre payment afin de finaliser la mission</p>
   <p>Ne vous inquiétez pas vous serez remboursé si un imprévus se déclare</p>
 
+  <%= link_to "Je paye direct", payment_mission_path(mission), {:method => :put, class:"btn btn-warning"} %>
 <% when "ready"%>
   <p>Veuillez rentrer le code transmis par votre transporteur pour notre suivi</p>
 
