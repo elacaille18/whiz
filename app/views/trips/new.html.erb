@@ -30,6 +30,12 @@
           <div class="text-center">
             <%= f.submit 'Créer', class: "btn btn-primary"  %>
           </div>
+
+          <%= f.input :departure_longitude, :as => :hidden %>
+          <%= f.input :departure_latitude, :as => :hidden %>
+          <%= f.input :arrival_longitude, :as => :hidden %>
+          <%= f.input :arrival_latitude, :as => :hidden %>
+
       <% end %>
     </div>
 
