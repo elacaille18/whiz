@@ -87,8 +87,13 @@ ActiveRecord::Schema.define(version: 20160526212652) do
     t.datetime "ends_at"
     t.string   "departure_city"
     t.string   "arrival_city"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.boolean  "chosen",              default: false
+    t.string   "departure_longitude"
+    t.string   "departure_latitude"
+    t.string   "arrival_longitude"
+    t.string   "arrival_latitude"
   end
 
   add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree

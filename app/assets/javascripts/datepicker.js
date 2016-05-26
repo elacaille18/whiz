@@ -1,5 +1,4 @@
    $(document).ready(function(){
-    console.log("hello");
     var options ={
       sideBySide: true,
       format: "YYYY-MM-DD HH:mm",
