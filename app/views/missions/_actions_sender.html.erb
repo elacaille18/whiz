@@ -1,0 +1,30 @@
+<%case mission.status %>
+<%when "pending_carrier"%>
+  <p>Veuillez choisir votre transporteur</p>
+
+<%when "pending_payment"%>
+  <p>Merci de confirmer votre payment afin de finaliser la mission</p>
+  <p>Ne vous inquiétez pas vous serez remboursé si un imprévus se déclare</p>
+
+<% when "ready"%>
+  <p>Veuillez rentrer le code transmis par votre transporteur pour notre suivi</p>
+
+  <%= form_tag(check_start_mission_path(mission), method: "post", remote: true) do %>
+    <div class="form-group">
+      <%= number_field_tag(:start_code, params[:start_code], placeholder: "Code à 6 chiffres", class: "form-control", required:"required") %>
+    </div>
+    <div class="error_message hidden">
+      <p>* Le code que vous avez rentré n'est pas bon. Veuillez recommencé.</p>
+    </div>
+    <%= submit_tag 'Submit'%>
+  <%end%>
+
+<%when "on-going" || "delivered"%>
+  <p>Votre mission est en cours</p>
+  <p>Vous recevrez un message à la bonne réception de votre colis</p>
+<% when done %>
+  <p>Mission accompli</p>
+  <p>Whiz vous remercie de votre confiance</p>
+  <p>Laissez nous une review</p>
+  <p>A bientôt</p>
+<%end%>
