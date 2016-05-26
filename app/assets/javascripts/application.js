@@ -3,7 +3,11 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require autocomplete
-////= require twitter-bootstrap-wizard
+//= require twitter-bootstrap-wizard
+
+//= require moment
+//= require bootstrap-datetimepicker
+
 //= require_tree .
 
 
