@@ -15,6 +15,4 @@ class Mission < ActiveRecord::Base
   # validates :end_code, presence: true
   # validates :price, presence: true
   validates :parcel_description, presence: true
-
-
 end

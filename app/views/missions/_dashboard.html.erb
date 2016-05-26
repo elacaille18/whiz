@@ -1,77 +1,81 @@
-<div class="dashboard">
-  <div class="container">
-    <div class="dashboard-header">
-      <div class="row">
+
+<div class="container">
+  <div class="dashboard-header">
+    <div class="row">
+      <div class="col-md-1 text-center">
+        <p> Date </p>
+      </div>
+      <div class="col-md-1 text-center">
+        <p> Timeslot </p>
+      </div>
+      <div class="col-md-1 text-center">
+        <p> Départ </p>
+      </div>
+      <div class="col-md-1 text-center">
+        <p> Arrivée</p>
+      </div>
+      <div class="col-md-2 text-center">
+        <p> Description du colis</p>
+      </div>
+      <div class="col-md-2 text-center">
+        <p> Etat </p>
+      </div>
+      <div class="col-md-2 text-center">
+        <p> Collecteur </p>
+      </div>
+      <div class="col-md-2 text-center">
+        <p> Mes actions </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-content">
+  <% @missions.each do |mission| %>
+
+    <div class="card_mission_dashboard">
+      <div class="row dashboard-row">
         <div class="col-md-1 text-center">
-          <p> Date </p>
+          <p> <%= mission.starts_on.strftime("%e/%m/%y") %> </p>
         </div>
+
         <div class="col-md-1 text-center">
-          <p> Timeslot </p>
+        <p> <%= mission.timeslot %> </p>
         </div>
+
         <div class="col-md-1 text-center">
-          <p> Ville de Départ </p>
+          <p> <%= mission.departure_city %>  </p>
         </div>
+
         <div class="col-md-1 text-center">
-          <p> Ville de d'arrivée</p>
+          <p> <%= mission.arrival_city %>  </p>
         </div>
+
         <div class="col-md-2 text-center">
-          <p> Description du colis</p>
+          <p> <%= mission.parcel_description %> </p>
         </div>
+
         <div class="col-md-2 text-center">
-          <p> Etat </p>
+        <p> <%= mission.status %> </p>
         </div>
+
         <div class="col-md-2 text-center">
-          <p> Receiver </p>
+        <p> <%= mission.receiver_last_name %></p>
         </div>
+
         <div class="col-md-2 text-center">
-          <p> Mes actions </p>
+          <ul class="list-inline text-center">
+          <li> <%= link_to 'Modifier', edit_mission_path(mission), class:"btn btn-primary" %> </li>
+          <li> <%= link_to " X ", mission_path(mission),
+            method: :delete,
+            class:"btn btn-warning",
+            data: { confirm: "Etes-vous sure?" } %>
+          </li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="dashboard-content">
-      <% @missions.each do |mission| %>
-        <div class="row dashboard-row">
-
-          <div class="col-md-1 text-center">
-            <p> <%= mission.starts_on %> </p>
-          </div>
-
-          <div class="col-md-1 text-center">
-          <p> <%= mission.timeslot %> </p>
-          </div>
-
-          <div class="col-md-1 text-center">
-            <p> <%= mission.departure_city %>  </p>
-          </div>
-
-          <div class="col-md-1 text-center">
-            <p> <%= mission.arrival_city %>  </p>
-          </div>
-
-          <div class="col-md-2 text-center">
-            <p> <%= mission.parcel_description %> </p>
-          </div>
-
-          <div class="col-md-2 text-center">
-          <p> Etat en cours</p>
-          </div>
-
-          <div class="col-md-2 text-center">
-          <p> <%= mission.receiver_last_name %></p>
-          </div>
-
-          <div class="col-md-2 text-center">
-            <ul class="list-inline text-center">
-            <li> <%= link_to 'Modifier', edit_mission_path(mission), class:"btn btn-primary" %> </li>
-            <li> <%= link_to " X ", mission_path(mission),
-              method: :delete,
-              class:"btn btn-warning",
-              data: { confirm: "Etes-vous sure?" } %>
-            </li>
-            </ul>
-          </div>
-        </div>
-      <%end%>
-    </div>
+  <%end%>
   </div>
 </div>
+
+

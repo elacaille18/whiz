@@ -1,8 +1,9 @@
+
 <% content_for(:title) do %>
   Mes Colis
 <% end %>
 
-<h4 class="text-center"> Mes transports </h4>
+<h4 class="title-mission" style="text-align: center"> Mes Colis </h4>
 
 <%if @missions.first.nil? %>
   <p>Vous n'avez pas de Colis enregistrés</p>
@@ -12,3 +13,4 @@
   <%= render "summary" %>
   <%= render "dashboard" %>
 <%end%>
+
