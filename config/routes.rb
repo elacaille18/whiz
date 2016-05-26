@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   resources :trips
 
-  get 'users/:id', to: 'users#show', as: :show_user
   get 'users/:id/usercard', to: 'users#show_card', as: :show_user_card
 
   resources :missions do
