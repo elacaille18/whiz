@@ -25,7 +25,7 @@
               <%= @mission.departure_city%>
             </div>
             <div class="time">
-              <p><%= @mission.trip.starts_at.strftime(" %H h %M")%>
+              <p><%= @mission.trip.starts_at.strftime(" %H h %M") if @mission.trip %>
               </p>
             </div>
           </div>
@@ -51,8 +51,13 @@
           </div>
 
           <div class="name">
-
-            <p><%= @mission.trip.user.first_name.capitalize %></p>
+            <!-- Gestion de l'absence de notre abscence de transporteur -->
+            <% if @mission.trip%>
+              <p><%= @mission.trip.user.first_name.capitalize %></p>
+            <% else %>
+              <p>Désolé mais il n'y a pas de transporteur disponible, nous faisons tout pour faire en sorte que vous puissiez trouver un whizer</p>
+              <%= link_to "Trouver un transporteur", mission_trips_search_path(@mission),class: "btn btn-primary"%>
+            <%end%>
           </div>
         </div>
       </div>
@@ -79,7 +84,7 @@
               <%= @mission.arrival_city%>
             </div>
             <div class="time">
-              <p><%= @mission.trip.ends_at.strftime(" %H h %M") %></p>
+              <p><%= @mission.trip.ends_at.strftime(" %H h %M") if @mission.trip %></p>
             </div>
           </div>
 

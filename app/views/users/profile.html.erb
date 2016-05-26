@@ -1,0 +1,18 @@
+<div class="container padded container_profile">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 ">
+      <h1>Profile</h1>
+      <div class="row first_row profile">
+        <div class="col-xs-1 text-right side_bar_profile_item">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-3 text-left side_bar_profile_item">
+          <p>Informations personelles</p>
+        </div>
+        <div class="col-xs-8 content">
+          <%= render "devise/registrations/edit_form", user: current_user %>
+        </div>
+      </div>
+    </div>
+   </div>
+</div>

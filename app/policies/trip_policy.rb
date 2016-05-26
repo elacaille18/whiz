@@ -26,6 +26,10 @@ class TripPolicy < ApplicationPolicy
     update?
   end
 
+  # def search?
+  #   true
+  # end
+
   def update?
     #record.user <=> @trip.user AND user <=> current_user dans les politiques
     user_is_owner_or_admin? # Only trip creator can update it and admin

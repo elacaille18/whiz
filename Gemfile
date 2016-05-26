@@ -9,6 +9,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 
+# Picture
+gem 'cloudinary'
+gem 'carrierwave'
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -29,6 +33,9 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 # Facebook connect
 gem 'omniauth-facebook'
+
+# Admin User
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   gem 'binding_of_caller'

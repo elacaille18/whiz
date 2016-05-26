@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   devise_for :users, controllers: { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
   root to: 'pages#home'
   get 'transporteur', to: 'pages#home_transporteur'
 
   # page de vue de profile - A PROTEGER
-  get 'users/:id' => 'users#show', as: :show_user
+  get 'profile' => 'users#profile'
 
   resources :trips
 
 
-  resources :missions, only: [ :show, :new, :create, :destroy ]
+
+  resources :missions do
+    put :update_mission_with_trip, to: "trips#update_mission_with_trip"
+    get 'trips/search', to: 'trips#search'
+  end
 
 
 

@@ -1,0 +1,47 @@
+<div class="wrapper-gray padded">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-7">
+        <h1>Your trip : <%=@mission.departure_city%> to <%=@mission.arrival_city%></h1>
+        <h1>Les transporteurs disponibles pour ce trajet</h1>
+        <h2> <%=@mission.starts_on.strftime(" %-d %B %Y")%> </h2>
+
+        <div id="search-results">
+          <div id="intro-choice">
+            <h4>Choisissez votre transporteur</h4>
+          </div>
+          <% if @trips_results.empty? %>
+            <p>Désolé nous n'avons pas de whizer pour prendre en charge votre colis mais ne vous inquiétez pas, super Loulou est là (enfin il est à Marseille pour l'instant)</p>
+          <%else%>
+              <% @trips_results.each do |trip|%>
+                <%= render "shared/card_trip", trip: trip%>
+              <%end%>
+          <%end%>
+          <%= link_to "Voir ma mission", mission_path(@mission), class: "btn btn-primary"%>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div id="user-corner">
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<% content_for(:after_js) do %>
+  <script>
+    $( ".card-trip" ).hover(function() {
+        $(".card-trip").addClass('fadded');
+        $(this).removeClass('fadded');
+        $(this).find('.button-choose').removeClass('hidden')
+      }, function () {
+        $(".card-trip").removeClass("fadded");
+        $(this).find('.button-choose').addClass('hidden')
+      }
+    );
+  </script>
+<% end %>
