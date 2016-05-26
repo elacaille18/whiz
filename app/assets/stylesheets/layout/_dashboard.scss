@@ -1,26 +1,56 @@
-.dashboard {
-  margin: 10px;
-  // border: 1px solid $blue-dark;
-  // border-radius : 5px;
+.title-mission {
+  padding: 10px;
+}
 
+// CSS POUR CARD MISSION  DASHBOARD STATUS DONE
+// .card_mission_dashboard_Fini {
+//   border-style: solid;
+//   border-width: 0px;
+//   background-color: $gray-lighter;
+//   border-radius: 10px;
+//   margin: 10px;
+//   padding: 10px;
+// }
+.card_mission_dashboard {
+  border-style: solid;
+  border-width: 0px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.card_mission_dashboard:hover {
+  border-style: solid;
+  border-width: 0px;
+  background-color: $blue;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  opacity: 0.6;
+  color: white;
+}
+
+.dashboard-row {
+  display: flex;
+  align-items: center;
+  padding-top: inherit;
 }
 
 .dashboard-header {
-  color: $gray-light;
-
-}
-
-.dashboard-row{
-
-  border-top: 1px solid $gray-light;
-  padding-top : 10px ;
-  color: $blue-dark;
+  border-style: solid;
+  border-width: 0px;
+  color: white;
+  border-radius: 10px 10px 0px 0px;
+  margin: 10px;
+  padding: 10px;
+  background-color: $blue;
 }
 
 .case {
 margin:3px;
 padding:3px;
-background-color: $yellow;
+background-color: $blue;
 color: white;
 border-radius: 5px;
 }
