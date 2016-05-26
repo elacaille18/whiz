@@ -1,7 +1,12 @@
 <div class="container padded container_profile">
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2 ">
-      <h1>Profile</h1>
+
+        <ul class="list-inline list-unstyled vertical-center">
+          <li><%= cl_image_tag current_user.picture, class: "avatar-large" %></li>
+          <li><h1>Modifier mon profile</h1></li>
+        </ul>
+
       <div class="row first_row profile">
         <div class="col-xs-1 text-right side_bar_profile_item">
           <i class="fa fa-user" aria-hidden="true"></i>

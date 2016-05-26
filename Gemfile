@@ -23,6 +23,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "pundit"
 gem 'rails-assets-twitter-bootstrap-wizard', source: 'https://rails-assets.org'
+gem 'rails-assets-bootstrap-hover-dropdown', source: 'https://rails-assets.org'
 
 # Facebook connect
 gem 'omniauth-facebook'

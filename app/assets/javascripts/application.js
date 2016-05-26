@@ -6,3 +6,4 @@
 //= require missions.js
 //= require autocomplete
 //= require_tree .
+//= require bootstrap-hover-dropdown
