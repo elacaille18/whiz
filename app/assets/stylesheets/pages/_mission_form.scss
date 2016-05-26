@@ -14,6 +14,10 @@ background-color: #FAFAFA
   border-radius: 10px;
   margin: 20px;
   padding: 20px;
+  position: relative;
+  min-width: 100vh;
+  min-height: 66vh;
+  height: 100%
 }
 
 .small-package {
@@ -28,3 +32,6 @@ background-color: #FAFAFA
 .progress {
   height:6px;
 }
+
+
+

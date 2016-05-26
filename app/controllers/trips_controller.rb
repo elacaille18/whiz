@@ -3,7 +3,7 @@ class TripsController < ApplicationController
   skip_after_action :verify_authorized, only: :update_mission_with_trip
 
   def index
-    @trips = policy_scope(Trip)
+    @trips = policy_scope(Trip).order(created_at: :desc)
   end
 
   def new
