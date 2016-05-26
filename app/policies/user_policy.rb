@@ -8,4 +8,8 @@ class UserPolicy < ApplicationPolicy
   def profile?
     true
   end
+
+  def show_card?
+    true
+  end
 end
