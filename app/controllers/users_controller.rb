@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     authorize @user
   end
 
+
+  def show
+    @user = User.find(params[:id])
+    authorize @user
+
   def show_card
     @user = User.find(params[:id])
     authorize @user

@@ -11,3 +11,4 @@
 //= require bootstrap-datetimepicker
 
 //= require_tree .
+//= require bootstrap-hover-dropdown

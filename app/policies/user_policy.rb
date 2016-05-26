@@ -9,6 +9,11 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+
+  def show
+    true
+  end
+
   def show_card?
     true
   end

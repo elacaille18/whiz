@@ -23,12 +23,13 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "pundit"
 gem 'rails-assets-twitter-bootstrap-wizard', source: 'https://rails-assets.org'
+gem 'rails-assets-bootstrap-hover-dropdown', source: 'https://rails-assets.org'
+
 gem "kaminari"
 
 
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
-
 
 
 # Facebook connect
