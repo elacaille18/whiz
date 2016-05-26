@@ -36,10 +36,24 @@ class TripsController < ApplicationController
     @mission = Mission.find(params[:mission_id])
     @trip = Trip.find(params[:trip_id])
     @mission.trip = @trip
+    @trip.status = "to-be-confirmed"
+    @trip.save
     @mission.save
     redirect_to mission_path(@mission)
   end
 ###########################################
+
+  def trip_accept_mission
+    @trip =Trip.find(params[:trip_id])
+    @mission = Mission.where(trip_id: @trip.id).first
+    @trip.status = "chosen"
+    @mission.status = "pending_payment"
+    @trip.save
+    @mission.save
+    authorize @trip
+    redirect_to trips_path
+  end
+
   def edit
 
   end

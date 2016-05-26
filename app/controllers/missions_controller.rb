@@ -1,6 +1,6 @@
 class MissionsController < ApplicationController
 
-  before_action :set_mission, only: [:show, :edit, :update, :destroy, :check_start_code, :check_end_code]
+  before_action :set_mission, only: [:show, :edit, :update, :destroy, :check_start_code, :check_end_code, :payment]
 
 
   def index
@@ -47,7 +47,17 @@ class MissionsController < ApplicationController
     @mission.destroy
     redirect_to mission_path(@mission)
   end
+  #---------------------------------------
+  #Payement zone
 
+  def payment
+    @mission.status = "ready"
+    @mission.save
+    authorize @mission
+    redirect_to mission_path(@mission)
+  end
+
+  #---------------------------------------
   # Dynamique de vérification des codes
   def check_start_code
     start_code_attempt = params[:start_code]

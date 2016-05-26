@@ -47,23 +47,41 @@
           <p> <%= trip.arrival_city %>  </p>
         </div>
         <div class="col-md-2 text-center">
-          <p> Etat </p>
+          <% case trip.status%>
+          <%when "free"%>
+            <p>En attente de mission</p>
+          <% when "to-be-confirmed"%>
+            <!-- Display une modal avec recap de la mission avec choix -->
+             <!-- #link_to "Voir", mission_path(Mission.where(trip_id: trip.id).first), class: 'btn btn-success' -->
+          <!-- Etape intermédiaire d'acceptation directe -->
+            <%= link_to "Accepter direct", trip_accept_mission_path(trip_id: trip.id), {:method => :put} %>
+
+          <%when "chosen"%>
+            <p>En cours...</p>
+          <%end%>
         </div>
         <div class="col-md-2 text-center">
-        <p>  </p>
+        <p>
+        <%= Mission.where(trip_id: trip.id).first.user.first_name if trip.status == "chosen"%>
+        </p>
       </div>
         <div class="col-md-2 text-center">
 
         </div>
         <div class="col-md-2 text-center">
-          <ul class="list-inline text-center">
-          <li> <%= link_to 'Modifier', edit_trip_path(trip), class:"btn btn-primary" %> </li>
-          <li> <%= link_to " X ", trip_path(trip),
-            method: :delete,
-            class:"btn btn-warning",
-            data: { confirm: "Etes-vous sure?" } %>
-          </li>
-          </ul>
+          <%if trip.status == "chosen"%>
+            <%= link_to "Voir la mission", mission_path(Mission.where(trip_id: trip.id).first), class: "btn btn-success"%>
+          <%else%> <!-- la mission n'a pas encore été choisi -->
+            <ul class="list-inline text-center">
+            <li> <%= link_to 'Modifier', edit_trip_path(trip), class:"btn btn-primary" %> </li>
+            <li> <%= link_to " X ", trip_path(trip),
+              method: :delete,
+              class:"btn btn-warning",
+              data: { confirm: "Etes-vous sure?" } %>
+            </li>
+
+            </ul>
+          <%end%>
         </div>
       </div>
     </div>
