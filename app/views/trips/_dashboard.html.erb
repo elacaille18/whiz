@@ -54,7 +54,7 @@
             <!-- Display une modal avec recap de la mission avec choix -->
              <!-- #link_to "Voir", mission_path(Mission.where(trip_id: trip.id).first), class: 'btn btn-success' -->
           <!-- Etape intermédiaire d'acceptation directe -->
-            <%= link_to "Accepter direct", trip_accept_mission_path(trip_id: trip.id), {:method => :put} %>
+            <%= link_to "Accepter direct", trip_accept_mission_path(trip_id: trip.id), {:method => :put, class: 'btn btn-success'} %>
 
           <%when "chosen"%>
             <p>En cours...</p>

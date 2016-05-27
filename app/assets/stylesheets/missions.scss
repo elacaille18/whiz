@@ -4,6 +4,38 @@
 
 
 // ----------- Style related to the show view ------------------//
+.summary {
+  height:60vh;
+  min-height: 375px;
+  border-bottom: 1px dotted rgba(70, 154, 224, 0.6);
+}
+
+.action {
+  background: white;
+  height: 40vh;
+  min-height: 320px;
+  padding-bottom: 30px;
+}
+
+
+
+#mission-title h1 {
+  font-size:22px;
+  line-height:24px;
+  letter-spacing: 0.7px;
+}
+
+#action-title {
+  margin: 14px 0;
+  h1 {
+    font-size:22px;
+    padding: 10px 0;
+    letter-spacing: 0.7px;
+    width:50%;
+    margin: auto;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
 
 #sender, #receiver {
   display: flex;
@@ -24,9 +56,13 @@
 }
 
 #train img {
-  max-width: 100%;
+  max-width: 80%;
 }
 
+#arrow {
+  font-size:40px;
+  color: #469AE0;
+}
 
 
 
