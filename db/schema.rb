@@ -65,6 +65,18 @@ ActiveRecord::Schema.define(version: 20160527095344) do
   add_index "missions", ["trip_id"], name: "index_missions_on_trip_id", using: :btree
   add_index "missions", ["user_id"], name: "index_missions_on_user_id", using: :btree
 
+  create_table "reviews", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "rating"
+    t.integer  "mission_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["mission_id"], name: "index_reviews_on_mission_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+
   create_table "segments", force: :cascade do |t|
     t.integer  "trip_id"
     t.string   "departure_city"
@@ -130,6 +142,8 @@ ActiveRecord::Schema.define(version: 20160527095344) do
 
   add_foreign_key "missions", "trips"
   add_foreign_key "missions", "users"
+  add_foreign_key "reviews", "missions"
+  add_foreign_key "reviews", "users"
   add_foreign_key "segments", "trips"
   add_foreign_key "trips", "users"
 end

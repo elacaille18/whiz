@@ -8,6 +8,15 @@ class User < ActiveRecord::Base
 
   has_many :trips
 
+  # Transporteur
+  has_many :missions, through: :trips
+  has_many :transporter_reviews, through: :missions, source: :review
+
+  # Envoyeur
+  has_many :sender_reviews, class_name: "Review"
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

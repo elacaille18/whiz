@@ -1,44 +1,45 @@
 <% content_for(:title) do %>
-  Enregistrer un nouveau
+  Enregistrer un nouveau voyage
 <% end %>
 
 
 <h4 class = 'text-center'> J'enregistre mon voyage </h4>
 
 <div class="container">
-  <div class="col-xs-8 col-xs-offset-2">
-    <div class="transporteur-form">
-      <%= simple_form_for(@trip) do |f| %>
-          <div class="row">
-            <div class="col-md-6">
-              <%= f.input :starts_at, as: :string, input_html: { id: "datetimepicker1" },
-              label: "Date et horaire de départ" %>
+  <div class="ro">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="transporteur-form">
+        <%= simple_form_for(@trip) do |f| %>
+            <div class="row">
+              <div class="col-md-6">
+                <%= f.input :starts_at, as: :string, input_html: { id: "datetimepicker1" },
+                label: "Date et horaire de départ" %>
+              </div>
+              <div class="col-md-6">
+                <%= f.input :ends_at, as: :string, input_html: { id: "datetimepicker2" },
+                label: "Date et Horaire d'arrivée" %>
+              </div>
             </div>
-            <div class="col-md-6">
-              <%= f.input :ends_at, as: :string, input_html: { id: "datetimepicker2" },
-              label: "Date et Horaire d'arrivée" %>
+            <div class="row">
+              <div class="col-md-6">
+                <%= f.input :departure_city, label: "Ville de départ"  %>
+              </div>
+              <div class="col-md-6">
+                <%= f.input :arrival_city, label: "Ville d'arrivée" %>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <%= f.input :departure_city, label: "Ville de départ"  %>
+            <div class="text-center">
+              <%= f.submit 'Créer', class: "btn btn-primary"  %>
             </div>
-            <div class="col-md-6">
-              <%= f.input :arrival_city, label: "Ville d'arrivée" %>
-            </div>
-          </div>
-          <div class="text-center">
-            <%= f.submit 'Créer', class: "btn btn-primary"  %>
-          </div>
 
-          <%= f.input :departure_longitude, :as => :hidden %>
-          <%= f.input :departure_latitude, :as => :hidden %>
-          <%= f.input :arrival_longitude, :as => :hidden %>
-          <%= f.input :arrival_latitude, :as => :hidden %>
+            <%= f.input :departure_longitude, :as => :hidden %>
+            <%= f.input :departure_latitude, :as => :hidden %>
+            <%= f.input :arrival_longitude, :as => :hidden %>
+            <%= f.input :arrival_latitude, :as => :hidden %>
 
-      <% end %>
+        <% end %>
+      </div>
     </div>
-
   </div>
 </div>
 
