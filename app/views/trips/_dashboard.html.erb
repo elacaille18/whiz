@@ -57,8 +57,13 @@
             <%= link_to "Accepter direct", trip_accept_mission_path(trip_id: trip.id), {:method => :put, class: 'btn btn-success'} %>
 
           <%when "chosen"%>
-            <p>En cours...</p>
+            <%if Mission.where(trip_id: trip.id).first.status == "delivered"%>
+              <p>Livraison effectuée</p>
+            <%else%>
+              <p>En cours...</p>
+            <%end%>
           <%end%>
+
         </div>
         <div class="col-md-2 text-center">
         <p>
@@ -70,7 +75,11 @@
         </div>
         <div class="col-md-2 text-center">
           <%if trip.status == "chosen"%>
-            <%= link_to "Voir la mission", mission_path(Mission.where(trip_id: trip.id).first), class: "btn btn-success"%>
+            <%if Mission.where(trip_id: trip.id).first.status == "delivered"%>
+              <p>Merci !</p>
+            <%else%>
+              <%= link_to "Voir la mission", mission_path(Mission.where(trip_id: trip.id).first), class: "btn btn-success"%>
+            <%end%>
           <%else%> <!-- la mission n'a pas encore été choisi -->
             <ul class="list-inline text-center">
             <li> <%= link_to 'Modifier', edit_trip_path(trip), class:"btn btn-primary" %> </li>
