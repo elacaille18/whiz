@@ -13,6 +13,9 @@ gem 'redis'
 gem 'cloudinary'
 gem 'carrierwave'
 
+# Banner typed.js
+gem "typedjs-rails", "~> 1.0.3"
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

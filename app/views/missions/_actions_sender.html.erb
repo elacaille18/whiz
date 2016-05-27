@@ -5,30 +5,35 @@
 <%when "pending_payment"%>
   <p>Merci de confirmer votre payment afin de finaliser la mission</p>
   <p>Ne vous inquiétez pas vous serez remboursé si un imprévus se déclare</p>
+  <div id="button-payment" class="text-center">
+    <%= link_to "Je paye direct", payment_mission_path(mission), {:method => :put, class:"btn btn-warning"} %>
+  </div>
 
-  <%= link_to "Je paye direct", payment_mission_path(mission), {:method => :put, class:"btn btn-warning"} %>
 <% when "ready"%>
   <p>Veuillez rentrer le code transmis par votre transporteur pour notre suivi</p>
-
-  <%= form_tag(check_start_mission_path(mission), method: "post", remote: true) do %>
-    <div class="form-group">
-      <%= number_field_tag(:start_code, params[:start_code], placeholder: "Code à 6 chiffres", class: "form-control", required:"required") %>
-    </div>
-    <div class="error_message hidden">
-      <p>* Le code que vous avez rentré n'est pas bon. Veuillez recommencé.</p>
-    </div>
-    <%= submit_tag 'Submit'%>
-  <%end%>
+  <div class="form-code text-center">
+    <%= form_tag(check_start_mission_path(mission), method: "post", remote: true) do %>
+      <div class="form-group">
+        <%= number_field_tag(:start_code, params[:start_code], placeholder: "Code à 6 chiffres", class: "form-control", required:"required") %>
+      </div>
+      <div class="error_message hidden text-left">
+        <p>* Le code que vous avez rentré n'est pas bon.<br/> Veuillez recommencé.</p>
+      </div>
+      <%= submit_tag 'Submit', class:"btn btn-primary"%>
+    <%end%>
+  </div>
 
 <%when "on-going" || "delivered"%>
   <p>Votre mission est en cours</p>
   <p>Vous recevrez un message à la bonne réception de votre colis</p>
+
 <% when "delivered" %>
   <p>Votre colis est arrivé entre de bonnes mains</p>
   <p>Nous déclenchons la procédure de paiement</p>
+
 <% when "done" %>
   <p>Mission accompli</p>
   <p>Whiz vous remercie de votre confiance</p>
   <p>Laissez nous une review</p>
-  <p>A bientôt</p>
+  <div class="bye-bye text-center">A bientôt</div>
 <%end%>

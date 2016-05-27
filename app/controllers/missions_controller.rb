@@ -19,6 +19,8 @@ class MissionsController < ApplicationController
     @mission = Mission.new(mission_params)
     @mission.user = current_user
     @mission.status = "pending_carrier"
+    @mission.start_code = 123456
+    @mission.end_code = 234567
     authorize @mission
     if @mission.save
       redirect_to mission_trips_search_path(@mission)

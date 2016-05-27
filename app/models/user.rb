@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  mount_uploader :picture, PhotoUploader
+  mount_uploader :photo, PhotoUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -29,6 +29,16 @@ class User < ActiveRecord::Base
       user.picture = auth.info.image
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
+    end
+  end
+
+  def one_picture_url
+    if self.photo.url
+      self.photo.url
+    elsif self.picture
+      self.picture
+    else
+      "http://placehold.it/30x30"
     end
   end
 end

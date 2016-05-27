@@ -1,26 +1,33 @@
 <%case mission.status %>
 <%when "pending_payment"%>
-  <p>Peut etre déclencheer le payment à la confirmation du transporteur</p>
-  <p>Nous attendons le payment du sender, vous serez notifie de la confirmation sous peu</p>
+  <!-- <p>Peut etre déclencheer le payment à la confirmation du transporteur</p> -->
+  <p>Nous attendons le payment du sender, vous serez notifié(e) de la confirmation au pus vite...</p>
+  <p><%= render "shared/waiting_gif" %></p>
 <% when "ready"%>
   <p>Voici le code à transmettre à l'emetteur pour que vous accomplissiez votre mission</p>
   <p>Ceci est une étape essentielle sans laquelle vous ne pourre recevoir votre paiement</p>
-  <%= mission.start_code %>
+  <div class="code text-center">
+    <h4><%= mission.start_code %></h4>
+  </div>
+
 <%when "on-going"%>
   <p>Votre mission est en cours</p>
   <p>Veuillez rentrer le code que le receveur vous transmettra afin de finaliser votre mission et être rémunéré</p>
-  <%= form_tag(check_end_mission_path(mission), method: "post", remote: true) do %>
-    <div class="form-group">
-      <%= number_field_tag(:end_code, params[:end_code], placeholder: "Code à 6 chiffres", class: "form-control", required:"required") %>
-    </div>
-    <div class="error_message hidden">
-      <p>* Le code que vous avez rentré n'est pas bon. Veuillez recommencer.</p>
-    </div>
-    <%= submit_tag 'Submit'%>
-  <%end%>
+  <div class="form-code text-center">
+    <%= form_tag(check_end_mission_path(mission), method: "post", remote: true) do %>
+      <div class="form-group">
+        <%= number_field_tag(:end_code, params[:end_code], placeholder: "Code à 6 chiffres", class: "form-control", required:"required") %>
+      </div>
+      <div class="error_message hidden text-left">
+        <p>* Le code que vous avez rentré n'est pas bon.<br/> Veuillez recommencer.</p>
+      </div>
+      <%= submit_tag 'Submit', class:"btn btn-primary"%>
+    <%end%>
+  </div>
+
 <% when "delivered" || "done" %>
   <p>Mission accomplie</p>
   <p>Whiz vous remercie de votre confiance</p>
-  <p>La prochaine que vous prenez le train nous comptons sur vous</p>
-  <p>A bientôt</p>
+  <p>La prochaine que vous prenez le train nous comptons sur vous !</p>
+  <div class="bye-bye text-center">A bientôt</div>
 <%end%>

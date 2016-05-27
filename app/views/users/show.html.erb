@@ -1,8 +1,9 @@
 <div class="container padded">
     <div class="col-xs-12">
       <div class="row">
-        <div class="col-xs-4 text-center">
-          <%= cl_image_tag @user.picture, class: "avatar-square"%>
+
+        <div class="col-xs-3 text-center">
+          <%= cl_image_tag @user.one_picture_url, class: "avatar-square"%>
         </div>
         <div class="col-xs-8">
           <h1><%= @user.description %></h1>
