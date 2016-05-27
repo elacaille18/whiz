@@ -1,6 +1,7 @@
 class Mission < ActiveRecord::Base
   belongs_to :user
   belongs_to :trip
+  has_one :review
   TIMESLOT = ["Matin", "Après-midi"]
   STATUS = %w(pending_carrier pending_payment ready on-going delivered done)
   validates :receiver_first_name, presence: true

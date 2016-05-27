@@ -22,7 +22,9 @@ Rails.application.routes.draw do
       post 'check_start', to: 'missions#check_start_code'
       post 'check_end', to: 'missions#check_end_code'
     end
+    resources :reviews, only: [:new, :create]
   end
+
 
 
 

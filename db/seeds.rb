@@ -27,5 +27,23 @@ while current_page_number  < 157 do
   end
 
   current_page_number += 1
-
 end
+
+# sender = User.first
+# transporter = User.last
+# trip = transporter.trips.create(starts_at: DateTime.now + 1.day, ends_at: DateTime.now + 1.day + 6.hours, departure_city: transporter.city, arrival_city: "Lyon", status: "free")
+# mission = Mission.create({
+#   trip_id: trip.id,
+#   user_id: sender.id,
+#   receiver_first_name: "pascal",
+#   receiver_last_name: "delatour",
+#   receiver_phone: "0123344556",
+#   departure_city: "Paris",
+#   arrival_city: "Lyon",
+#   starts_on: DateTime.now + 1.day,
+#   timeslot: "Matin",
+#   status: "ready",
+#   parcel_description: "un chat",
+# })
+# review = mission.create_review(content: "Livraison rapide, cool !", rating: 5, user_id: sender.id)
+
