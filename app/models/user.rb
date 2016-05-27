@@ -24,8 +24,8 @@ class User < ActiveRecord::Base
   end
 
   def one_picture_url
-    if self.photo.url
-      self.photo.url
+    if self.photo
+      self.photo
     elsif self.picture
       self.picture
     else
