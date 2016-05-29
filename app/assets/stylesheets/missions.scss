@@ -55,10 +55,36 @@
   top: 50px;
 }
 
-#train img {
-  max-width: 80%;
+#bridge img {
+  max-width: 100%;
+  // position:relative;
+  // left:-25%;
 }
 
+#train {
+  position: relative;
+  height:30px;
+  // va servir à faire bouger le train
+}
+#train img {
+  max-width:20%;
+  position: absolute;
+  // left:2%; // position de début
+  transition: all ease 1s;
+}
+
+// Diverses étapes du train
+.beginning {
+  left:2%;
+}
+
+.on-transit {
+  left:40%;
+}
+
+.arrived {
+  left:80%
+}
 #arrow {
   font-size:40px;
   color: #469AE0;
