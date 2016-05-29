@@ -1,6 +1,6 @@
-console.log('je suis dans le fichier');
+// console.log('je suis dans le fichier');
 if (<%= @mission.status == "on-going"%>) {
-  console.log('le code est bon');
+  // console.log('le code est bon');
   // // window.location.reload();
   // // Deplacement du train
   $("#train>img").removeClass('beginning').addClass('on-transit');
@@ -16,6 +16,6 @@ if (<%= @mission.status == "on-going"%>) {
   $("#carrier>.badge-container>.badge").removeClass("hidden");
 
 } else {
-  console.log('le code est mauvais');
+  // console.log('le code est mauvais');
   $(".error_message").removeClass("hidden");
 }
