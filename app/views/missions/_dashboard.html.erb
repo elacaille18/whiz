@@ -23,8 +23,11 @@
       <div class="col-md-2 text-center">
         <p> Destinataire </p>
       </div>
-      <div class="col-md-2 text-center">
+      <div class="col-md-1 text-center">
         <p> Mes actions </p>
+      </div>
+      <div class="col-md-1 text-center">
+        <p> Prix </p>
       </div>
     </div>
   </div>
@@ -62,7 +65,7 @@
         <p> <%= mission.receiver_last_name %></p>
         </div>
 
-        <div class="col-md-2 text-center">
+        <div class="col-md-1 text-center">
           <ul class="list-inline text-center">
           <li> <%= link_to 'Modifier', edit_mission_path(mission), class:"btn btn-primary" %> </li>
           <li> <%= link_to " X ", mission_path(mission),
@@ -72,6 +75,11 @@
           </li>
           </ul>
         </div>
+
+        <div class="col-md-1 text-center">
+        <p>Amount: <%= humanized_money_with_symbol(mission.price) %></p>
+        </div>
+
       </div>
     </div>
   <%end%>
