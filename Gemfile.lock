@@ -287,6 +287,7 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails (~> 4.17.37)
   carrierwave
   cloudinary
+  coffee-script (~> 2.4, >= 2.4.1)
   devise
   figaro
   font-awesome-sass

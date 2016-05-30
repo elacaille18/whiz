@@ -16,6 +16,9 @@ gem 'carrierwave'
 # Banner typed.js
 gem "typedjs-rails", "~> 1.0.3"
 
+# Stripe
+gem 'coffee-script', '~> 2.4', '>= 2.4.1'
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
