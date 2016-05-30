@@ -12,7 +12,6 @@ $(document).ready(function() {
       var $percent = ($current/$total) * 100;
       $('#rootwizard').find('.bar').css({width:$percent+'%'});
       if(index==3) {
-        console.log("tata");
         $('.next').addClass("hidden");
       }
       $('#rootwizard').find('#icon').css({width:$percent+'%'})

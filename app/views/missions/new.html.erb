@@ -71,19 +71,33 @@
           </div>
 
           <div class="tab-pane" id="tab3">
-            <div class="col-md-12">
-               <div class="form-inputs">
-                <%= f.input :receiver_first_name,label: 'Prénom du destinataire', input_html: { placeholder: "Prénom du receveur" } %>
-                <%= f.input :receiver_last_name, label: 'Nom du destinataire', input_html: { placeholder: "Nom du receveur" } %>
-                <%= f.input :receiver_phone, label: 'Téléphone du destinataire', input_html: { placeholder: "06 45 68 23 12" } %>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-inputs">
+                    <%= f.input :receiver_first_name,label: 'Prénom du destinataire', input_html: { placeholder: "Prénom du destinataire" } %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-inputs">
+                  <%= f.input :receiver_last_name, label: 'Nom du destinataire', input_html: { placeholder: "Nom du receveur" } %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-inputs">
+                  <%= f.input :receiver_phone, label: 'Téléphone du destinataire', input_html: { placeholder: "06 45 68 23 12" } %>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="tab-pane" id="tab4">
-            <div class="col-md-12">
-               <div class="form-inputs" style="text-align: right;">
-                <%= f.button :submit, "Chercher", class: "btn btn-primary" %>
+            <div class="row">
+              <div class="col-md-12">
+                 <div class="form-inputs" style="text-align: center;">
+                 <br>
+                 <br>
+                  <%= f.button :submit, "Lancer la recherche", class: "btn btn-info btn-lg" %>
+                </div>
               </div>
             </div>
           </div>
