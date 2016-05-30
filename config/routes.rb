@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'payments/new'
+
+  get 'orders/show'
+
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
   root to: 'pages#home'
@@ -25,7 +29,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
-
+  resources :orders, only: [:show, :create]  do
+    resources :payments, only: [:new, :create]
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

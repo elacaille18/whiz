@@ -63,14 +63,14 @@
             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
           </div>
 
-          <div class="badge-container">
-            <%= image_tag @mission.trip.user.one_picture_url, class: "avatar-bordered"%>
-            <div class="badge badge-blue hidden"><%= image_tag "parcel"%></div>
-          </div>
 
           <div class="name">
             <!-- Gestion de l'absence de notre abscence de transporteur -->
             <% if @mission.trip%>
+              <div class="badge-container">
+                <%= image_tag @mission.trip.user.one_picture_url, class: "avatar-bordered"%>
+                <div class="badge badge-blue hidden"><%= image_tag "parcel"%></div>
+              </div>
               <p><%= @mission.trip.user.first_name.capitalize %></p>
               <%if @mission.trip.status == "to-be-confirmed"%>
                 <p>En attente de confirmation...</p>
