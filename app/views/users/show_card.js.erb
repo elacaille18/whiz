@@ -3,6 +3,7 @@ $("#user-corner").html("<%= j render 'user_card', user: @user %>");
 $("#user-corner").fadeIn("slow");
 // $("#user-corner").show("slide", { direction: "left" }, 1000);
 
+
 $( document ).click(function(e) {
   var container = $( "#user-corner" )
   if (!container.is(e.target)) {
