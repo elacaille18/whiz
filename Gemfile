@@ -19,6 +19,7 @@ gem "typedjs-rails", "~> 1.0.3"
 # Stripe
 gem 'coffee-script', '~> 2.4', '>= 2.4.1'
 gem 'money-rails'
+gem 'stripe'
 
 gem 'sass-rails'
 gem 'jquery-rails'
