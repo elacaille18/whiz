@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     order = Order.create!(sku: "#{@mission.departure_city}, #{@mission.arrival_city}, #{@mission.created_at}" )
 
     @mission.status = "ready"
+    @mission.save
     redirect_to missions_path(@mission)
   end
 end

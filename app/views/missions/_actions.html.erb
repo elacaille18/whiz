@@ -10,10 +10,23 @@
       <!-- bouton stripe pay -->
       <%= form_tag orders_path do %>
         <%= hidden_field_tag 'mission_id', @mission.id %>
-        <%= submit_tag 'Purchase'%>
+        <% @order = Order.create!(sku: "#{@mission.departure_city}, #{@mission.arrival_city}, #{@mission.created_at}")%>
+        <%= form_tag order_payments_path(@order) do %>
+          <article>
+            <label class="amount">
+              <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+            </label>
+          </article>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-name="Payer ma mission"
+              data-description="Mission <%= @order.sku %>"
+              data-amount="<%= @order.amount_cents %>"
+              data-currency="EUR"></script>
+        <% end %>
       <% end %>
       <!-- fin bouton stripe pay -->
-      <%= link_to "Je paye direct", payment_mission_path(mission), {:method => :put, class:"btn btn-warning"} %>
+
     </div>
 
   <% when "ready"%>
