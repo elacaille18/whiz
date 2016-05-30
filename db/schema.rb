@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527095344) do
+ActiveRecord::Schema.define(version: 20160530100836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,15 +55,25 @@ ActiveRecord::Schema.define(version: 20160527095344) do
     t.string   "status"
     t.string   "start_code"
     t.string   "end_code"
-    t.float    "price"
     t.string   "parcel_description"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "receiver_email"
+    t.integer  "price_cents",         default: 0, null: false
   end
 
   add_index "missions", ["trip_id"], name: "index_missions_on_trip_id", using: :btree
   add_index "missions", ["user_id"], name: "index_missions_on_user_id", using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "state"
+    t.string   "sku"
+    t.integer  "amount_cents",    default: 0,     null: false
+    t.string   "amount_currency", default: "EUR", null: false
+    t.json     "payment"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.text     "content"
