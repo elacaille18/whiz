@@ -1,6 +1,13 @@
 if (<%= @mission.status == "delivered"%>) {
   // console.log('le code est bon');
-  window.location.reload();
+  $("#train>img").removeClass('on-transit').addClass('arrived');
+  //Actualisation de la zone actions
+  $("#actions-content").html("<%= j render 'missions/actions', mission: @mission %>");
+  $(".on-duty").removeClass("on-duty");
+  $(".badge-container>.badge").addClass("hidden");
+  // j'affecte que au bon
+  $("#receiver>.badge-container>img").addClass("on-duty");
+  $("#receiver>.badge-container>.badge").removeClass("hidden");
 } else {
   // console.log('le code est mauvais');
   $(".error_message").removeClass("hidden");

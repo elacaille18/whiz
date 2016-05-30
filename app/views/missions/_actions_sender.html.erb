@@ -1,6 +1,6 @@
 <%case mission.status %>
 <%when "pending_carrier"%>
-  <p>Veuillez choisir votre transporteur</p>
+  <!-- <p>Veuillez choisir votre transporteur</p> -->
 
 <%when "pending_payment"%>
   <p>Merci de confirmer votre payment afin de finaliser la mission</p>
@@ -23,7 +23,7 @@
     <%end%>
   </div>
 
-<%when "on-going" || "delivered"%>
+<%when "on-going"%>
   <p>Votre mission est en cours</p>
   <p>Vous recevrez un message à la bonne réception de votre colis</p>
 

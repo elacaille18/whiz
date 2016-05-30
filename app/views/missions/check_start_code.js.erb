@@ -1,6 +1,20 @@
+// console.log('je suis dans le fichier');
 if (<%= @mission.status == "on-going"%>) {
   // console.log('le code est bon');
-  window.location.reload();
+  // // window.location.reload();
+  // // Deplacement du train
+  $("#train>img").removeClass('beginning').addClass('on-transit');
+
+  //Actualisation de la zone actions
+  $("#actions-content").html("<%= j render 'missions/actions', mission: @mission %>");
+  // Deplacement du colis
+  // je resets tout a 0
+  $(".on-duty").removeClass("on-duty");
+  $(".badge-container>.badge").addClass("hidden");
+  // j'affecte que au bon
+  $("#carrier>.badge-container>img").addClass("on-duty");
+  $("#carrier>.badge-container>.badge").removeClass("hidden");
+
 } else {
   // console.log('le code est mauvais');
   $(".error_message").removeClass("hidden");
