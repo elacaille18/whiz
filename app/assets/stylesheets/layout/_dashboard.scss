@@ -13,6 +13,24 @@ table{
 .tbl-header{
   background-color: rgba(255,255,255,0.3);
  }
+
+ hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+ .tbl-row:hover{
+  .indicator {
+    border-left: 2px solid $gray-light;
+  }
+}
+
+  .indicator {
+    border-left: 2px solid white;
+  }
+
 .tbl-content{
   height:300px;
   overflow-x:auto;
@@ -35,6 +53,9 @@ td{
   color: black;
   border-bottom: solid 1px rgba(255,255,255,0.1);
 }
+tr {
+  cursor: pointer;
+}
 
 .action {
   width: 20px;
@@ -55,6 +76,15 @@ section{
   margin-top: 50px;
 }
 
+.glyphicon {
+  text-decoration: none;
+  top: 3px;
+}
+
+a:hover {
+  text-decoration: none;
+  top: 3px;
+}
 
 
 

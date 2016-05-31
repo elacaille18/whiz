@@ -22,22 +22,35 @@
     <% @missions.each do |mission| %>
     <table >
       <tbody>
-        <tr>
-          <td><%= mission.starts_on.strftime("%e/%m/%y") %></td>
+
+        <tr onclick = "document.location = 'missions/<%=mission.id%>';", class="tbl-row">
+          <td class="indicator"><%= mission.starts_on.strftime("%e/%m/%y") %></td>
           <td><%= mission.timeslot %></td>
           <td><%= mission.departure_city %></td>
           <td><%= mission.arrival_city %></td>
           <td><%= mission.parcel_description %></td>
-          <td><%= mission.status %></td>
+          <td>
+            <% case mission.status %>
+            <% when "pending_carrier" %>
+            <%= "en attente de transporteur"%>
+            <% when "pending_payment" %>
+            <%= "en attente de paiement"%>
+            <% when "ready" %>
+            <%= "prêt"%>
+            <% when "on-going" %>
+            <%= "en cours"%>
+            <% when "delivered" %>
+            <%= "colis délivré"%>
+            <% when "done" %>
+            <%= "mission accomplis"%>
+            <% end %>
+          </td>
           <td><%= mission.receiver_last_name  %></td>
           <td><%= humanized_money_with_symbol(mission.price)  %></td>
-          <td>
-            <%= link_to 'Modifier', edit_mission_path(mission), class:"btn btn-primary" %>
-          </td>
-          <td>
-          <%= link_to " X ", mission_path(mission), method: :delete, class:"btn btn-warning", data: { confirm: "Etes-vous sure?" } %>
-          </td>
+          <td><%= link_to 'Modifier', edit_mission_path(mission), class:"btn btn-primary" %></td>
+          <td><%= link_to " X ", mission_path(mission), method: :delete, class:"btn btn-warning", data: { confirm: "Etes-vous sure?" } %></td>
         </tr>
+
       </tbody>
     </table>
     <%end%>
