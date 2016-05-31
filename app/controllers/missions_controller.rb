@@ -21,6 +21,7 @@ class MissionsController < ApplicationController
     @mission.status = "pending_carrier"
     @mission.start_code = 123456
     @mission.end_code = 234567
+    generate_twitter_message(@mission)
     authorize @mission
     if @mission.save
       redirect_to mission_trips_search_path(@mission)
@@ -99,5 +100,20 @@ class MissionsController < ApplicationController
 
   def mission_params
     params.require(:mission).permit(:receiver_first_name, :receiver_last_name, :receiver_phone, :starts_on, :timeslot, :departure_city, :arrival_city, :parcel_description,)
+  end
+
+  def generate_twitter_message(mission)
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
+      config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
+      config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+      config.access_token_secret = ENV['TWITTER_ACCESS_SECRET']
+      end
+
+    date = mission.starts_on.to_s
+    date =" #{date[8..9]}/#{date[5..6]} "
+
+    client.update("Tu vas de #{mission.departure_city} à #{mission.arrival_city} le #{date}? On te donne 20€ ! check it out : www.whiz.fr")
+
   end
 end

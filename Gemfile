@@ -21,6 +21,8 @@ gem 'coffee-script', '~> 2.4', '>= 2.4.1'
 gem 'money-rails'
 gem 'stripe'
 
+
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -35,7 +37,6 @@ gem 'rails-assets-bootstrap-hover-dropdown', source: 'https://rails-assets.org'
 
 gem "kaminari"
 
-
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
@@ -46,6 +47,9 @@ gem 'rest-client'
 
 # Facebook connect
 gem 'omniauth-facebook'
+
+#Twitter
+gem 'twitter'
 
 # Admin User
 gem 'activeadmin', github: 'activeadmin'
