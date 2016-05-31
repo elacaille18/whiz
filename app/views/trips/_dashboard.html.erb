@@ -1,71 +1,73 @@
 <div class="container">
-  <div  class="tbl-header">
-    <table >
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Heure</th>
-          <th>Départ</th>
-          <th>Arrivée</th>
-          <th>Etat</th>
-          <th>Expéditeur</th>
-          <th>Economie (€)</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-    </table>
-      <hr>
-  </div>
-  <div  class="tbl-content">
-    <% @trips.each do |trip| %>
-    <table >
-      <tbody>
-        <tr onclick = "document.location = 'missions/<%=trip.id%>';", class="tbl-row">
-          <td class="indicator"><%= trip.starts_at.strftime("%e/%m/%y") %></td>
-          <td><%= trip.starts_at.to_s[10..15] %></td>
-          <td><%= trip.departure_city %></td>
-          <td><%= trip.arrival_city %></td>
-          <td>
-            <% case trip.status %>
-              <% when "free" %>
-              <%= "en attente de mission"%>
-              <% when "to-be-confirmed" %>
-              <%= link_to "Accepter direct", trip_accept_mission_path(trip_id: trip.id), {:method => :put, class: 'btn btn-success'} %>
-              <% when "chosen" %>
-                <% if Mission.where(trip_id: trip.id).first.status == "delivered" %>
-                  <%= "livraison effectuée" %>
-                <% else %>
-                  <%= "en cours" %>
-                <% end %>
-            <% end %>
-          </td>
-          <td><%= Mission.where(trip_id: trip.id).first.user.first_name if trip.status == "chosen"%></td>
-          <td><%= "12" %></td>
-          <% if trip.status == "chosen"%>
-          <td>
-              <%if Mission.where(trip_id: trip.id).first.status == "delivered"%>
-                <%= "merci !" %>
-              <% else %>
-                <%= link_to "Voir la mission", mission_path(Mission.where(trip_id: trip.id).first), class: "btn btn-success"%>
+  <div class="container-dashboard">
+    <div  class="tbl-header">
+      <table >
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Départ</th>
+            <th>Arrivée</th>
+            <th>Etat</th>
+            <th>Expéditeur</th>
+            <th>Economie (€)</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+      </table>
+        <hr>
+    </div>
+    <div  class="tbl-content">
+      <% @trips.each do |trip| %>
+      <table >
+        <tbody>
+          <tr onclick = "document.location = 'missions/<%=trip.id%>';", class="tbl-row">
+            <td class="indicator"><%= trip.starts_at.strftime("%e/%m/%y") %></td>
+            <td><%= trip.starts_at.to_s[10..15] %></td>
+            <td><%= trip.departure_city %></td>
+            <td><%= trip.arrival_city %></td>
+            <td>
+              <% case trip.status %>
+                <% when "free" %>
+                <%= "en attente de mission"%>
+                <% when "to-be-confirmed" %>
+                <%= link_to "Accepter direct", trip_accept_mission_path(trip_id: trip.id), {:method => :put, class: 'btn btn-success'} %>
+                <% when "chosen" %>
+                  <% if Mission.where(trip_id: trip.id).first.status == "delivered" %>
+                    <%= "livraison effectuée" %>
+                  <% else %>
+                    <%= "en cours" %>
+                  <% end %>
               <% end %>
-          </td>
-          <td></td>
-          <% else %> <!-- la mission n'a pas encore été choisi -->
-          <td>
-            <%= link_to 'Modifier', edit_trip_path(trip), class:"btn btn-primary" %>
-          </td>
-          <td>
-            <%= link_to " X ", trip_path(trip),
-              method: :delete,
-              class:"btn btn-warning",
-              data: { confirm: "Etes-vous sure?" } %>
-          </td>
-          <% end %>
-        </tr>
-      </tbody>
-    </table>
-    <%end%>
+            </td>
+            <td><%= Mission.where(trip_id: trip.id).first.user.first_name if trip.status == "chosen"%></td>
+            <td><%= "12" %></td>
+            <% if trip.status == "chosen"%>
+            <td>
+                <%if Mission.where(trip_id: trip.id).first.status == "delivered"%>
+                  <%= "merci !" %>
+                <% else %>
+                  <%= link_to "Voir la mission", mission_path(Mission.where(trip_id: trip.id).first), class: "btn btn-success"%>
+                <% end %>
+            </td>
+            <td></td>
+            <% else %> <!-- la mission n'a pas encore été choisi -->
+            <td>
+              <%= link_to 'Modifier', edit_trip_path(trip), class:"btn btn-primary" %>
+            </td>
+            <td>
+              <%= link_to " X ", trip_path(trip),
+                method: :delete,
+                class:"btn btn-warning",
+                data: { confirm: "Etes-vous sure?" } %>
+            </td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+      <%end%>
+    </div>
   </div>
 </div>
 
