@@ -9,7 +9,7 @@ $(document).ready(function(){
           backSpeed: 100,
           typeSpeed: 200,
           // loop
-          loop: true,
+          loop: false,
       });
   });
 });
