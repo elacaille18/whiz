@@ -1,75 +1,65 @@
-<div class="container padded">
-    <div class="col-xs-12">
-      <div class="row">
 
-        <div class="col-xs-3 text-center">
-          <%= cl_image_tag @user.one_picture_url, class: "avatar-square"%>
-        </div>
-        <div class="col-xs-8">
-          <h1><%= @user.description %></h1>
-          <p><%= @user.city %> . Membre depuis le <%= @user.created_at.strftime("%d / %m / %Y") %></p>
-          <%= link_to "Modifier mon profile", profile_path%>
-        </div>
-      </div>
-    </div>
-</div>
 <div class="container">
-    <div class="col-xs-12">
-      <div class="row">
-        <div class="col-xs-3">
-          <table class="table">
-            <thead class="thead-inverse">
-              <tr>
-                <th>Informations</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Email: <%= @user.email %></td>
-              </tr>
-              <tr>
-                <td>Tel.: <%= @user.phone %></td>
-              </tr>
-            </tbody>
-          </table>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @user.first_name%> <%=@user.last_name%></h3>
         </div>
-        <div class="col-xs-9">
-          <h2>Reviews</h2>
-          <% @reviews.each do |review| %>
-            <div class="commentaire">
-              <div class="row">
-
-                <div class="col-md-1">
-                  <%= cl_image_tag review.mission.trip.user.picture, crop: :fit, width: 100, height: 100, class: "img-responsive"%>
-                </div>
-
-                <div class="col-md-1">
-                  <p> <%= review.user.first_name.capitalize %> </p>
-                </div>
-
-                <div class="col-md-6">
-                  <p> <%= review.content %> </p>
-                </div>
-
-                <div class="col-md-2">
-                <p>
-                  <% review.rating.times do %>
-                    <i class="fa fa-star" aria-hidden"=true" style="color: #FBE70C;"></i>
-                  <%end%>
-                  <% (5 - review.rating).times do %>
-                    <i class="fa fa-star" aria-hidden"=true" style="color: $grey;"></i>
-                  <%end%>
-                </p>
-                </div>
-
-                <div class="col-md-2">
-                  <p> <%= review.created_at.to_s[0..9] %> </p>
-                </div>
-              </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <%= cl_image_tag @user.one_picture_url, class: "avatar-square-med"%> </div>
+            <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-user-information">
+                <tbody>
+                  <tr>
+                    <td>Email:</td>
+                    <td><%= @user.email %></td>
+                  </tr>
+                  <tr>
+                    <td>Téléphone:</td>
+                    <td><%= @user.phone %></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          Membre depuis le <%= @user.created_at.strftime("%d / %m / %Y") %>
+          <span class="pull-right">
+          <%= link_to profile_path, type: "button", class: "btn btn-sm btn-primary" do%>
+            <i class="glyphicon glyphicon-edit"></i>
           <% end %>
+          </span>
         </div>
       </div>
     </div>
+  </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+      <% @reviews.each do |review| %>
+        <div class="card-user-review">
+          <%= cl_image_tag review.mission.trip.user.picture, crop: :fit, width: 50, height: 50, class: "img-circle"%>
+
+          <div class="card-review">
+
+            <p class="carrier-rating">
+              <% review.rating.times do %>
+                <i class="fa fa-star" aria-hidden"=true" style="color: #FBE70C;"></i>
+              <%end%>
+              <% (5 - review.rating).times do %>
+                <i class="fa fa-star" aria-hidden"=true" style="color: $grey;"></i>
+              <%end%>
+            </p>
+            <p class="review-content"> <%= review.content %> </p>
+            <p class="text-right"> <strong><%= review.user.first_name.capitalize %></strong>, le <%= review.created_at.to_s[0..9] %> </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
