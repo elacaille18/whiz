@@ -6,7 +6,7 @@
         <div id="mission-description">
           <div id="itinerary">
             <div id="departure">
-              <%= image_tag "flag-green", style:"width: 20px; height: 20px;"%>
+              <%= cl_image_tag "flag-green-icon_xpv5ax", style:"width: 20px; height: 20px;"%>
               <h1><%=@mission.departure_city%></h1>
             </div>
             <div id="transit-mission">
@@ -14,7 +14,7 @@
               <h1><i class="fa fa-long-arrow-right" aria-hidden="true"></i></h1>
             </div>
             <div id="arrival">
-              <%= image_tag "flag-red", style:"width: 20px; height: 20px;"%>
+              <%= cl_image_tag "flag-red-icon_qrjevh", style:"width: 20px; height: 20px;"%>
               <h1><%=@mission.arrival_city%></h1>
             </div>
           </div>
