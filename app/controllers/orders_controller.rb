@@ -10,6 +10,6 @@ class OrdersController < ApplicationController
 
     @mission.status = "ready"
     @mission.save
-    redirect_to missions_path(@mission)
+    redirect_to mission_path(@mission)
   end
 end
