@@ -1,71 +1,132 @@
-
 <div class="container">
+  <div  class="tbl-header">
+    <table >
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Timeslot</th>
+          <th>Départ</th>
+          <th>Arrivée</th>
+          <th>Description</th>
+          <th>Etat</th>
+          <th>Destinataire</th>
+          <th>Prix</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+    </table>
+      <hr>
+  </div>
+  <div  class="tbl-content">
+    <% @missions.each do |mission| %>
+    <table >
+      <tbody>
+
+        <tr onclick = "document.location = 'missions/<%=mission.id%>';", class="tbl-row">
+          <td class="indicator"><%= mission.starts_on.strftime("%e/%m/%y") %></td>
+          <td><%= mission.timeslot %></td>
+          <td><%= mission.departure_city %></td>
+          <td><%= mission.arrival_city %></td>
+          <td><%= mission.parcel_description %></td>
+          <td>
+            <% case mission.status %>
+            <% when "pending_carrier" %>
+            <%= "en attente de transporteur"%>
+            <% when "pending_payment" %>
+            <%= "en attente de paiement"%>
+            <% when "ready" %>
+            <%= "prêt"%>
+            <% when "on-going" %>
+            <%= "en cours"%>
+            <% when "delivered" %>
+            <%= "colis délivré"%>
+            <% when "done" %>
+            <%= "mission accomplis"%>
+            <% end %>
+          </td>
+          <td><%= mission.receiver_last_name  %></td>
+          <td><%= humanized_money_with_symbol(mission.price)  %></td>
+          <td><%= link_to 'Modifier', edit_mission_path(mission), class:"btn btn-primary" %></td>
+          <td><%= link_to " X ", mission_path(mission), method: :delete, class:"btn btn-warning", data: { confirm: "Etes-vous sure?" } %></td>
+        </tr>
+
+      </tbody>
+    </table>
+    <%end%>
+  </div>
+</div>
+
+
+<br>
+
+<!-- <div class="container">
   <div class="dashboard-header">
-    <div class="row">
-      <div class="col-md-1 text-center">
+
+      <div class="dashboard-column-1">
         <p> Date </p>
       </div>
-      <div class="col-md-1 text-center">
+      <div class="dashboard-column-1">
         <p> Timeslot </p>
       </div>
-      <div class="col-md-1 text-center">
+      <div class="dashboard-column-2">
         <p> Départ </p>
       </div>
-      <div class="col-md-1 text-center">
+      <div class="dashboard-column-2">
         <p> Arrivée</p>
       </div>
-      <div class="col-md-2 text-center">
-        <p> Description du colis</p>
+      <div class="dashboard-column">
+        <p> Description</p>
       </div>
-      <div class="col-md-2 text-center">
+      <div class="dashboard-column-2">
         <p> Etat </p>
       </div>
-      <div class="col-md-2 text-center">
+      <div class="dashboard-column-1">
         <p> Destinataire </p>
       </div>
-      <div class="col-md-1 text-center">
+      <div class="dashboard-column-2">
         <p> Mes actions </p>
       </div>
-      <div class="col-md-1 text-center">
+      <div class="dashboard-column-1">
         <p> Prix </p>
       </div>
-    </div>
+
   </div>
 
   <div class="dashboard-content">
   <% @missions.each do |mission| %>
 
     <div class="card_mission_dashboard">
-      <div class="row dashboard-row">
-        <div class="col-md-1 text-center">
+      <div class="dashboard-row">
+        <div class="dashboard-column-1 ">
           <p> <%= mission.starts_on.strftime("%e/%m/%y") %> </p>
         </div>
 
-        <div class="col-md-1 text-center">
+        <div class="dashboard-column-1 ">
         <p> <%= mission.timeslot %> </p>
         </div>
 
-        <div class="col-md-1 text-center">
+        <div class="dashboard-column-2 ">
           <p> <%= mission.departure_city %>  </p>
         </div>
 
-        <div class="col-md-1 text-center">
+        <div class="dashboard-column-2 ">
           <p> <%= mission.arrival_city %>  </p>
         </div>
 
-        <div class="col-md-2 text-center">
+        <div class="dashboard-column ">
           <p> <%= mission.parcel_description %> </p>
         </div>
 
-        <div class="col-md-2 text-center">
+        <div class="dashboard-column-2 ">
         <p> <%= mission.status %> </p>
         </div>
 
-        <div class="col-md-2 text-center">
+        <div class="dashboard-column ">
         <p> <%= mission.receiver_last_name %></p>
         </div>
 
-        <div class="col-md-1 text-center">
+        <div class="dashboard-column-2 ">
           <ul class="list-inline text-center">
           <li> <%= link_to 'Modifier', edit_mission_path(mission), class:"btn btn-primary" %> </li>
           <li> <%= link_to " X ", mission_path(mission),
@@ -76,14 +137,15 @@
           </ul>
         </div>
 
-        <div class="col-md-1 text-center">
-        <p>Amount: <%= humanized_money_with_symbol(mission.price) %></p>
+        <div class="dashboard-column-1">
+        <p><%= humanized_money_with_symbol(mission.price) %></p>
         </div>
 
       </div>
     </div>
+    <hr>
   <%end%>
   </div>
-</div>
+</div> -->
 
 
