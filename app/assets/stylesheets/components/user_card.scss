@@ -1,24 +1,61 @@
 .user-card {
   height:100%;
-  display:flex;
+  position:relative;
   justify-content:space-between;
+  &-top {
+    display: flex;
+    align-items: center;
+  }
+  &-name {
+    h4 {
+      margin-bottom: 0;
+    }
+    span {
+      margin-left: 10px;
+    }
+  }
+  hr {
+    margin-top: 0;
+  }
+  &-seeprofile {
+    a {
+      padding: 0;
+    }
+  }
 }
 
-.user-info {
-  flex: 18%;
-  margin-right: 3px;
+.user-card-top {
+  background: white;
+  padding: 10px;
+  border-radius: $border-radius-base;
 }
 
-.user-review {
-  flex: 75%;
-  margin-top: 40px;
-  overflow:auto;
-
+.user-card-bottom {
+  background: white;
+  border-radius: $border-radius-base;
+  padding: 15px;
+  padding-right: 20px;
+  height: 40vh;
+  overflow-y: scroll;
 }
 
-.review-scroll {
-  // position: absolute;
-  top: 0; bottom: 0;
-  left: 0; right: 0;
-  overflow: auto;
+.img-card-user {
+  margin-right: 15px;
+}
+
+.card-user-review {
+  img {
+    transform: translateY(50%);
+  }
+  margin-top: -30px;
+  margin-bottom: 20px;
+}
+
+.card-review {
+  border: 1px solid #D0D1D5;
+  background-color: #FCFCFD;
+  border-radius: 3px;
+  padding: 20px;
+  padding-top: 30px;
+  margin-left: 25px;
 }
