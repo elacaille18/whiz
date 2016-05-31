@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-10">
-        <h1>Your trip : <%=@mission.departure_city%> to <%=@mission.arrival_city%></h1>
-        <h2> <%=@mission.starts_on.strftime(" %-d %B %Y")%> </h2>
+        <h1 class="text-center">Votre voyage : </h1>
+        <h2 class="text-center"> De <%=@mission.departure_city%> à <%=@mission.arrival_city%> le <%=@mission.starts_on.strftime(" %-d %B %Y")%></h2>
       </div>
       <div class="col-xs-2">
         <%= link_to "Voir ma mission", mission_path(@mission), class: "btn btn-primary text-right"%>
