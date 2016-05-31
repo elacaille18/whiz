@@ -28,6 +28,26 @@
                 <%= f.input :arrival_city, label: "Ville d'arrivée" %>
               </div>
             </div>
+            <div class="row">
+              <% unless current_user.phone%>
+                <div class="col-md-6">
+                  <div class="form-inputs">
+                    <div class="form-group required">
+                      <%= label_tag :carrier_phone, class: "required" do%>
+                        <abbr title="required">*</abbr> Votre téléphone
+                      <%end%>
+                      <%= text_field_tag :carrier_phone, nil, {type: "number", placeholder: "06 45 68 23 12", class:"form-control required" } %>
+                      <div id="error_on_phone2" class="hidden" style="color:#800000;">
+                        <p>
+                          Votre numéro est indispensable pour la création d'un trip.
+                          Veuillez rentrer un n° correct.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <%end%>
+            </div>
             <div class="text-center">
               <%= f.submit 'Créer', class: "btn btn-primary"  %>
             </div>
@@ -43,6 +63,23 @@
   </div>
 </div>
 
+<% content_for :after_js do %>
+<script>
+  $(document).ready(function() {
+    $(".transporteur-form").submit(function() {
+      var phone2 = $("#carrier_phone").val();
+      var regex = new RegExp("^(0[1-678])(?:[ _.-]?([0-9]{2})){4}$");
+      if (regex.test(phone2) ) {
+         console.log("valide");
+      } else {
+        console.log("ok das non");
+        $("#error_on_phone2").removeClass("hidden");
+        return false
+      }
+    })
+  });
+</script>
+<%end%>
 
 <!--
 Options of datepicker are set in datepicker.js -->

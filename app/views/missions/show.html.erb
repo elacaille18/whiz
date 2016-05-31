@@ -1,13 +1,27 @@
 <!-- Resumé de la mission en cours -->
 <div class="wrapper summary-mission">
   <div class="container">
-    <div id="mission-title">
-      <h1 class="text-center">Votre mission</h1>
-      <div  class= "mission-date text-center">
-        <%= l(@mission.starts_on, format:" %-d %B %Y")%>
-        <!-- # le mois est a passer en francais avec la commande l(date, format: '%B %d, in the year %Y') -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div id="mission-header">
+          <div id="mission-title">
+            <h1 class="text-center">Votre mission</h1>
+            <div  class= "mission-date text-center">
+              <p>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <%= l(@mission.starts_on, format:" %-d %B %Y")%>
+              </p>
+              <p>
+                <i class="fa fa-cube"></i>
+                <%= @mission.parcel_description%>
+              </p>
+              <!-- # le mois est a passer en francais avec la commande l(date, format: '%B %d, in the year %Y') -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
     <div class="row">
       <!-- Partie expediteur -->
       <div class="col-xs-3" >
@@ -31,6 +45,9 @@
 
           <div class="name">
             <%= @mission.user.first_name%>
+            <p>
+              <i class="fa fa-mobile" aria-hidden="true"></i> : <%= @mission.user.phone %>
+            </p>
           </div>
 
 
@@ -71,12 +88,17 @@
             <div class="badge-container">
               <%= image_tag @mission.trip.user.one_picture_url, class: "avatar-bordered"%>
               <div class="badge badge-blue hidden"><%= cl_image_tag "parcel_euzwpq"%></div>
+
             </div>
             <div class="name">
             <p><%= @mission.trip.user.first_name.capitalize %></p>
             </div>
             <%if @mission.trip.status == "to-be-confirmed"%>
               <p>En attente de confirmation...</p>
+            <%elsif @mission.trip.status == "chosen" %>
+              <p>
+                <i class="fa fa-mobile" aria-hidden="true"></i> : <%= @mission.trip.user.phone %>
+              </p>
             <%end%>
           <% else %>
           <div class="error_message" style="margin-top:40px;">
@@ -110,6 +132,9 @@
 
           <div class="name">
             <%= @mission.receiver_first_name%>
+            <p>
+              <i class="fa fa-mobile" aria-hidden="true"></i> : <%= @mission.receiver_phone %>
+            </p>
           </div>
 
 
