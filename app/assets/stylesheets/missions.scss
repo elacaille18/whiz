@@ -5,28 +5,38 @@
 
 // ----------- Style related to the show view ------------------//
 .summary-mission {
-  height:60vh;
-  min-height: 375px;
+  background: linear-gradient(rgba(70, 154, 224, 0.3) 0%, rgb(255,255,255) 50%);
+  height:70vh;
+  min-height: 585px;
   border-bottom: 1px dotted rgba(70, 154, 224, 0.6);
+  padding-top: 40px;
 }
 
 .action {
-  background: white;
+  background-size: cover !important;
   height: 40vh;
   min-height: 320px;
   padding-bottom: 30px;
+
 }
 
+#action-base {
+  background-color: white;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: $border-radius-base;
+}
 
-
-#mission-title h1 {
-  font-size:22px;
-  line-height:24px;
-  letter-spacing: 0.7px;
+#mission-title {
+  padding-bottom:40px;
+  h1 {
+    font-size:32px;
+    line-height:36px;
+    letter-spacing: 0.7px;
+  }
 }
 
 #action-title {
-  margin: 14px 0;
   h1 {
     font-size:22px;
     padding: 10px 0;
@@ -34,6 +44,7 @@
     width:50%;
     margin: auto;
     border-bottom: 1px solid $gray-lighter;
+    margin-bottom: 10px;
   }
 }
 
@@ -46,13 +57,36 @@
   padding-bottom: 10px;
 }
 
+.name {
+  font-size:16px;
+}
+
+.time {
+  p {
+    font-size:19px;
+    font-weight: bold;
+    letter-spacing: -0.4px;
+    color:rgb(233,127,42);
+  }
+}
 .city-info {
-  padding-top: 10px;
+}
+
+.city {
+  width:100%;
+  img {
+    max-width:100%;
+
+  }
+  h2 {
+    margin-top: 15px;
+    font-size: 20px;
+  }
 }
 
 #carrier {
   position: relative;
-  top: 50px;
+  top: 127px;
 }
 
 #bridge img {
@@ -63,7 +97,7 @@
 
 #train {
   position: relative;
-  height:30px;
+  height:27px;
   // va servir à faire bouger le train
 }
 #train img {

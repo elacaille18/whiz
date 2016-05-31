@@ -29,7 +29,7 @@
   <div class="carrier-infos">
 
     <div class="carrier-name">
-      <%= trip.user.email%>
+      <%= trip.user.first_name%>
     </div>
     <div class="carrier-rating">
       <% 4.times do %>
@@ -47,5 +47,8 @@
     <%= link_to mission_update_mission_with_trip_path(@mission, trip_id: trip.id), {:method => :put} do %>
       <i class="fa fa-check" aria-hidden="true"></i>
     <%end%>
+  </div>
+  <div class="arrow hidden">
+    <div class="white-triangle"></div>
   </div>
 </div>

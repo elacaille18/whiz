@@ -22,4 +22,8 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller].starts_with?("admin/")
   end
 
+  def default_url_options
+  { host: ENV['HOST'] || 'localhost:3000' }
+  end
+
 end

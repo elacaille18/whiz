@@ -4,20 +4,32 @@
  * ------------------------------------- */
 
 .wrapper {
-background-color: #FAFAFA
+background-color: $gray-lighter;
 }
 
 .megaform {
   border-style: solid;
   border-width: 0px;
-  background-color: $gray-lighter;
+  background-color: #FAFAFA;
   border-radius: 10px;
   margin: 20px;
   padding: 20px;
   position: relative;
   min-width: 100vh;
-  min-height: 66vh;
+  min-height: 60vh;
   height: 100%
+}
+
+.pager .previous{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.pager .next{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 
 .small-package {
@@ -33,5 +45,16 @@ background-color: #FAFAFA
   height:6px;
 }
 
+.pager .disabled > a{
+  display:none;
+}
 
+.pager .next :hover {
+  background-color: $blue;
+  color: white;
+}
 
+.pager .previous :hover {
+  background-color: $blue;
+  color: white;
+}
