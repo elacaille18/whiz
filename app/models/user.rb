@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     elsif self.picture
       self.picture
     else
-      "http://placehold.it/30x30"
+      "http://www.fao.org/fileadmin/templates/aiq2013/images/user-placeholder.jpg"
     end
   end
 end

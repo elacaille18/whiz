@@ -1,5 +1,15 @@
-.wrapper-gray {
-  background-color: $gray-lighter;
+.wrapper-title-search {
+  background-color: white;
+  background: linear-gradient(rgba(70, 154, 224, 0.1) 0%, rgb(255,255,255) 30%);
+  a {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+}
+
+.wrapper-results-search {
+  background-color:$gray-lighter;
+  padding: 20px 0;
 }
 
 #search-results {
