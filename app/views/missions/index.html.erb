@@ -3,7 +3,7 @@
   Mes Colis
 <% end %>
 
-<h4 class="title-mission" style="text-align: center"> Mes Colis | envoyés : <%= Mission.where(status: 'delivered').length %> | en cours : <%= @missions.length - Mission.where(status: 'delivered').length %></h4>
+<h4 class="title-mission" style="text-align: center"> <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a> Mes Colis | envoyés : <%= Mission.where(status: 'delivered').length %> | en cours : <%= @missions.length - Mission.where(status: 'delivered').length %></h4>
 
 <%if @missions.first.nil? %>
   <p>Vous n'avez pas de Colis enregistrés</p>

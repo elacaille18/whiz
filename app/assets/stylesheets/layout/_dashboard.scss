@@ -20,20 +20,18 @@ table{
   border: 1px solid rgba(255,255,255,0.3);
 }
 
-
-
 th{
   padding: 20px 15px;
   text-align: left;
-  font-weight: 500;
-  color: black;
+  // font-weight: 500;
+  color: $gray-light;
   text-transform: uppercase;
 }
 td{
   padding: 15px;
   text-align: left;
   vertical-align:middle;
-  font-weight: 300;
+  // font-weight: 300;
   color: black;
   border-bottom: solid 1px rgba(255,255,255,0.1);
 }
@@ -45,113 +43,105 @@ td{
 .title-mission {
   padding-top: 50px;
 }
-// @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-// body{
-//   background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-//   background: linear-gradient(to right, #25c481, #25b7c4);
-//   font-family: 'Roboto', sans-serif;
-// }
+
 section{
   margin: 50px;
   background-color: white;
 }
 
-
-// code pen above
 .container {
   background-color: white;
   padding: 10px;
   margin-top: 50px;
 }
 
-.dashboard_header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: $gray-light;
-  font-weight: bold;
-}
 
-.dashboard_column {
-  padding: 5px 15px;
-}
 
-.dashboard_content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-// CSS POUR CARD MISSION  DASHBOARD STATUS DONE
-// .card_mission_dashboard_Fini {
+
+
+
+
+
+// .dashboard_header {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   color: $gray-light;
+//   font-weight: bold;
+// }
+
+// .dashboard_column {
+//   padding: 5px 15px;
+// }
+
+// .dashboard_content {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+
+// .card_mission_dashboard {
 //   border-style: solid;
 //   border-width: 0px;
-//   background-color: $gray-lighter;
+//   background-color: white;
 //   border-radius: 10px;
 //   margin: 10px;
 //   padding: 10px;
 // }
-.card_mission_dashboard {
-  border-style: solid;
-  border-width: 0px;
-  background-color: white;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
-}
 
-.card_mission_dashboard:hover {
-  border-style: solid;
-  border-width: 0px;
-  background-color: $blue;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
-  opacity: 0.6;
-  color: white;
-}
+// .card_mission_dashboard:hover {
+//   border-style: solid;
+//   border-width: 0px;
+//   background-color: $blue;
+//   border-radius: 10px;
+//   margin: 10px;
+//   padding: 10px;
+//   opacity: 0.6;
+//   color: white;
+// }
 
-.dashboard-row {
-  display: flex;
-  align-items: center;
-  padding-top: inherit;
-}
+// .dashboard-row {
+//   display: flex;
+//   align-items: center;
+//   padding-top: inherit;
+// }
 
-.dashboard-header {
-  display: flex;
-  border-style: solid;
-  border-width: 0px;
-  color: white;
-  border-radius: 10px 10px 0px 0px;
-  margin: 10px;
-  padding: 10px;
-  padding-top: 20px;
-  background-color: $blue;
-}
+// .dashboard-header {
+//   display: flex;
+//   border-style: solid;
+//   border-width: 0px;
+//   color: white;
+//   border-radius: 10px 10px 0px 0px;
+//   margin: 10px;
+//   padding: 10px;
+//   padding-top: 20px;
+//   background-color: $blue;
+// }
 
-.dashboard-column-1 {
-  flex: 0 0 9%;
-  padding: 0 5px;
-}
-.dashboard-column-2 {
-  flex: 0 0 15%;
-  padding: 0 5px;
-}
-.dashboard-column {
-  flex: 0 0 7%;
-  padding: 0 5px;
-}
+// .dashboard-column-1 {
+//   flex: 0 0 9%;
+//   padding: 0 5px;
+// }
+// .dashboard-column-2 {
+//   flex: 0 0 15%;
+//   padding: 0 5px;
+// }
+// .dashboard-column {
+//   flex: 0 0 7%;
+//   padding: 0 5px;
+// }
 
 
-.case {
-margin:3px;
-padding:3px;
-background-color: $blue;
-color: white;
-border-radius: 5px;
-}
+// .case {
+// margin:3px;
+// padding:3px;
+// background-color: $blue;
+// color: white;
+// border-radius: 5px;
+// }
 
-.box {
-  border: 1px solid white;
-  margin: 10px 20px;
-}
+// .box {
+//   border: 1px solid white;
+//   margin: 10px 20px;
+// }
