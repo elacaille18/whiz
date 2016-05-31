@@ -1,7 +1,11 @@
 <% content_for(:title) do %>
   Mes Voyages
 <% end %>
-<h4 class="text-center title-mission"> Mes transports | effectués : <%= @trips.where(status: 'chosen').length %> | en cours : <%= @trips.length - @trips.where(status: 'chosen').length %> | revenu généré : 550 € </h4>
+<h4 class="text-center title-mission">
+ <%= link_to new_trip_path do %>
+  <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span>
+  <% end %>
+Mes transports | effectués : <%= @trips.where(status: 'chosen').length %> | en cours : <%= @trips.length - @trips.where(status: 'chosen').length %> | revenu généré : 550 € </h4>
 
 <%if @trips.first.nil? %>
   <p>Vous n'avez pas de transports enregistrés</p>
