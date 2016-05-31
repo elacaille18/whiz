@@ -8,6 +8,8 @@ $(document).ready(function(){
           // backspacing speed
           backSpeed: 100,
           typeSpeed: 200,
+          // loop
+          loop: false,
       });
   });
 });
