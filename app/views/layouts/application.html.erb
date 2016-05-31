@@ -63,8 +63,10 @@
 
 
     <%= render 'shared/navbar' unless @disable_nav %>
-    <%= yield %>
-
+    <div class="container-yield">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
 
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyD5R5VjepON1C3VA_kLA1Ob0Yx12EOO1HE' %>
     <%= javascript_include_tag 'application' %>

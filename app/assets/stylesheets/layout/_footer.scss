@@ -1,2 +1,29 @@
 // Your footer style
+#footer {
+  background: $gray;
+  padding: 20px 0;
+  color: white;
+  bottom: 0;
 
+
+  p {
+    margin-top: 17px;
+    margin-left: 300px;
+  }
+  p:hover{
+    color: $orange;
+  }
+  ul {
+    margin-top: 10px;
+  }
+  a {
+    color: white;
+    font-size: 30px;
+    letter-spacing: 20px;
+    transition: color 0.5s ease;
+  }
+}
+
+#footer .fa:hover {
+  color: $orange;
+}
