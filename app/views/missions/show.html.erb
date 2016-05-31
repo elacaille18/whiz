@@ -15,7 +15,7 @@
 
           <div class="city-info">
             <div class="city">
-              <%= cl_image_tag "city", class: "hidden-xs hidden-md hidden-sm"%>
+              <%= cl_image_tag "city_wed48y", class: "hidden-xs hidden-md hidden-sm"%>
               <h2><%= @mission.departure_city%></h2>
             </div>
             <div class="time">
@@ -26,7 +26,7 @@
 
           <div class="badge-container">
             <%= image_tag @mission.user.one_picture_url, class: "avatar-bordered on-duty"%>
-            <div class="badge badge-blue"><%= image_tag "parcel"%></div>
+            <div class="badge badge-blue"><%= cl_image_tag "parcel_euzwpq"%></div>
           </div>
 
           <div class="name">
@@ -48,16 +48,16 @@
             <div id="train">
               <% case @mission.status %>
               <% when "on-going"%>
-                <%= image_tag "tgv", class:"on-transit"%>
+                <%= cl_image_tag "tgv_gkohwi", class:"on-transit"%>
               <% when "delivered" || "done" %>
-                <%= image_tag "tgv", class:"arrived"%>
+                <%= cl_image_tag "tgv_gkohwi", class:"arrived"%>
               <% else%>
-                <%= image_tag "tgv", class:"beginning"%>
+                <%= cl_image_tag "tgv_gkohwi", class:"beginning"%>
               <%end%>
             </div>
 
             <div id="bridge">
-              <%= image_tag "bridge"%>
+              <%= cl_image_tag "bridge_k18ha4"%>
             </div>
           </div>
           <div id="arrow" class="hidden-sm hidden-md hidden-lg">
@@ -70,7 +70,7 @@
           <% if @mission.trip%>
             <div class="badge-container">
               <%= image_tag @mission.trip.user.one_picture_url, class: "avatar-bordered"%>
-              <div class="badge badge-blue hidden"><%= image_tag "parcel"%></div>
+              <div class="badge badge-blue hidden"><%= cl_image_tag "parcel_euzwpq"%></div>
             </div>
             <div class="name">
             <p><%= @mission.trip.user.first_name.capitalize %></p>
@@ -94,7 +94,7 @@
 
           <div class="city-info">
             <div class="city">
-              <%= image_tag "city", class:"hidden-xs hidden-md hidden-sm"%>
+              <%= cl_image_tag "city_wed48y", class:"hidden-xs hidden-md hidden-sm"%>
               <h2><%= @mission.arrival_city%></h2>
             </div>
             <div class="time">
@@ -105,7 +105,7 @@
 
           <div class="badge-container">
             <%= image_tag "http://www.fao.org/fileadmin/templates/aiq2013/images/user-placeholder.jpg", class: "avatar-bordered "%>
-            <div class="badge badge-blue hidden"><%= image_tag "parcel"%></div>
+            <div class="badge badge-blue hidden"><%= cl_image_tag "parcel_euzwpq"%></div>
           </div>
 
           <div class="name">
@@ -125,15 +125,15 @@
 </div>
 
 <% if @mission.trip %>
-  <div class="wrapper action" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.4)), url('http://res.cloudinary.com/steencloud/image/upload/v1464341479/grand-central-station-hurry-blurred-blur_lizlz2.jpg');">
+  <div class="wrapper action" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url(<%= cl_image_path "country-train_aejrzf"%>);">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-4">
           <div id="action-base">
             <div id="action-title" class="text-center">
               <h1>Vos actions</h2>
             </div>
-            <div id="actions-content">
+            <div id="actions-content" class="text-center">
               <%=render 'missions/actions', mission: @mission%>
             </div>
           </div>
