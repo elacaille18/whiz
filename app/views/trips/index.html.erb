@@ -1,14 +1,18 @@
 <% content_for(:title) do %>
   Mes Voyages
 <% end %>
-<h4 class="text-center"> Mes transports </h4>
+<h4 class="text-center title-mission">
+ <%= link_to new_trip_path do %>
+  <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span>
+  <% end %>
+Mes transports | effectués : <%= @trips.where(status: 'chosen').length %> | en cours : <%= @trips.length - @trips.where(status: 'chosen').length %> | revenu généré : 550 € </h4>
 
 <%if @trips.first.nil? %>
   <p>Vous n'avez pas de transports enregistrés</p>
   <p>Enregistrer un transport aujourd'hui et commencez à gagner de l'argent !</p>
   <p><%= link_to 'Enregistrement', new_trip_path %></p>
 <%else%>
-  <%= render "summary" %>
+
   <%= render "dashboard" %>
 <%end%>
 
