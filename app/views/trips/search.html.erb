@@ -1,5 +1,6 @@
 <div class="wrapper-title-search">
   <div class="container">
+
     <div class="row">
       <div class="col-xs-12 col-sm-10">
         <h1>Your trip : <%=@mission.departure_city%> to <%=@mission.arrival_city%></h1>
@@ -11,6 +12,7 @@
     </div>
   </div>
 </div>
+
 
 <div class="wrapper-results-search">
   <div class="container">
@@ -29,6 +31,7 @@
               <%end%>
           <%end%>
         </div>
+        <%= link_to "Voir ma mission", mission_path(@mission), class: "btn btn-primary"%>
       </div>
       <div class="col-sm-5">
         <div id="user-corner" style="display: none;">
@@ -36,8 +39,6 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 
   </div>
 </div>
