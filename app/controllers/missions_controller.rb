@@ -24,6 +24,7 @@ class MissionsController < ApplicationController
     generate_twitter_message(@mission)
     authorize @mission
     if @mission.save
+      current_user.update(phone: params[:sender_phone]) if params[:sender_phone]
       redirect_to mission_trips_search_path(@mission)
     else
       render :new

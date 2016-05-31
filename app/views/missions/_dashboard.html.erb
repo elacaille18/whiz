@@ -1,59 +1,62 @@
 <div class="container">
-  <div  class="tbl-header">
-    <table >
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Timeslot</th>
-          <th>Départ</th>
-          <th>Arrivée</th>
-          <th>Description</th>
-          <th>Etat</th>
-          <th>Destinataire</th>
-          <th>Prix</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-    </table>
-      <hr>
-  </div>
-  <div  class="tbl-content">
-    <% @missions.each do |mission| %>
-    <table >
-      <tbody>
+  <div class="container-dashboard">
+    <div  class="tbl-header">
+      <table >
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Timeslot</th>
+            <th>Départ</th>
+            <th>Arrivée</th>
+            <th>Description</th>
+            <th>Etat</th>
+            <th>Destinataire</th>
+            <th>Prix</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+      </table>
+        <hr>
+    </div>
+    <div  class="tbl-content">
+      <% @missions.each do |mission| %>
+      <table >
+        <tbody>
 
-        <tr onclick = "document.location = 'missions/<%=mission.id%>';", class="tbl-row">
-          <td class="indicator"><%= mission.starts_on.strftime("%e/%m/%y") %></td>
-          <td><%= mission.timeslot %></td>
-          <td><%= mission.departure_city %></td>
-          <td><%= mission.arrival_city %></td>
-          <td><%= mission.parcel_description %></td>
-          <td>
-            <% case mission.status %>
-            <% when "pending_carrier" %>
-            <%= "en attente de transporteur"%>
-            <% when "pending_payment" %>
-            <%= "en attente de paiement"%>
-            <% when "ready" %>
-            <%= "prêt"%>
-            <% when "on-going" %>
-            <%= "en cours"%>
-            <% when "delivered" %>
-            <%= "colis délivré"%>
-            <% when "done" %>
-            <%= "mission accomplis"%>
-            <% end %>
-          </td>
-          <td><%= mission.receiver_last_name  %></td>
-          <td><%= humanized_money_with_symbol(mission.price)  %></td>
-          <td><%= link_to 'Modifier', edit_mission_path(mission), class:"btn btn-primary" %></td>
-          <td><%= link_to " X ", mission_path(mission), method: :delete, class:"btn btn-warning", data: { confirm: "Etes-vous sure?" } %></td>
-        </tr>
+          <tr onclick = "document.location = 'missions/<%=mission.id%>';", class="tbl-row">
+            <td class="indicator"><%= mission.starts_on.strftime("%e/%m/%y") %></td>
+            <td><%= mission.timeslot %></td>
+            <td><%= mission.departure_city %></td>
+            <td><%= mission.arrival_city %></td>
+            <td><%= mission.parcel_description %></td>
+            <td>
+              <% case mission.status %>
+              <% when "pending_carrier" %>
+              <%= "en attente de transporteur"%>
+              <% when "pending_payment" %>
+              <%= "en attente de paiement"%>
+              <% when "ready" %>
+              <%= "prêt"%>
+              <% when "on-going" %>
+              <%= "en cours"%>
+              <% when "delivered" %>
+              <%= "colis délivré"%>
+              <% when "done" %>
+              <%= "mission accomplis"%>
+              <% end %>
+            </td>
+            <td><%= mission.receiver_last_name  %></td>
+            <td><%= humanized_money_with_symbol(mission.price)  %></td>
+            <td><%= link_to 'Modifier', edit_mission_path(mission), class:"btn btn-primary" %></td>
+            <td><%= link_to " X ", mission_path(mission), method: :delete, class:"btn btn-warning", data: { confirm: "Etes-vous sure?" } %></td>
+          </tr>
 
-      </tbody>
-    </table>
-    <%end%>
+        </tbody>
+      </table>
+      <%end%>
+    </div>
+
   </div>
 </div>
 
