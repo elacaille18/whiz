@@ -27,11 +27,10 @@ Rails.application.routes.draw do
       post 'check_end', to: 'missions#check_end_code'
     end
     resources :reviews, only: [:new, :create]
+    resources :payments, only: [:create]
   end
 
-  resources :orders, only: [:show, :create]  do
-    resources :payments, only: [:new, :create]
-  end
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

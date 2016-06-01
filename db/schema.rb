@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530100836) do
+ActiveRecord::Schema.define(version: 20160601143712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,20 +60,11 @@ ActiveRecord::Schema.define(version: 20160530100836) do
     t.datetime "updated_at",                      null: false
     t.string   "receiver_email"
     t.integer  "price_cents",         default: 0, null: false
+    t.json     "payment"
   end
 
   add_index "missions", ["trip_id"], name: "index_missions_on_trip_id", using: :btree
   add_index "missions", ["user_id"], name: "index_missions_on_user_id", using: :btree
-
-  create_table "orders", force: :cascade do |t|
-    t.string   "state"
-    t.string   "sku"
-    t.integer  "amount_cents",    default: 0,     null: false
-    t.string   "amount_currency", default: "EUR", null: false
-    t.json     "payment"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-  end
 
   create_table "reviews", force: :cascade do |t|
     t.text     "content"
@@ -145,6 +136,7 @@ ActiveRecord::Schema.define(version: 20160530100836) do
     t.string   "description"
     t.string   "city"
     t.string   "photo"
+    t.string   "stripe_customer_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

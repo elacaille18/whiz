@@ -8,22 +8,21 @@
     <p>Ne vous inquiétez pas vous serez remboursé si un imprévus se déclare</p>
     <div id="button-payment" class="text-center">
       <!-- bouton stripe pay -->
-      <%= form_tag orders_path do %>
-        <%= hidden_field_tag 'mission_id', @mission.id %>
-        <% @order = Order.create!(sku: "#{@mission.departure_city}, #{@mission.arrival_city}, #{@mission.created_at}")%>
-        <%= form_tag order_payments_path(@order) do %>
-          <article>
-            <label class="amount">
-              <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-            </label>
-          </article>
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-name="Payer ma mission"
-              data-description="Mission <%= @order.sku %>"
-              data-amount="<%= @order.amount_cents %>"
-              data-currency="EUR"></script>
-        <% end %>
+      <%= form_tag mission_payments_path(@mission) do %>
+        <article>
+          <label class="amount">
+            <span>Montant: <%= humanized_money_with_symbol(@mission.price) %></span>
+          </label>
+        </article>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-label="Payer"
+            data-name="Payer ma mission"
+            data-description="Mission <%= @mission.id %>"
+            data-amount="<%= @mission.price_cents %>"
+            data-currency="EUR"
+            data-email="<%= current_user.email %>"
+            data-locale="fr"></script>
       <% end %>
       <!-- fin bouton stripe pay -->
 

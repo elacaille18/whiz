@@ -1,36 +1,35 @@
 class PaymentsController < ApplicationController
-  def new
-  end
-
   def create
-   @amount = @order.amount_cents
+    @mission = current_user.missions.where(status: "pending_payment").find(params[:mission_id])
+    authorize @mission
 
-    customer = Stripe::Customer.create(
-      source: params[:stripeToken],
-      email: params[:stripeEmail]
-    )
-    # You should store this customer id and re-use it.
+    @amount_cents       = @mission.price_cents
+    stripe_customer_id  = current_user.stripe_customer_id
+
+    unless stripe_customer_id
+      stripe_customer = Stripe::Customer.create(
+        source: params[:stripeToken],
+        email:  params[:stripeEmail]
+      )
+      stripe_customer_id = stripe_customer.id
+      current_user.update(stripe_customer_id: stripe_customer_id)
+    end
 
     charge = Stripe::Charge.create(
-      customer: customer.id,
-      amount:       @amount,  # in cents
-      description:  "Payment for mission #{@order.sku} for order #{@order.id}",
+      customer:     stripe_customer_id,
+      amount:       @amount_cents,
+      description:  "Paiement pour mission #{@mission.id}",
       currency:     'eur'
     )
 
-    @order.update(payment: charge.to_json, state: 'paid')
+    SmsSender.new.send_message("+33644607591", @mission.receiver_phone.gsub(/[ .-]/, ""), "Le code à transmettre au transporteur est le : \n #{@mission.end_code} \n L'équipe Whiz")
 
-    redirect_to order_path(@order)
+    @mission.update(payment: charge.to_json, status: 'ready')
+
+    redirect_to mission_path(@mission)
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_order_payment_path(@order)
+    redirect_to mission_path(@mission)
   end
-
-  private
-
-  def set_order
-    @order = Order.where(state: 'pending').find(params[:order_id])
-  end
-
 end

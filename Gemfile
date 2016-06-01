@@ -21,6 +21,8 @@ gem 'coffee-script', '~> 2.4', '>= 2.4.1'
 gem 'money-rails'
 gem 'stripe'
 
+#Twillio
+gem 'twilio-ruby', '~> 4.11.1'
 
 
 gem 'sass-rails'
