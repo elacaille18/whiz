@@ -11,11 +11,11 @@ background-color: $gray-lighter;
   border-style: solid;
   border-width: 0px;
   background-color: #FAFAFA;
-  border-radius: 10px;
+  border-radius: 0px;
   margin: 20px;
   padding: 20px;
   position: relative;
-  min-height: 60vh;
+  min-height: 65vh;
   height: 100%
 }
 
@@ -56,4 +56,12 @@ background-color: $gray-lighter;
 .pager .previous :hover {
   background-color: $blue;
   color: white;
+}
+
+.pager li > a, .pager li > span {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0px;
 }

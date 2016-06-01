@@ -4,18 +4,25 @@
       <div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
         <div class="megaform">
           <%= simple_form_for(@mission) do |f| %>
+          <% if resource.errors.any? %>
+            <ul class="list-unstyled">
+              <% resource.errors.full_messages.each do |message| %>
+                <li class="simple-form-error-fallback"><%= message %></li>
+              <% end %>
+            </ul>
+          <% end %>
 
           <div id="rootwizard">
 
             <!-- Onglets -->
             <div class="navbar">
               <div class="navbar-inner">
-                <div class="container">
+                <div>
                   <ul class="list-inline">
                     <li><a href="#tab1" data-toggle="tab">Le Trajet</a></li>
                     <li><a href="#tab2" data-toggle="tab">Mon Colis</a></li>
                     <li><a href="#tab3" data-toggle="tab">Mon Receveur</a></li>
-                    <li><a href="#tab4" data-toggle="tab">Valider</a></li>
+                    <li><a href="#tab4" data-toggle="tab" class="hidden">Valider</a></li>
                   </ul>
                 </div>
               </div>
@@ -42,22 +49,34 @@
                 <div class="row">
                     <div class="col-md-6">
                       <div class="form-inputs">
-                        <%= f.input :departure_city, label: 'Ville de Départ', input_html: { placeholder: "Ville de départ" } %>
+                        <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></div>
+                          <%= f.input :departure_city, label:false, input_html: { placeholder: "Ville de départ" } %>
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-6">
                        <div class="form-inputs">
-                        <%= f.input :arrival_city, label: "Ville d'arrivée", input_html: { placeholder: "Ville d'arrivée" }%>
+                        <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></div>
+                          <%= f.input :arrival_city, label: false, input_html: { placeholder: "Ville d'arrivée" }%>
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-inputs">
-                        <%= f.input :starts_on, as: :string, label: 'Date et horaire de départ', input_html: { placeholder: "Date de départ", id:"datetimepicker3" } %>
+                        <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></div>
+                          <%= f.input :starts_on, as: :string, label: false, input_html: { placeholder: "Date de départ", id:"datetimepicker3" } %>
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-6">
                        <div class="form-inputs">
-                        <%= f.input :timeslot, as: :select, collection: Mission::TIMESLOT, include_blank: "Choisissez un créneau horaire", label: 'Créneau horaire' %>
+                        <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-calendar-o fa-fw" aria-hidden="true"></i></div>
+                          <%= f.input :timeslot, as: :select, collection: Mission::TIMESLOT, include_blank: "Choisissez un créneau horaire", label: false %>
+                       </div>
                       </div>
                     </div>
                 </div>
@@ -67,7 +86,10 @@
                 <div class="row">
                   <div class="col-md-12">
                      <div class="form-inputs">
-                      <%= f.input :parcel_description, input_html: { placeholder: "Décrivez votre colis" }, label: 'Description du colis' %>
+                      <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-cube fa-fw" aria-hidden="true"></i></div>
+                        <%= f.input :parcel_description, input_html: { placeholder: "Décrivez votre colis" }, label:false %>
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -78,17 +100,26 @@
 
                   <div class="col-md-6">
                     <div class="form-inputs">
-                        <%= f.input :receiver_first_name,label: 'Prénom du destinataire', input_html: { placeholder: "Prénom du destinataire" } %>
+                        <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></div>
+                        <%= f.input :receiver_first_name,label:false, input_html: { placeholder: "Prénom du destinataire" } %>
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-inputs">
-                      <%= f.input :receiver_last_name, label: 'Nom du destinataire', input_html: { placeholder: "Nom du receveur" } %>
+                      <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></div>
+                        <%= f.input :receiver_last_name, label: false, input_html: { placeholder: "Nom du destinataire" } %>
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-inputs">
-                      <%= f.input :receiver_phone, label: 'Téléphone du destinataire', input_html: { placeholder: "06 45 68 23 12" } %>
+                      <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-phone fa-fw" aria-hidden="true"></i></div>
+                        <%= f.input :receiver_phone, label: false, input_html: { placeholder: "06 45 68 23 12 du destinataire" } %>
+                      </div>
                     </div>
                   </div>
 
@@ -96,10 +127,10 @@
                     <div class="col-md-6">
                       <div class="form-inputs">
                         <div class="form-group required">
-                          <%= label_tag :sender_phone, class: "required" do%>
-                            <abbr title="required">*</abbr> Votre téléphone
-                          <%end%>
-                          <%= text_field_tag :sender_phone, nil, {type: "number", placeholder: "06 45 68 23 12", class:"form-control required" } %>
+                          <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-phone fa-fw" aria-hidden="true"></i></div>
+                            <%= text_field_tag :sender_phone, nil, {type: "number", placeholder: "Votre n° télephone: 06 23 45 75 31", class:"form-control required" } %>
+                          </div>
                           <div id="error_on_phone" class="hidden" style="color:#800000;">
                             <p>
                               Votre numéro est indispensable pour la création d'une mission.<br/>
