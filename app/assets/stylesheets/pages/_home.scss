@@ -2,9 +2,36 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-.wrapper-home {
-  padding : 60px;
-  padding-bottom : 100px;
+
+.info-container {
+  display: flex;
 }
 
+// .info-image {
+//   display: inline-block;
+//   min-width: 630px;
+//   min-height: 300px;
+// }
 
+// .info-texte {
+//   display: inline-block;
+//   min-width: 630px;
+//   min-height: 300px;
+//   text-align: center;
+//   padding-top: 50px;
+//   padding-left: 90px;
+//   padding-right: 90px;
+// }
+.info-item {
+  flex: 0 0 50%;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25px;
+  min-height: 300px;
+  @media (max-width: 480px) {
+    flex: 0 0 100%;
+  }
+}
