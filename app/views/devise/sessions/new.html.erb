@@ -8,8 +8,14 @@
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
-            <%= f.input :email, required: false, autofocus: true %>
-            <%= f.input :password, required: false %>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></div>
+              <%= f.input :email, label:false, required: false, autofocus: true %>
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></div>
+              <%= f.input :password, label:false, required: false %>
+            </div>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           </div>
 

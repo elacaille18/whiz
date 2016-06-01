@@ -1,6 +1,21 @@
 .login-form {
-  border-radius:5px;
+  border-radius:0px;
   background-color: white;
   padding: 15px;
   margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  margin: 20px 0px;
+}
+
+.input-group-addon {
+  background-color: $blue;
+  color: white;
+
+}
+
+.margin-help {
+  margin-top: -15px;
 }
