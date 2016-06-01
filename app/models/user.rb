@@ -6,14 +6,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :trips
 
   # Transporteur
-  has_many :missions, through: :trips
-  has_many :transporter_reviews, through: :missions, source: :review
+  has_many :trips
+  has_many :accepted_missions, through: :trips, source: :mission
+  has_many :transporter_reviews, through: :accepted_missions, source: :review
 
   # Envoyeur
   has_many :sender_reviews, class_name: "Review"
+  has_many :missions
 
   validates :first_name, presence: true
   validates :last_name, presence: true
