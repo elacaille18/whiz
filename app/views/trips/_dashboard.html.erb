@@ -22,7 +22,7 @@
       <% @trips.each do |trip| %>
       <table >
         <tbody>
-          <tr onclick = "document.location = 'missions/<%=trip.id%>';", class="tbl-row">
+          <tr class="tbl-row">
             <td class="indicator"><%= trip.starts_at.strftime("%e/%m/%y") %></td>
             <td><%= trip.starts_at.to_s[10..15] %></td>
             <td><%= trip.departure_city %></td>
@@ -46,7 +46,7 @@
             <% if trip.status == "chosen"%>
             <td>
                 <%if Mission.where(trip_id: trip.id).first.status == "delivered"%>
-                  <%= "merci !" %>
+                  <p style="font-weight:bold; font-size:19px;">Merci !</p>
                 <% else %>
                   <%= link_to "Voir la mission", mission_path(Mission.where(trip_id: trip.id).first), class: "btn btn-success"%>
                 <% end %>
@@ -71,3 +71,14 @@
   </div>
 </div>
 
+<% content_for(:after_js) do %>
+  <script>
+    $("tbody tr").hover(function() {
+        $("tbody tr").addClass('fadded');
+        $(this).removeClass('fadded');
+      }, function () {
+        $("tbody tr").removeClass("fadded");
+      }
+    );
+  </script>
+<% end %>
