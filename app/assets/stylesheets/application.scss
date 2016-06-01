@@ -35,7 +35,7 @@ body {
   align-items: center;
 }
 
-// .container-yield {
-//   min-height: 100vh;
-// }
+.container-yield {
+  min-height: calc(100vh - 70px - 102px);
+}
 

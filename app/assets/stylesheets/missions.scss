@@ -99,7 +99,7 @@
 
 #carrier {
   position: relative;
-  top: 127px;
+  top: 123px;
 }
 
 #bridge img {
@@ -110,11 +110,11 @@
 
 #train {
   position: relative;
-  height:27px;
+  height:34px;
   // va servir à faire bouger le train
 }
 #train img {
-  max-width:20%;
+  max-width:25%;
   position: absolute;
   // left:2%; // position de début
   transition: all ease 1s;
