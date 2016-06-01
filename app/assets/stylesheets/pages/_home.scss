@@ -2,7 +2,12 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.how-it-works {
+  background-color: white;
+  padding: 60px 50px;
+}
 
+//------------------
 .info-container {
   display: flex;
 }
@@ -38,8 +43,6 @@
   padding-left: 10px;
   background-color: $gray-lighter;
   height : 55px;
-
-
 }
 
 .wrapper-trip-home p {
