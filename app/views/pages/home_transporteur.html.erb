@@ -28,3 +28,43 @@
   </div>
 </div>
 </div>
+
+<div class="wrapper-example">
+  <div class="container">
+    <div class="row">
+      <div class="text-center wrapper-home-title">
+        <h4>Dèja des dizaines de colis attendent d'être transportés</h4>
+      </div>
+    </div>
+
+    <% @missions.each do |mission| %>
+      <div class="row">
+       <div class="wrapper-trip-home">
+         <div class="home-start flex-home">
+         <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> <%=mission.starts_on.to_s[0..10]%></p>
+         </div>
+         <div class="home-depart flex-home">
+         <p><%= mission.departure_city%></p>
+         </div>
+         <div class="flex-home">
+         <p><%=mission.arrival_city%></p>
+         </div>
+         <div class="flex-home">
+         <p><%= cl_image_tag mission.user.one_picture_url, class: "avatar" %> <%=mission.user.first_name%> <%=mission.user.photo%></p>
+
+         </div>
+         <div class="flex-home">
+         <p> <%=mission.parcel_description%> </p>
+         </div>
+       </div>
+      </div>
+    <%end%>
+    <div class="row">
+      <div class="text-center wrapper-home-title">
+        Donner un coup de main à Julie, Paul ou encore Jean ...
+      </div>
+    </div>
+
+  </div>
+</div>
+
