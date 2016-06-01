@@ -44,8 +44,8 @@
           </div>
 
           <div class="name">
-            <%= @mission.user.first_name%>
             <p>
+              <%= @mission.user.first_name%><br/>
               <i class="fa fa-mobile" aria-hidden="true"></i> : <%= @mission.user.phone %>
             </p>
           </div>
@@ -91,15 +91,14 @@
 
             </div>
             <div class="name">
-            <p><%= @mission.trip.user.first_name.capitalize %></p>
-            </div>
-            <%if @mission.trip.status == "to-be-confirmed"%>
-              <p>En attente de confirmation...</p>
-            <%elsif @mission.trip.status == "chosen" %>
-              <p>
-                <i class="fa fa-mobile" aria-hidden="true"></i> : <%= @mission.trip.user.phone %>
+              <p><%= @mission.trip.user.first_name.capitalize %><br/>
+              <%if @mission.trip.status == "to-be-confirmed"%>
+                En attente de confirmation...
+              <%elsif @mission.trip.status == "chosen" %>
+                  <i class="fa fa-mobile" aria-hidden="true"></i> : <%= @mission.trip.user.phone %>
+              <%end%>
               </p>
-            <%end%>
+            </div>
           <% else %>
           <div class="error_message" style="margin-top:40px;">
             <p>Désolé mais il n'y a pas de transporteur disponible, nous faisons tout pour faire en sorte que vous puissiez trouver un whizer</p>
@@ -131,8 +130,8 @@
           </div>
 
           <div class="name">
-            <%= @mission.receiver_first_name%>
             <p>
+              <%= @mission.receiver_first_name%><br/>
               <i class="fa fa-mobile" aria-hidden="true"></i> : <%= @mission.receiver_phone %>
             </p>
           </div>

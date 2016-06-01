@@ -297,6 +297,10 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.4)
+    twilio-ruby (4.11.1)
+      builder (>= 2.1.2)
+      jwt (~> 1.0)
+      multi_json (>= 1.3.0)
     twitter (5.16.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
@@ -360,6 +364,7 @@ DEPENDENCIES
   simple_form
   spring
   stripe
+  twilio-ruby (~> 4.11.1)
   twitter
   typedjs-rails (~> 1.0.3)
   uglifier

@@ -19,8 +19,9 @@ class MissionsController < ApplicationController
     @mission = Mission.new(mission_params)
     @mission.user = current_user
     @mission.status = "pending_carrier"
-    @mission.start_code = 123456
-    @mission.end_code = 234567
+    @mission.start_code = rand(100000..999999)
+    @mission.end_code = rand(100000..999999)
+    @mission.price = 12
     generate_twitter_message(@mission)
     authorize @mission
     if @mission.save
@@ -114,7 +115,7 @@ class MissionsController < ApplicationController
     date = mission.starts_on.to_s
     date =" #{date[8..9]}/#{date[5..6]} "
 
-    client.update("Tu vas de #{mission.departure_city} à #{mission.arrival_city} le #{date}? On te donne 20€ ! check it out : www.whiz.fr")
+    client.update("Tu vas de #{mission.departure_city} à #{mission.arrival_city} le #{date}? On te donne 20€ ! check it out : www.whiz.fr/transporteur ")
 
   end
 end

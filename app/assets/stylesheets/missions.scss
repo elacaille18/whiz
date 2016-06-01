@@ -6,8 +6,7 @@
 // ----------- Style related to the show view ------------------//
 .summary-mission {
   background: linear-gradient(rgba(70, 154, 224, 0.3) 0%, rgb(255,255,255) 50%);
-  height:70vh;
-  min-height: 585px;
+  min-height:70vh;
   border-bottom: 1px dotted rgba(70, 154, 224, 0.6);
   padding-top: 20px;
 }
@@ -100,7 +99,7 @@
 
 #carrier {
   position: relative;
-  top: 127px;
+  top: 123px;
 }
 
 #bridge img {
@@ -111,11 +110,11 @@
 
 #train {
   position: relative;
-  height:27px;
+  height:34px;
   // va servir à faire bouger le train
 }
 #train img {
-  max-width:20%;
+  max-width:25%;
   position: absolute;
   // left:2%; // position de début
   transition: all ease 1s;
@@ -131,7 +130,7 @@
 }
 
 .arrived {
-  left:80%
+  left:75%
 }
 #arrow {
   font-size:40px;
