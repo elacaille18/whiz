@@ -64,7 +64,9 @@
 </div>
 
 <% content_for :after_js do %>
+<% content_for :after_js do %>
 <script>
+
   $(document).ready(function() {
     $(".transporteur-form").submit(function() {
       if( $("#carrier_phone").length != 0 ) {
@@ -80,7 +82,9 @@
       }
     })
   });
+
 </script>
+<%end%>
 <%end%>
 
 <!--
