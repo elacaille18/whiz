@@ -63,13 +63,13 @@
   <%case mission.status %>
   <%when "pending_payment"%>
     <!-- <p>Peut etre déclencheer le payment à la confirmation du transporteur</p> -->
-    <p>Nous attendons le payment du sender, vous serez notifié(e) de la confirmation au pus vite...</p>
+    <p>Nous attendons le payment du sender, vous serez notifié(e) de la confirmation au plus vite...</p>
     <p><%= render "shared/waiting_gif" %></p>
   <% when "ready"%>
     <p>Voici le code à transmettre à l'emetteur pour que vous accomplissiez votre mission</p>
     <p>Ceci est une étape essentielle sans laquelle vous ne pourre recevoir votre paiement</p>
     <div class="code text-center">
-      <h4><%= mission.start_code %></h4>
+      <h3><%= mission.start_code %></h3>
     </div>
 
   <%when "on-going"%>
