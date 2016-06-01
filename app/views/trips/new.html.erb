@@ -64,21 +64,27 @@
 </div>
 
 <% content_for :after_js do %>
+<% content_for :after_js do %>
 <script>
+
   $(document).ready(function() {
     $(".transporteur-form").submit(function() {
-      var phone2 = $("#carrier_phone").val();
-      var regex = new RegExp("^(0[1-678])(?:[ _.-]?([0-9]{2})){4}$");
-      if (regex.test(phone2) ) {
-         console.log("valide");
-      } else {
-        console.log("ok das non");
-        $("#error_on_phone2").removeClass("hidden");
-        return false
+      if( $("#carrier_phone").length != 0 ) {
+        var phone2 = $("#carrier_phone").val();
+        var regex = new RegExp("^(0[1-678])(?:[ _.-]?([0-9]{2})){4}$");
+        if (regex.test(phone2) ) {
+           console.log("valide");
+        } else {
+          console.log("ok das non");
+          $("#error_on_phone2").removeClass("hidden");
+          return false
+        }
       }
     })
   });
+
 </script>
+<%end%>
 <%end%>
 
 <!--

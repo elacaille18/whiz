@@ -10,7 +10,7 @@
             <!-- Onglets -->
             <div class="navbar">
               <div class="navbar-inner">
-                <div class="container">
+                <div class="">
                   <ul class="list-inline">
                     <li><a href="#tab1" data-toggle="tab">Le Trajet</a></li>
                     <li><a href="#tab2" data-toggle="tab">Mon Colis</a></li>
@@ -88,7 +88,12 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-inputs">
-                      <%= f.input :receiver_phone, label: 'Téléphone du destinataire', input_html: { placeholder: "06 45 68 23 12" } %>
+                      <%= f.input :receiver_phone, label: 'Téléphone du destinataire', input_html: { placeholder: "06 45 68 23 12"} %>
+                      <div id="error_on_receiver_phone" class="hidden" style="color:#800000;">
+                        <p>
+                          Veuillez fournir un n° téléphone valide.<br/> Ex: 0634567890
+                        </p>
+                      </div>
                     </div>
                   </div>
 

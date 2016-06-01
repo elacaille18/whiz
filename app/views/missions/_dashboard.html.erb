@@ -19,7 +19,7 @@
       </table>
         <hr>
     </div>
-    <div  class="tbl-content">
+    <div  id="missions-dash-row"  class="tbl-content">
       <% @missions.each do |mission| %>
       <table >
         <tbody>
@@ -60,95 +60,17 @@
   </div>
 </div>
 
-
-<br>
-
-<!-- <div class="container">
-  <div class="dashboard-header">
-
-      <div class="dashboard-column-1">
-        <p> Date </p>
-      </div>
-      <div class="dashboard-column-1">
-        <p> Timeslot </p>
-      </div>
-      <div class="dashboard-column-2">
-        <p> Départ </p>
-      </div>
-      <div class="dashboard-column-2">
-        <p> Arrivée</p>
-      </div>
-      <div class="dashboard-column">
-        <p> Description</p>
-      </div>
-      <div class="dashboard-column-2">
-        <p> Etat </p>
-      </div>
-      <div class="dashboard-column-1">
-        <p> Destinataire </p>
-      </div>
-      <div class="dashboard-column-2">
-        <p> Mes actions </p>
-      </div>
-      <div class="dashboard-column-1">
-        <p> Prix </p>
-      </div>
-
-  </div>
-
-  <div class="dashboard-content">
-  <% @missions.each do |mission| %>
-
-    <div class="card_mission_dashboard">
-      <div class="dashboard-row">
-        <div class="dashboard-column-1 ">
-          <p> <%= mission.starts_on.strftime("%e/%m/%y") %> </p>
-        </div>
-
-        <div class="dashboard-column-1 ">
-        <p> <%= mission.timeslot %> </p>
-        </div>
-
-        <div class="dashboard-column-2 ">
-          <p> <%= mission.departure_city %>  </p>
-        </div>
-
-        <div class="dashboard-column-2 ">
-          <p> <%= mission.arrival_city %>  </p>
-        </div>
-
-        <div class="dashboard-column ">
-          <p> <%= mission.parcel_description %> </p>
-        </div>
-
-        <div class="dashboard-column-2 ">
-        <p> <%= mission.status %> </p>
-        </div>
-
-        <div class="dashboard-column ">
-        <p> <%= mission.receiver_last_name %></p>
-        </div>
-
-        <div class="dashboard-column-2 ">
-          <ul class="list-inline text-center">
-          <li> <%= link_to 'Modifier', edit_mission_path(mission), class:"btn btn-primary" %> </li>
-          <li> <%= link_to " X ", mission_path(mission),
-            method: :delete,
-            class:"btn btn-warning",
-            data: { confirm: "Etes-vous sure?" } %>
-          </li>
-          </ul>
-        </div>
-
-        <div class="dashboard-column-1">
-        <p><%= humanized_money_with_symbol(mission.price) %></p>
-        </div>
-
-      </div>
-    </div>
-    <hr>
-  <%end%>
-  </div>
-</div> -->
-
+<% content_for(:after_js) do %>
+  <script>
+  // Javascrit sur la card de trip
+    $("tbody tr").hover(function() {
+        console.log("hover");
+        $("tbody tr").addClass('fadded');
+        $(this).removeClass('fadded');
+      }, function () {
+        $("tbody tr").removeClass("fadded");
+      }
+    );
+  </script>
+<% end %>
 

@@ -5,14 +5,24 @@
 
 $(document).ready(function() {
     $('#rootwizard').bootstrapWizard({onNext: function(tab, navigation, index) {
+      var regex = new RegExp("^(0[1-678])(?:[ _.-]?([0-9]{2})){4}$");
       if ((index==3) && ($("#sender_phone").length != 0)) {
         var phone = $("#sender_phone").val();
-        var regex = new RegExp("^(0[1-678])(?:[ _.-]?([0-9]{2})){4}$");
         if (regex.test(phone) ) {
            console.log("valide");
         } else {
           console.log("ok das non");
           $("#error_on_phone").removeClass("hidden");
+          return false
+        }
+      }
+      if ((index==3)){
+        var receiver_phone = $("#mission_receiver_phone").val();
+        if (regex.test(receiver_phone) ) {
+           console.log("valide");
+        } else {
+          console.log("ok das non");
+          $("#error_on_receiver_phone").removeClass("hidden");
           return false
         }
       }
