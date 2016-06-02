@@ -10,7 +10,7 @@
    Mes Colis | envoyés : <%= @missions.where(status: 'delivered').length %> | en cours : <%= @missions.length - @missions.where(status: 'delivered').length %></h4>
 
 <%if @missions.first.nil? %>
-  <p>Vous n'avez pas de Colis enregistrés</p>
+  <p>Vous n'avez pas de colis enregistrés</p>
   <p>Envoyez un colis aujourd'hui et gagnez du temps !</p>
   <p><%= link_to 'Envoyez un colis', new_mission_path %></p>
 <%else%>

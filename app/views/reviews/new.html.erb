@@ -12,7 +12,7 @@
         </div>
         <div class="col-md-3">
           <div class="transporteur-form">
-            <p>Votre transporteur est:</p>
+            <p>Votre transporteur est :</p>
             <p><strong><%= @mission.trip.user.first_name.capitalize %> <%= @mission.trip.user.last_name.capitalize %></strong></p>
             <p><%= cl_image_tag @mission.trip.user.one_picture_url, crop: :fit, width: 100, height: 100, class: "img-responsive"%></p>
           </div>
