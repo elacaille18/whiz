@@ -10,6 +10,6 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    record.mission.user == user
   end
 end

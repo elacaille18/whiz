@@ -7,10 +7,10 @@
       <div class="user-card-name">
         <h4><%= user.first_name.capitalize%> <%= user.last_name.capitalize%>
           <span class="carrier-rating">
-            <% 4.times do %>
+            <% user.average_transporter_rating.times do %>
               <i class="fa fa-star" aria-hidden"=true" style="color: #FFB400;"></i>
             <%end%>
-            <% 1.times do %>
+            <% (5 - user.average_transporter_rating).times do %>
             <i class="fa fa-star" aria-hidden"=true" style="color: $grey;"></i>
             <%end%>
           </span>
@@ -20,7 +20,7 @@
         <p> Membre depuis: <%= @user.created_at.strftime("%d/%m/%Y")%></p>
       </div>
       <div class="user-card-seeprofile">
-        <%= link_to "Voir son profil", show_user_path(user), class: "btn btn-link" %>
+        <%= link_to "Voir son profil", show_user_path(user)%>
       </div>
 
     </div>
@@ -28,50 +28,9 @@
   <hr>
 
   <div class="user-card-bottom">
-    <div class="card-user-review">
-      <img src="http://placehold.it/50x50" class="img-circle">
+    <% user.transporter_reviews.each do |review| %>
+      <%= render "reviews/card_review", review: review%>
+    <%end%>
 
-      <div class="card-review">
-
-        <p class="carrier-rating">
-          <% 4.times do %>
-            <i class="fa fa-star" aria-hidden"=true" style="color: #FFB400;"></i>
-          <%end%>
-          <% 1.times do %>
-          <i class="fa fa-star" aria-hidden"=true" style="color: $grey;"></i>
-          <%end%>
-        </p>
-
-        <p class="review-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.</p>
-        <p class="text-right">Marie</p>
-
-      </div>
-    </div>
-
-    <div class="card-user-review">
-      <img src="http://placehold.it/50x50" class="img-circle">
-
-      <div class="card-review">
-
-        <p class="carrier-rating">
-          <% 4.times do %>
-            <i class="fa fa-star" aria-hidden"=true" style="color: #FFB400;"></i>
-          <%end%>
-          <% 1.times do %>
-          <i class="fa fa-star" aria-hidden"=true" style="color: $grey;"></i>
-          <%end%>
-        </p>
-
-        <p class="review-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.</p>
-        <p class="text-right">Marie</p>
-
-      </div>
-    </div>
   </div>
 </div>

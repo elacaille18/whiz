@@ -42,4 +42,11 @@ class User < ActiveRecord::Base
       "http://www.fao.org/fileadmin/templates/aiq2013/images/user-placeholder.jpg"
     end
   end
+
+  def average_transporter_rating
+    self.transporter_reviews.map(&:rating).reduce(:+).fdiv(self.transporter_reviews.count).to_i
+  end
+  # def transporter_reviews
+  #   trips.includes(:mission).map(&:mission).reject(&:blank?).map(&:review).reject(&:blank?)
+  # end
 end
