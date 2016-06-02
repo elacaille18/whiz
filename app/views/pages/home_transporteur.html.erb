@@ -1,3 +1,8 @@
+<!-- app/views/products/show.html.erb -->
+<% content_for :meta_title, "Gagner de l'argent en Voyageant !" %>
+<% content_for :meta_description, "Transporte un colis lors de ton voyage en Train et WHiz te file du Flooz !" %>
+
+
 <%= render "shared/navbar_transporteur" %>
 <%= render "shared/banner_transporteur" %>
 
@@ -50,7 +55,7 @@
          <p><%=mission.arrival_city%></p>
          </div>
          <div class="flex-home">
-         <p><%= cl_image_tag mission.user.one_picture_url, class: "avatar" %> <%=mission.user.first_name%> <%=mission.user.photo%></p>
+         <p><%= cl_image_tag mission.user.one_picture_url, class: "avatar" %> <%=mission.user.first_name%> </p>
 
          </div>
          <div class="flex-home">
@@ -67,4 +72,5 @@
 
   </div>
 </div>
+<%= render 'shared/footer' %>
 
