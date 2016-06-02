@@ -1,4 +1,4 @@
-<div class="card-trip">
+<div class="card-trip" data-trip_user_id="<%= trip.user_id %>">
   <div class="train-infos">
     <div class="departure-segment">
       <div class="trip-times">
@@ -32,10 +32,10 @@
       <%= trip.user.first_name%>
     </div>
     <div class="carrier-rating">
-      <% 4.times do %>
+      <% trip.user.average_transporter_rating.times do %>
         <i class="fa fa-star" aria-hidden"=true" style="color: #FFB400;"></i>
       <%end%>
-      <% 1.times do %>
+      <% (5 - trip.user.average_transporter_rating).times do %>
       <i class="fa fa-star" aria-hidden"=true" style="color: $grey;"></i>
       <%end%>
     </div>

@@ -1,0 +1,18 @@
+<div class="card-user-review">
+      <%= cl_image_tag review.mission.user.one_picture_url, class:"avatar-large"%>
+  <div class="card-review">
+
+    <p class="carrier-rating">
+      <% review.rating.times do %>
+        <i class="fa fa-star" aria-hidden"=true" style="color: #FFB400;"></i>
+      <%end%>
+      <% (5 - review.rating).times do %>
+      <i class="fa fa-star" aria-hidden"=true" style="color: $grey;"></i>
+      <%end%>
+    </p>
+
+    <p class="review-content"><%= review.content %></p>
+    <p class="text-right"><%= review.mission.user.first_name.capitalize%></p>
+
+  </div>
+</div>
