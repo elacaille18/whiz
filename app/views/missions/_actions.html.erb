@@ -62,7 +62,10 @@
       </ul>
 
     </div>
-    <div class="bye-bye text-center"><h4>A bientôt !</h4></div>
+    <div class="bye-bye text-center" style="padding-top:10px;">
+      <h4 >A bientôt !</h4>
+      <p><%= cl_image_tag("logo-whiz_nnwz4y", width: 40, height: 40, crop: "scale", secure: true) %></p>
+    </div>
   <% when "done" %>
     <!-- Statut non nécéssaire pour le sender -->
   <%end%>
@@ -101,7 +104,10 @@
     <p>Nous effectuons votre versement dans les plus brefs délais.</p>
     <p>Whiz vous remercie de votre confiance</p>
     <p>La prochaine que vous prenez le train nous comptons sur vous !</p>
-    <div class="bye-bye text-center"><h4>A bientôt !</h4></div>
+    <div class="bye-bye text-center" style="padding-top:10px;">
+      <h4 >A bientôt !</h4>
+      <p><%= cl_image_tag("logo-whiz_nnwz4y", width: 40, height: 40, crop: "scale", secure: true) %></p>
+    </div>
   <% when done %>
     <p>Paiement effectué</p>
   <%end%>
