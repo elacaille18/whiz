@@ -16,7 +16,7 @@ class TripsController < ApplicationController
     @trip.user = current_user
 
     authorize @trip
-    if @trip.save!
+    if @trip.save
       current_user.update(phone: params[:carrier_phone]) if params[:carrier_phone]
       redirect_to trips_path
     else
