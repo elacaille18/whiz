@@ -184,6 +184,14 @@
   border: white 1px solid;
 }
 
+
+// Gestion sur les review
+//
+#review-proposal {
+  li:nth-child(2):hover{
+    text-decoration: underline;
+  }
+}
 // Style sur les actions
 .error_message {
   color:#800000;

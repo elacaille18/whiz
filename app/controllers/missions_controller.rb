@@ -115,7 +115,7 @@ class MissionsController < ApplicationController
     date = mission.starts_on.to_s
     date =" #{date[8..9]}/#{date[5..6]} "
 
-    client.update("Tu vas de #{mission.departure_city[0..-9]} à #{mission.arrival_city[0..-9]} le #{date}? On te donne 20€ ! check it out : www.whiz.fr/transporteur ")
+    client.update("Tu vas de #{mission.departure_city[0..-9]} à #{mission.arrival_city[0..-9]} le #{date}? On te donne 10€ ! check it out : www.whiz.fr/transporteur ")
 
   end
 end
