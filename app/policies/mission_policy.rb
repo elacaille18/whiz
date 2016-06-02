@@ -14,7 +14,7 @@ class MissionPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.user == user || record.trip.user == user
   end
 
   def edit?
