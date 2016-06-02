@@ -79,10 +79,10 @@
     <p><%= render "shared/waiting_gif" %></p>
   <% when "ready"%>
     <p>Voici le code à transmettre à l'emetteur pour que vous accomplissiez votre mission</p>
-    <p>Ceci est une étape essentielle sans laquelle vous ne pourre recevoir votre paiement</p>
     <div class="code text-center">
       <h3><%= mission.start_code %></h3>
     </div>
+    <p>Ceci est une étape essentielle sans laquelle vous ne pourre recevoir votre paiement</p>
 
   <%when "on-going"%>
     <p>Votre mission est en cours</p>

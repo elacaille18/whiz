@@ -20,7 +20,7 @@ class MissionsController < ApplicationController
     @mission.user = current_user
     @mission.status = "pending_carrier"
     @mission.start_code = rand(100000..999999)
-    @mission.end_code = rand(100000..999999)
+    @mission.end_code = "457613"
     @mission.price = 12
     generate_twitter_message(@mission)
     authorize @mission
