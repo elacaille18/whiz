@@ -6,15 +6,50 @@
 <h4 class = 'text-center'>Je modifie mon voyage</h4>
 
 <div class="container">
-  <div class="col-xs-8 col-xs-offset-2">
-    <div class="transporteur-form">
-      <%= simple_form_for(@trip) do |f| %>
-        <%= f.input :starts_at, label: 'Date de départ' %>
-        <%= f.input :ends_at, label: "Date d'arrivée" %>
-        <%= f.input :departure_city,label: 'Ville de départ' %>
-        <%= f.input :arrival_city, label: "Ville d'arrivée" %>
-        <%= f.submit 'Modifier', class: "btn btn-primary" %>
-      <% end %>
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="transporteur-form">
+        <%= simple_form_for(@trip) do |f| %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-inputs">
+            <%= f.input :starts_at, as: :string, input_html: { id: "datetimepicker1", placeholder: "test" },
+                label: "Date et horaire de départ" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-inputs">
+            <%= f.input :ends_at, as: :string, input_html: { id: "datetimepicker2" },
+                label: "Date et Horaire d'arrivée" %>
+            </div>
+          </div>
+            <div class="col-md-6">
+              <div class="form-inputs">
+              <p class= "form-mini-title"><strong>Ville de départ</strong></p>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></div>
+                  <%= f.input :departure_city, label:false, input_html: { placeholder: "Ville de départ" } %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-inputs">
+               <p class= "form-mini-title"><strong>Ville de d'arrivée</strong></p>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></div>
+                  <%= f.input :arrival_city, label: false, input_html: { placeholder: "Ville d'arrivée" }%>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-inputs">
+                <div class="input-group">
+                  <%= f.submit 'Modifier', class: "btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
 </div>
