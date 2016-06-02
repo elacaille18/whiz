@@ -30,14 +30,14 @@
             <td>
               <% case trip.status %>
                 <% when "free" %>
-                <%= "en attente de mission"%>
+                <%= "En attente de mission"%>
                 <% when "to-be-confirmed" %>
-                <%= link_to "Accepter direct", trip_accept_mission_path(trip_id: trip.id), {:method => :put, class: 'btn btn-success'} %>
+                <%= link_to "Accepter", trip_accept_mission_path(trip_id: trip.id), {:method => :put, class: 'btn btn-success'} %>
                 <% when "chosen" %>
                   <% if Mission.where(trip_id: trip.id).first.status == "delivered" %>
-                    <%= "livraison effectuée" %>
+                    <%= "Livraison effectuée" %>
                   <% else %>
-                    <%= "en cours" %>
+                    <%= "En cours" %>
                   <% end %>
               <% end %>
             </td>
@@ -60,7 +60,7 @@
               <%= link_to " X ", trip_path(trip),
                 method: :delete,
                 class:"btn btn-warning",
-                data: { confirm: "Etes-vous sure?" } %>
+                data: { confirm: "Etes-vous sûr(e)?" } %>
             </td>
             <% end %>
           </tr>

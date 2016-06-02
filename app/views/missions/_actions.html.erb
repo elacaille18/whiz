@@ -5,7 +5,7 @@
 
   <%when "pending_payment"%>
     <p>Merci de confirmer votre payment afin de finaliser la mission</p>
-    <p>Ne vous inquiétez pas vous serez remboursé si un imprévus se déclare</p>
+    <p>Ne vous inquiétez pas vous serez remboursé(e) si un imprévus se déclare</p>
     <div id="button-payment" class="text-center">
       <!-- bouton stripe pay -->
       <%= form_tag mission_payments_path(@mission) do %>
@@ -29,26 +29,26 @@
     </div>
 
   <% when "ready"%>
-    <p>Veuillez rentrer le code transmis par votre transporteur pour notre suivi</p>
+    <p>Veuillez rentrer le code transmis par votre transporteur pour notre suivi.</p>
     <div class="form-code text-center">
       <%= form_tag(check_start_mission_path(mission), method: "post", remote: true) do %>
         <div class="form-group">
           <%= number_field_tag(:start_code, params[:start_code], placeholder: "Code à 6 chiffres", class: "form-control", required:"required") %>
         </div>
         <div class="error_message hidden text-left">
-          <p>* Le code que vous avez rentré n'est pas bon.<br/> Veuillez recommencé.</p>
+          <p>* Le code que vous avez rentré n'est pas bon.<br/> Veuillez recommencer.</p>
         </div>
         <%= submit_tag 'Submit', class:"btn btn-primary"%>
       <%end%>
     </div>
 
   <%when "on-going"%>
-    <p>Votre mission est en cours</p>
-    <p>Vous recevrez un message à la bonne réception de votre colis</p>
+    <p>Votre mission est en cours...</p>
+    <p>Vous recevrez un message à la bonne réception de votre colis.</p>
 
   <% when "delivered" %>
-    <p>Votre colis est arrivé entre de bonnes mains<br/>
-    Whiz vous remercie de votre confiance</p>
+    <p>Votre colis est arrivé entre de bonnes mains.<br/>
+    Whiz vous remercie de votre confiance !</p>
     <div id="review-proposal">
       <ul class="list-inline list-unstyled">
         <li>
@@ -78,15 +78,15 @@
     <p>Nous attendons le payment du sender, vous serez notifié(e) de la confirmation au plus vite...</p>
     <p><%= render "shared/waiting_gif" %></p>
   <% when "ready"%>
-    <p>Voici le code à transmettre à l'emetteur pour que vous accomplissiez votre mission</p>
+    <p>Voici le code à transmettre à l'émetteur pour que vous accomplissiez votre mission.</p>
     <div class="code text-center">
       <h3><%= mission.start_code %></h3>
     </div>
-    <p>Ceci est une étape essentielle sans laquelle vous ne pourre recevoir votre paiement</p>
+    <p>Ceci est une étape essentielle sans laquelle vous ne pourrez pas recevoir votre paiement.</p>
 
   <%when "on-going"%>
-    <p>Votre mission est en cours</p>
-    <p>Veuillez rentrer le code que le receveur vous transmettra afin de finaliser votre mission et être rémunéré</p>
+    <p>Votre mission est en cours...</p>
+    <p>Veuillez rentrer le code que le receveur vous transmettra afin de finaliser votre mission et être rémunéré(e).</p>
     <div class="form-code text-center">
       <%= form_tag(check_end_mission_path(mission), method: "post", remote: true) do %>
         <div class="form-group">
@@ -100,7 +100,7 @@
     </div>
 
   <% when "delivered" %>
-    <p>Mission accomplie</p>
+    <p>Mission accomplie !</p>
     <p>Nous effectuons votre versement dans les plus brefs délais.</p>
     <p>Whiz vous remercie de votre confiance</p>
     <p>La prochaine que vous prenez le train nous comptons sur vous !</p>
