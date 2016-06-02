@@ -22,7 +22,7 @@ class PaymentsController < ApplicationController
       currency:     'eur'
     )
 
-    SmsSender.new.send_message("+33644607591", @mission.receiver_phone.gsub(/[ .-]/, ""), "Le code à transmettre au transporteur est le : \n #{@mission.end_code} \n L'équipe Whiz")
+    # SmsSender.new.send_message("+33644607591", @mission.receiver_phone.gsub(/[ .-]/, ""), "Le code à transmettre au transporteur est le : \n #{@mission.end_code} \n L'équipe Whiz")
 
     @mission.update(payment: charge.to_json, status: 'ready')
 

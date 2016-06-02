@@ -1,8 +1,12 @@
 class MissionPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
+  end
+
+  def index
+    false
   end
 
   def new?
@@ -10,7 +14,7 @@ class MissionPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.user == user || record.trip.user == user
   end
 
   def edit?
