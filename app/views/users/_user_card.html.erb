@@ -7,11 +7,15 @@
       <div class="user-card-name">
         <h4><%= user.first_name.capitalize%> <%= user.last_name.capitalize%>
           <span class="carrier-rating">
-            <% user.average_transporter_rating.times do %>
-              <i class="fa fa-star" aria-hidden"=true" style="color: #FFB400;"></i>
-            <%end%>
-            <% (5 - user.average_transporter_rating).times do %>
-            <i class="fa fa-star" aria-hidden"=true" style="color: $grey;"></i>
+            <% if user.average_transporter_rating %>
+              <% user.average_transporter_rating.times do %>
+                <i class="fa fa-star" aria-hidden"=true" style="color: #FFB400;"></i>
+              <%end%>
+              <% (5 - user.average_transporter_rating).times do %>
+              <i class="fa fa-star" aria-hidden"=true" style="color: $grey;"></i>
+              <%end%>
+            <%else%>
+              <p> <span style="font-style:italic; font-size:12px;">Pas encore noté(e)</span></p>
             <%end%>
           </span>
         </h4>
@@ -26,11 +30,11 @@
     </div>
   </div>
   <hr>
-
-  <div class="user-card-bottom">
-    <% user.transporter_reviews.each do |review| %>
-      <%= render "reviews/card_review", review: review%>
-    <%end%>
-
-  </div>
+  <% if user.average_transporter_rating %>
+    <div class="user-card-bottom">
+      <% user.transporter_reviews.each do |review| %>
+        <%= render "reviews/card_review", review: review%>
+      <%end%>
+    </div>
+  <%end%>
 </div>

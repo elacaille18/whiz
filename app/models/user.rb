@@ -44,7 +44,11 @@ class User < ActiveRecord::Base
   end
 
   def average_transporter_rating
-    self.transporter_reviews.map(&:rating).reduce(:+).fdiv(self.transporter_reviews.count).to_i
+    if self.transporter_reviews.empty?
+      return nil
+    else
+      self.transporter_reviews.map(&:rating).reduce(:+).fdiv(self.transporter_reviews.count).to_i
+    end
   end
   # def transporter_reviews
   #   trips.includes(:mission).map(&:mission).reject(&:blank?).map(&:review).reject(&:blank?)
