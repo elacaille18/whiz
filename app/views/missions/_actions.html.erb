@@ -1,4 +1,4 @@
-<% if current_user == @mission.user %>
+<% if current_user == mission.user %>
   <%case mission.status %>
   <%when "pending_carrier"%>
     <!-- <p>Veuillez choisir votre transporteur</p> -->
@@ -47,14 +47,27 @@
     <p>Vous recevrez un message à la bonne réception de votre colis</p>
 
   <% when "delivered" %>
-    <p>Votre colis est arrivé entre de bonnes mains</p>
-    <p>Nous déclenchons la procédure de paiement</p>
+    <p>Votre colis est arrivé entre de bonnes mains<br/>
+    Whiz vous remercie de votre confiance</p>
+    <div id="review-proposal">
+      <ul class="list-inline list-unstyled">
+        <li>
+          <%= link_to new_mission_review_path(mission), class: "btn btn-primary" do%>
+            <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Noter votre controleur </p>
+          <%end%>
+        </li>
+        <li>
+          <%= link_to "Non merci", root_path%>
+        </li>
+      </ul>
 
+    </div>
+    <div class="bye-bye text-center" style="padding-top:10px;">
+      <h4 >A bientôt !</h4>
+      <p><%= cl_image_tag("logo-whiz_nnwz4y", width: 40, height: 40, crop: "scale", secure: true) %></p>
+    </div>
   <% when "done" %>
-    <p>Mission accompli</p>
-    <p>Whiz vous remercie de votre confiance</p>
-    <p>Laissez nous une review</p>
-    <div class="bye-bye text-center">A bientôt</div>
+    <!-- Statut non nécéssaire pour le sender -->
   <%end%>
 
 
@@ -86,11 +99,17 @@
       <%end%>
     </div>
 
-  <% when "delivered" || "done" %>
+  <% when "delivered" %>
     <p>Mission accomplie</p>
+    <p>Nous effectuons votre versement dans les plus brefs délais.</p>
     <p>Whiz vous remercie de votre confiance</p>
     <p>La prochaine que vous prenez le train nous comptons sur vous !</p>
-    <div class="bye-bye text-center">A bientôt</div>
+    <div class="bye-bye text-center" style="padding-top:10px;">
+      <h4 >A bientôt !</h4>
+      <p><%= cl_image_tag("logo-whiz_nnwz4y", width: 40, height: 40, crop: "scale", secure: true) %></p>
+    </div>
+  <% when done %>
+    <p>Paiement effectué</p>
   <%end%>
 
 <%end%>
