@@ -12,6 +12,10 @@ module ApplicationHelper
 
   end
 
+  def resource_class
+    devise_mapping.to
+  end
+
   def devise_mapping
 
   @devise_mapping ||= Devise.mappings[:user]
