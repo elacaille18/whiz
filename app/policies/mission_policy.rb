@@ -44,4 +44,8 @@ class MissionPolicy < ApplicationPolicy
   def check_end_code?
     true
   end
+
+  def destroy?
+    record.user == user
+  end
 end

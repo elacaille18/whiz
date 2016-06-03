@@ -50,7 +50,8 @@ class MissionsController < ApplicationController
 
   def destroy
     @mission.destroy
-    redirect_to mission_path(@mission)
+    authorize @mission
+    redirect_to missions_path
   end
   #---------------------------------------
   #Payement zone
