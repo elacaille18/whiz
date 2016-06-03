@@ -70,7 +70,7 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
-
+    authorize @trip
     redirect_to trips_path
   end
 
