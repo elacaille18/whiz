@@ -4,8 +4,8 @@
     <!-- <p>Veuillez choisir votre transporteur</p> -->
 
   <%when "pending_payment"%>
-    <p>Merci de confirmer votre payment afin de finaliser la mission</p>
-    <p>Ne vous inquiétez pas vous serez remboursé(e) si un imprévus se déclare</p>
+    <p>Merci de confirmer votre paiement afin de finaliser la mission</p>
+    <p>Ne vous inquiétez pas vous serez remboursé(e) si un imprévus se déclare.</p>
     <div id="button-payment" class="text-center">
       <!-- bouton stripe pay -->
       <%= form_tag mission_payments_path(@mission) do %>
@@ -38,7 +38,7 @@
         <div class="error_message hidden text-left">
           <p>* Le code que vous avez rentré n'est pas bon.<br/> Veuillez recommencer.</p>
         </div>
-        <%= submit_tag 'Submit', class:"btn btn-primary"%>
+        <%= submit_tag 'Envoyer', class:"btn btn-primary"%>
       <%end%>
     </div>
 
@@ -95,7 +95,7 @@
         <div class="error_message hidden text-left">
           <p>* Le code que vous avez rentré n'est pas bon.<br/> Veuillez recommencer.</p>
         </div>
-        <%= submit_tag 'Submit', class:"btn btn-primary"%>
+        <%= submit_tag 'Envoyer', class:"btn btn-primary"%>
       <%end%>
     </div>
 
