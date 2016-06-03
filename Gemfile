@@ -24,6 +24,9 @@ gem 'stripe'
 #Twillio
 gem 'twilio-ruby', '~> 4.11.1'
 
+#email
+gem 'postmark-rails'
+
 
 gem 'sass-rails'
 gem 'jquery-rails'

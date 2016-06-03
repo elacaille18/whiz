@@ -33,3 +33,6 @@ module Whiz
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+
+config.action_mailer.delivery_method = :postmark
+config.action_mailer.postmark_settings = { :api_token => "c141d292-2f9a-4e01-b467-4d4c6eb93fdb" }
