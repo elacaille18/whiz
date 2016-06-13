@@ -15,6 +15,10 @@
                 <i class="fa fa-cube"></i>
                 <%= @mission.parcel_description%>
               </p>
+
+              <p>
+                <%= cl_image_tag @mission.photo, :width=>100%>
+              </p>
               <!-- # le mois est a passer en francais avec la commande l(date, format: '%B %d, in the year %Y') -->
             </div>
           </div>
