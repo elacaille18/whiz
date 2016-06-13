@@ -92,6 +92,16 @@
                     </div>
                     </div>
                   </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                    <p>Ajouter une photo de votre colis</p>
+                        <span class="btn btn-primary btn-file">
+                        <%= f.file_field :photo, id: "colis-upload" %>
+                        </span>
+                        <%= f.hidden_field :photo_cache %>
+                      <img id="img_prev" width=160 height=160 src="#", align= "right", alt="your image" class="img-thumbnail hidden"/> <br/>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -188,6 +198,31 @@
         event.preventDefault();
         return false;
       }
+    });
+  });
+</script>
+<%end%>
+
+
+<!-- Java script de la preview de l'image du colis dans la Tab 2 -->
+
+<% content_for :after_js do %>
+<script>
+  $(function() {
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#colis-upload").change(function(){
+      $('#img_prev').removeClass('hidden');
+      readURL(this);
     });
   });
 </script>
