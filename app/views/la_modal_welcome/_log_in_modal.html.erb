@@ -10,29 +10,32 @@
 
         <!-- Modal Content -->
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
         <div class="row">
           <div class="col-md-12">
-            <div class="form-inputs">
                 <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></div>
                   <%= f.input :email, label:false, required: false, autofocus: true %>
                 </div>
-            </div>
           </div>
           <div class="col-md-12">
             <div class="input-group">
               <div class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></div>
               <%= f.input :password, label:false, required: false %>
             </div>
-              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+              <%= f.input :remember_me,label: "se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
           </div>
-            <div class="col-md-6">
-               <div class="form-actions">
-                <%= f.button :submit, "Je me connecte" %>
+            <div class="col-md-12">
+               <div class="input-group">
+                <%= f.button :submit, "Je me connecte", :class => "btn-primary" %>
               </div>
             </div>
+          <div class="col-md-12">
+            <div class="input-group">
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
         </div>
-        <%= render "devise/shared/links" %>
         <%end%>
         <!-- Modal Content -->
       </div>
