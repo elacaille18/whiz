@@ -63,7 +63,13 @@
         <!-- Modal Content -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div id="logo-modal">
+          <%= image_tag("logo-whiz.png", :width=>40, :height=>40, align: "left") %>
+        </div>
+        <div id="logo2-modal">
+          <%= cl_image_tag("Capture_d_écran_2016-05-27_à_15.44.22_jg7muc.png", :width=>50, :height=>25, align: "left") %>
+        </div>
+        <button id= "close-modal", type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
