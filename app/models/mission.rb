@@ -1,4 +1,7 @@
 class Mission < ActiveRecord::Base
+  mount_uploader :photo, PhotoUploader
+
+
   belongs_to :user
   belongs_to :trip
   has_one :review

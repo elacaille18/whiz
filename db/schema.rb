@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601143712) do
+ActiveRecord::Schema.define(version: 20160613095051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160601143712) do
     t.string   "receiver_email"
     t.integer  "price_cents",         default: 0, null: false
     t.json     "payment"
+    t.string   "photo"
   end
 
   add_index "missions", ["trip_id"], name: "index_missions_on_trip_id", using: :btree
@@ -127,7 +128,7 @@ ActiveRecord::Schema.define(version: 20160601143712) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
-    t.boolean  "admin",                  default: false, null: false
+    t.boolean  "admin",                  default: false
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"
