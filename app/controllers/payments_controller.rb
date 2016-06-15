@@ -15,6 +15,11 @@ class PaymentsController < ApplicationController
       current_user.update(stripe_customer_id: stripe_customer_id)
     end
 
+
+    #Stripe.api_key = ENV['STRIPE_CONNECT_SECRET_KEY']
+    #Pas besoin car deja setter dans stripe.rb
+
+
     charge = Stripe::Charge.create(
       customer:     stripe_customer_id,
       amount:       @amount_cents,
