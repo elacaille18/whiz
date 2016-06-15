@@ -54,6 +54,9 @@
                 </div>
               <%end%>
             </div>
+            <div class ="text-center">
+              <%= f.input_field :usual, inline_label: "Je fais ce trajet régulièrment" , as: :boolean %>
+            </div>
             <div class="text-center">
               <%= f.submit 'Créer', class: "btn btn-primary"  %>
             </div>
