@@ -13,6 +13,7 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+
     @trip.user = current_user
 
     authorize @trip
@@ -77,7 +78,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:starts_at, :ends_at, :departure_city, :arrival_city, :departure_longitude, :departure_latitude, :arrival_longitude, :arrival_latitude)
+    params.require(:trip).permit(:starts_at, :ends_at, :departure_city, :arrival_city, :departure_longitude, :departure_latitude, :arrival_longitude, :arrival_latitude, :usual)
 
   end
 
