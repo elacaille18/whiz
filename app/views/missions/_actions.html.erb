@@ -7,13 +7,18 @@
     <p>Merci de confirmer votre paiement afin de finaliser la mission</p>
     <p>Ne vous inquiétez pas vous serez remboursé(e) si un imprévus se déclare.</p>
     <div>
-      <p>Merci de vous connecter à notre plateforme de paiement pour effectuer votre transactioin en toute sécurité</p>
+      <p>Merci de vous connecter à notre plateforme de paiement pour effectuer votre transaction en toute sécurité</p>
       <%= link_to cl_image_tag('blue-on-light_eij1ds'), user_omniauth_authorize_path(:stripe_connect) %>
     </div>
     <div id="button-payment" class="text-center">
       <!-- bouton stripe pay -->
       <%= form_tag mission_payments_path(@mission) do %>
         <article>
+          <% if flash[:error].present?%>
+            <div id="error_explanantion">
+              <p><%= flash[:error]%></p>
+            </div>
+          <%end%>
           <label class="amount">
             <span>Montant: <%= humanized_money_with_symbol(@mission.price) %></span>
           </label>
