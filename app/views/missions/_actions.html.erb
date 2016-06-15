@@ -6,6 +6,10 @@
   <%when "pending_payment"%>
     <p>Merci de confirmer votre paiement afin de finaliser la mission</p>
     <p>Ne vous inquiétez pas vous serez remboursé(e) si un imprévus se déclare.</p>
+    <div>
+      <p>Merci de vous connecter à notre plateforme de paiement pour effectuer votre transactioin en toute sécurité</p>
+      <%= link_to cl_image_tag('blue-on-light_eij1ds'), user_omniauth_authorize_path(:stripe_connect) %>
+    </div>
     <div id="button-payment" class="text-center">
       <!-- bouton stripe pay -->
       <%= form_tag mission_payments_path(@mission) do %>
