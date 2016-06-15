@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160615125223) do
 
   # These are extensions that must be enabled in order to support this database
@@ -108,6 +109,7 @@ ActiveRecord::Schema.define(version: 20160615125223) do
     t.string   "arrival_longitude"
     t.string   "arrival_latitude"
     t.string   "status",              default: "free"
+    t.boolean  "usual"
   end
 
   add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree
