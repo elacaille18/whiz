@@ -20,6 +20,8 @@ gem "typedjs-rails", "~> 1.0.3"
 gem 'coffee-script', '~> 2.4', '>= 2.4.1'
 gem 'money-rails'
 gem 'stripe'
+# Stripe connect
+gem 'omniauth-stripe-connect'
 
 #Twillio
 gem 'twilio-ruby', '~> 4.11.1'
