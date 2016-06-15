@@ -94,12 +94,13 @@
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                    <p>Ajouter une photo de votre colis</p>
+                      <img id="img_prev" width=160 height=160 src="#", align= "right", alt="your image" class="img-thumbnail hidden"/> <br/>
+                      <p><strong>Ajouter une photo de votre colis</strong></p><br>
                         <span class="btn btn-primary btn-file">
                         <%= f.file_field :photo, id: "colis-upload" %>
                         </span>
                         <%= f.hidden_field :photo_cache %>
-                      <img id="img_prev" width=160 height=160 src="#", align= "right", alt="your image" class="img-thumbnail hidden"/> <br/>
+
                     </div>
                   </div>
                 </div>

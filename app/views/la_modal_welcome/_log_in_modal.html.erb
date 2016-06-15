@@ -10,35 +10,44 @@
 
         <!-- Modal Content -->
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
         <div class="row">
           <div class="col-md-12">
-            <div class="form-inputs">
                 <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></div>
                   <%= f.input :email, label:false, required: false, autofocus: true %>
                 </div>
-            </div>
           </div>
           <div class="col-md-12">
             <div class="input-group">
               <div class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></div>
               <%= f.input :password, label:false, required: false %>
             </div>
-              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+              <%= f.input :remember_me,label: "se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
           </div>
-            <div class="col-md-6">
-               <div class="form-actions">
-                <%= f.button :submit, "Je me connecte" %>
+            <div class="col-md-12">
+               <div class="input-group">
+                <%= f.button :submit, "Je me connecte", :class => "btn-primary" %>
               </div>
             </div>
+          <div class="col-md-12">
+            <div class="input-group">
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
         </div>
-        <%= render "devise/shared/links" %>
         <%end%>
         <!-- Modal Content -->
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div id="logo-modal">
+          <%= image_tag("logo-whiz.png", :width=>40, :height=>40, align: "left") %>
+        </div>
+        <div id="logo2-modal">
+          <%= cl_image_tag("Capture_d_écran_2016-05-27_à_15.44.22_jg7muc.png", :width=>50, :height=>25, align: "left") %>
+        </div>
+        <button id= "close-modal", type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

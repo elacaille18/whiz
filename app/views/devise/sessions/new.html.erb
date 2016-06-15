@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <div class="login-form">
         <div class="text-center">
           <h2>Se connecter</h2>
@@ -16,12 +16,13 @@
               <div class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></div>
               <%= f.input :password, label:false, required: false %>
             </div>
-            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            <%= f.input :remember_me,label: "se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "S'inscrire" %>
+            <%= f.button :submit, "Je me connecte", :class => "btn-primary" %>
           </div>
+          <br>
           <%= render "devise/shared/links" %>
         <% end %>
       </div>

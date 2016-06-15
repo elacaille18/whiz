@@ -11,16 +11,16 @@
         <!-- Modal Content -->
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
-        <div class="row">
+          <div class="row">
 
-          <div class="col-md-12">
-            <div class="input-group">
-              <div class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></div>
-              <%= f.input :first_name, label:false, required: true, autofocus: true, input_html: { placeholder: "Votre prénom" } %>
+            <div class="col-md-6">
+              <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></div>
+                <%= f.input :first_name, label:false, required: true, autofocus: true, input_html: { placeholder: "Votre prénom" } %>
+              </div>
             </div>
-          </div>
 
-            <div class="col-md-12">
+            <div class="col-md-6">
               <div class="input-group">
                 <div class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></div>
                 <%= f.input :last_name, label:false, required: true, input_html: { placeholder: "Votre nom de famille" }%>
@@ -37,7 +37,7 @@
             <div class="col-md-12">
               <div class="input-group">
                 <div class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></div>
-                <%= f.input :password, label:false, required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length), input_html: { placeholder: "Votre mot de passe" } %>
+                <%= f.input :password, label:false, required: true, input_html: { placeholder: "Votre mot de passe (6 caractères minimum)" } %>
               </div>
             </div>
 
@@ -50,7 +50,7 @@
 
             <div class="col-md-12">
               <div class="input-group">
-              <%= f.button :submit, "S'inscrire" %>
+              <%= f.button :submit, "S'inscrire", :class => "btn-primary" %>
               </div>
             </div>
             <div class="col-md-12">
@@ -58,12 +58,18 @@
                 <%= render "devise/shared/links" %>
               </div>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
         <!-- Modal Content -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div id="logo-modal">
+          <%= image_tag("logo-whiz.png", :width=>40, :height=>40, align: "left") %>
+        </div>
+        <div id="logo2-modal">
+          <%= cl_image_tag("Capture_d_écran_2016-05-27_à_15.44.22_jg7muc.png", :width=>50, :height=>25, align: "left") %>
+        </div>
+        <button id= "close-modal", type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
