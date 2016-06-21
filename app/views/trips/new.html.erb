@@ -24,13 +24,13 @@
               <div class="col-md-6">
                 <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></div>
-                  <%= f.input :departure_city, label: false, input_html: { placeholder: "Ville de départ" }  %>
+                  <%= f.input :departure_city, as: :select, collection: Trip::GARE, include_blank: "Gare de départ", label: false %>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></div>
-                  <%= f.input :arrival_city, label: false, input_html: { placeholder: "Ville d'arrivée" } %>
+                  <%= f.input :arrival_city, as: :select, collection: Trip::GARE, include_blank: "Ville d'arrivée", label: false %>
                 </div>
               </div>
             </div>
@@ -95,6 +95,34 @@
 </script>
 <%end%>
 <%end%>
+
+
+<% content_for :after_js do %>
+<script>
+  $(document).ready(function() {
+
+    $("#trip_departure_city").change(function () {
+        console.log("hello");
+        var val = $(this).val();
+        if (val == "Paris Gare de Lyon") {
+            $("#trip_arrival_city").html("<option value='Lyon Part Dieu'>Lyon Part Dieu</option><option value='Lyon Perrache'>Lyon Perrache</option><option value='Marseille Saint-Charles'>Marseille Saint-Charles</option>");
+        } else if ( val == "Paris Gare du Nord" ) {
+            $("#trip_arrival_city").html("<option value='Lille Europe'>Lille Europe</option><option value='Lille Flandres'>Lille Flandres</option>");
+        } else if ( val == "Paris Gare Montparnasse" ) {
+            $("#trip_arrival_city").html("<option value='Bordeaux Saint-Jean'>Bordeaux Saint-Jean</option>");
+        } else if ( val == "Bordeaux Saint-Jean" ) {
+            $("#trip_arrival_city").html("<option value='Paris Gare de Montparnasse'>Paris Gare de Montparnasse</option>");
+        } else if ( (val == "Marseille Saint-Charles") || (val == "Lyon Part Dieu") || (val == "Lyon Perrache")) {
+             $("#trip_arrival_city").html("<option value='Paris Gare de Lyon'>Paris Gare de Lyon</option>");
+        } else if ( (val == "Lille Europe" ) || (val == "Lille Flandres")) {
+            $("#trip_arrival_city").html("<option value='Paris Gare du Nord'>Paris Gare du Nord</option>");
+        }
+    });
+
+  });
+</script>
+<%end%>
+
 
 <!--
 Options of datepicker are set in datepicker.js -->

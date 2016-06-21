@@ -51,7 +51,7 @@
                       <div class="form-inputs">
                         <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></div>
-                          <%= f.input :departure_city, label:false, input_html: { placeholder: "Ville de départ" } %>
+                          <%= f.input :departure_city, as: :select, collection: Mission::DEPARTURE_CITY, include_blank: "Ville de départ", label: false %>
                         </div>
                       </div>
                     </div>
@@ -59,7 +59,7 @@
                        <div class="form-inputs">
                         <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></div>
-                          <%= f.input :arrival_city, label: false, input_html: { placeholder: "Ville d'arrivée" }%>
+                          <%= f.input :arrival_city, as: :select, collection: Mission::ARRIVAL_CITY, include_blank: "Ville d'arrivée", label: false %>
                         </div>
                       </div>
                     </div>
@@ -228,3 +228,54 @@
   });
 </script>
 <%end%>
+
+
+
+<!-- JS for city select made with love -->
+
+
+<% content_for :after_js do %>
+<script>
+  $(document).ready(function() {
+
+      $(function() {
+        $("#datetimepicker3").datetimepicker({
+          defaultDate: new Date()
+        }).on('dp.change',function(event){
+          var val = parseInt($("#datetimepicker3").val().slice(-5).substring(0,2));
+          if (val < 12) {
+            console.log("matin");
+            $("#mission_timeslot").html("<option value='Matin'>Matin</option>");
+          } else {
+            console.log("aprem");
+            $("#mission_timeslot").html("<option value='Après-midi'>Après-midi</option>");
+          }
+
+        });
+
+      });
+
+  });
+</script>
+<%end%>
+
+
+<!-- timeslot auto -->
+
+<% content_for :after_js do %>
+<script>
+  $(document).ready(function() {
+
+    $("#mission_departure_city").change(function () {
+        var val = $(this).val();
+        if (val == "Paris") {
+            $("#mission_arrival_city").html("<option value='Bordeaux'>Bordeaux</option><option value='Lille'>Lille</option><option value='Lyon'>Lyon</option><option value='Marseille'>Marseille</option>");
+        } else if ( (val == "Marseille") || (val == "Lyon") || (val == "Lille") || (val == "Bordeaux") ) {
+            $("#mission_arrival_city").html("<option value='Paris'>Paris</option>");
+        }
+    });
+
+  });
+</script>
+<%end%>
+

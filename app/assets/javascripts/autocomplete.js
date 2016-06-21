@@ -44,12 +44,12 @@ function onPlaceChanged() {
 }
 
 
-// appelle sur le nom de l'id de la forme
+// appelle sur le nom de l'id de la forme commenter car au debut on fait un matching de base
 
-google.maps.event.addDomListener(window, 'load', function() {
-  initializeAutocomplete('trip_departure_city');
-  initializeAutocomplete('trip_arrival_city');
-  initializeAutocomplete('mission_arrival_city');
-  initializeAutocomplete('mission_departure_city');
-});
+// google.maps.event.addDomListener(window, 'load', function() {
+//   initializeAutocomplete('trip_departure_city');
+//   initializeAutocomplete('trip_arrival_city');
+//   initializeAutocomplete('mission_arrival_city');
+//   initializeAutocomplete('mission_departure_city');
+// });
 
