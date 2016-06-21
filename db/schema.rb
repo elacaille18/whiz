@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 20160615193151) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
-    t.boolean  "admin",                  default: false
+    t.boolean  "admin",                  default: false, null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"

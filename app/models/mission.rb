@@ -1,7 +1,6 @@
 class Mission < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
 
-
   belongs_to :user
   belongs_to :trip
   has_one :review
@@ -21,4 +20,8 @@ class Mission < ActiveRecord::Base
   # validates :price, presence: true
   validates :parcel_description, presence: true
   # validates :photo_cache, presence: true
+
+  DEPARTURE_CITY = ["Paris", "Marseille", "Bordeaux", "Lyon", "Lille"]
+  ARRIVAL_CITY = ["Paris", "Marseille", "Bordeaux", "Lyon", "Lille"]
+
 end

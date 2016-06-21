@@ -88,7 +88,7 @@ class TripsController < ApplicationController
   end
 
   def search_filter_trips(mission)
-    trips = Trip.where("date(starts_at) = ? AND departure_city = ? AND arrival_city = ?", mission.starts_on, mission.departure_city, mission.arrival_city)
+    trips = Trip.where("date(starts_at) = ? AND departure_city LIKE ? AND arrival_city LIKE ?", mission.starts_on, "#{mission.departure_city}%", "#{mission.arrival_city}%")
     #trips = Trip.where("departure_city = ? AND arrival_city = ?", mission.departure_city, mission.arrival_city)
   end
 
